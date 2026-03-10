@@ -1,0 +1,23 @@
+{
+  "name": "adypu-multilingual-rag-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "scrape": "node scripts/scrape-adypu.mjs",
+    "ingest": "node scripts/ingest.mjs"
+  },
+  "dependencies": {
+    "@pinecone-database/pinecone": "^3.0.1",
+    "cheerio": "^1.0.0",
+    "framer-motion": "^12.35.2",
+    "lucide-react": "^0.577.0",
+    "next": "^16.1.6",
+    "openai": "^4.76.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
