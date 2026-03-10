@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">ADYPU Logo Placeholder</title>
+  <desc id="desc">Red and white shield style logo placeholder for ADYPU.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b60000"/>
+      <stop offset="1" stop-color="#ff2a2a"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="204" height="204" rx="36" fill="url(#g)" />
+  <rect x="22" y="22" width="176" height="176" rx="28" fill="#fff" opacity="0.9"/>
+  <path d="M110 54 152 84v58c0 30-24 54-42 64-18-10-42-34-42-64V84z" fill="#c10000"/>
+  <text x="110" y="182" text-anchor="middle" fill="#a30000" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">ADYPU</text>
+</svg>
