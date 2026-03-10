@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-03-05",
+  "crawl": {
+    "startUrl": "https://adypu.edu.in/",
+    "visitedCount": 654,
+    "successCount": 654,
+    "failedCount": 0,
+    "discoveredCount": 654
+  },
+  "officialData": {
+    "viceChancellor": {
+      "name": "Dr. Rakesh Kumar Jain",
+      "source": "data/site/text/adypu-edu-in-about-vice-chancellor-0166df49ac.txt:256"
+    },
+    "registrar": {
+      "name": "Dr. Sudhakar Shinde",
+      "email": "registrar@adypu.edu.in",
+      "sourceName": "data/site/text/adypu-edu-in-about-university-officials-8968f02265.txt:258",
+      "sourceEmail": "data/site/text/adypu-edu-in-about-university-officials-8968f02265.txt:326"
+    },
+    "deans": [
+      {
+        "name": "Ar. Aparna Mhetras",
+        "role": "Dean, School of Design",
+        "source": "data/site/text/adypu-edu-in-about-university-officials-8968f02265.txt:276"
+      },
+      {
+        "name": "Dr. Sunny Thomas",
+        "role": "Dean, School of Law and School of Liberal Arts",
+        "source": "data/site/text/adypu-edu-in-about-university-officials-8968f02265.txt:342"
+      },
+      {
+        "name": "Dr. Vijay Kulkarni",
+        "role": "Dean, Student Service Division",
+        "source": "data/site/text/adypu-edu-in-about-university-officials-8968f02265.txt:304"
+      }
+    ],
+    "ssd": {
+      "email": "ssd@adypu.edu.in",
+      "source": "data/site/text/adypu-edu-in-student-service-division-d46aebcbc3.txt:284"
+    },
+    "placement": {
+      "leaders": [
+        "Dr. Santosh P. Rao Borde",
+        "Dr. Tushar Ram Sangole"
+      ],
+      "source": "data/site/text/adypu-edu-in-placements-0f3dcc9b0f.txt"
+    },
+    "fees": {
+      "mandatoryDisclosureSourceHtml": "data/site/html/adypu-edu-in-admissions-mandatory-disclosures-a87080f1c9.html",
+      "fees2024_25Pdf": "data/site/pdfs/fees-2024-25.pdf",
+      "fees2025_26Pdf": "data/site/pdfs/fees-2025-26.pdf"
+    },
+    "hostel": {
+      "contactNumber": "+91-8087778799",
+      "source": "data/site/html/adypu-edu-in-campus-life-hostel-life-at-adypu-3b900aab2e.html:1393"
+    },
+    "collaborations": {
+      "summary": "40 MoUs across more than 10 countries",
+      "source": "data/site/text/adypu-edu-in-international-collaborations-c0b490d6d2.txt"
+    }
+  },
+  "notFoundOrUnverified": {
+    "bhagyashriVyasEmailOnOfficialCrawl": false,
+    "seameduDirectMentionOnOfficialCrawl": false,
+    "ulc5AsOfficialSsdAddress": false
+  },
+  "notes": [
+    "Header/menu content repeated across many pages; use page-level quality filters in RAG indexing.",
+    "Fee PDFs are scan-style; OCR step is required for full row extraction at scale."
+  ]
+}
