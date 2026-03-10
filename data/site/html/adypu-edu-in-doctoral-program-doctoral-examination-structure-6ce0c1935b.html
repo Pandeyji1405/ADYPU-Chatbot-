@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://adypu.edu.in/wp-content/themes/adypu/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://adypu.edu.in/wp-content/themes/adypu/images/favicon.png" type="image/x-icon" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"
+        as="font" type="font/woff2" crossorigin>
+    <!-- Google Fonts — non-blocking -->
+    
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Preload Bootstrap CSS (non-render-blocking) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+        as="style" 
+        crossorigin="anonymous"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Fallback for users without JS -->
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    </noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style">
+    <!-- Fallback (required) -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    </noscript>
+    <link rel="preload" href="https://adypu.edu.in/wp-content/themes/adypu/fonts/roboto.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- FontAwesome (non-blocking) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </noscript>
+    <!-- Google Analytics - Deferred -->
+    <script>
+        (function() {
+            // Create dataLayer & gtag stub immediately (safe)
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            window.gtag = gtag;
+
+            function loadGA() {
+                var s = document.createElement("script");
+                s.src = "https://www.googletagmanager.com/gtag/js?id=G-29FV0FKPZ5";
+                s.async = true;
+                document.head.appendChild(s);
+
+                gtag("js", new Date());
+                gtag("config", "G-29FV0FKPZ5", { transport_type: "beacon" });
+            }
+
+            // Load only when browser is idle
+            if ("requestIdleCallback" in window) {
+                requestIdleCallback(loadGA, { timeout: 2000 });
+            } else {
+                window.addEventListener("load", loadGA);
+            }
+        })();
+    </script>
+    <!-- Google Tag Manager - Deferred -->
+    <script>
+        (function(w, d, s, l, i) {
+
+            w[l] = w[l] || [];
+
+            function loadGTM() {
+                var f = d.getElementsByTagName(s)[0];
+                var j = d.createElement(s);
+                var dl = l !== 'dataLayer' ? '&l=' + l : '';
+
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+
+                f.parentNode.insertBefore(j, f);
+            }
+
+            // Load GTM only when browser is idle
+            if ("requestIdleCallback" in window) {
+                requestIdleCallback(loadGTM, { timeout: 2000 });
+            } else {
+                w.addEventListener("load", loadGTM);
+            }
+
+        })(window, document, "script", "dataLayer", "GTM-N57Z9VM");
+    </script>
+    <style>
+        /* Override Font Awesome font to add font-display */
+        @font-face {
+            font-family: 'FontAwesome';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; /* <— this fixes the PageSpeed warning */
+        }
+        /* Add font-display: swap for Roboto normal (weight 400) */
+        @font-face {
+            font-family: 'Roboto';
+            src: url('../fonts/roboto.woff2') format('woff2');
+            font-display: swap;
+            font-weight: 400;
+            font-style: normal;
+        }
+        /* Add font-display: swap for Open Sans normal (weight 400) */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVIUwaEQbjA.woff2') format('woff2');
+        }
+    </style>
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Doctoral Examination Structure at ADYPU</title>
+	<meta name="description" content="Explore the doctoral examination structure at ADYPU, including comprehensive details on the examination process, evaluation criteria, and requirements for successful completion." />
+	<link rel="canonical" href="https://adypu.edu.in/doctoral-program/doctoral-examination-structure" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Doctoral Examination Structure at ADYPU" />
+	<meta name="twitter:description" content="Explore the doctoral examination structure at ADYPU, including comprehensive details on the examination process, evaluation criteria, and requirements for successful completion." />
+	<meta name="twitter:image" content="https://adypu.edu.in/wp-content/uploads/2024/03/PhD-Entrance-Test-jpg.webp" />
+	<meta name="twitter:site" content="@adypuniversity" />
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Adypu &raquo; Feed" href="https://adypu.edu.in/feed" />
+<link rel="alternate" type="application/rss+xml" title="Adypu &raquo; Comments Feed" href="https://adypu.edu.in/comments/feed" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://adypu.edu.in/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fadypu.edu.in%2Fdoctoral-program%2Fdoctoral-examination-structure" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://adypu.edu.in/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fadypu.edu.in%2Fdoctoral-program%2Fdoctoral-examination-structure&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #FFFFFF;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dark-gray: #28303D;--wp--preset--color--gray: #39414D;--wp--preset--color--green: #D1E4DD;--wp--preset--color--blue: #D1DFE4;--wp--preset--color--purple: #D1D1E4;--wp--preset--color--red: #E4D1D1;--wp--preset--color--orange: #E4DAD1;--wp--preset--color--yellow: #EEEADD;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--purple-to-yellow: linear-gradient(160deg, #D1D1E4 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-purple: linear-gradient(160deg, #EEEADD 0%, #D1D1E4 100%);--wp--preset--gradient--green-to-yellow: linear-gradient(160deg, #D1E4DD 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-green: linear-gradient(160deg, #EEEADD 0%, #D1E4DD 100%);--wp--preset--gradient--red-to-yellow: linear-gradient(160deg, #E4D1D1 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-red: linear-gradient(160deg, #EEEADD 0%, #E4D1D1 100%);--wp--preset--gradient--purple-to-red: linear-gradient(160deg, #D1D1E4 0%, #E4D1D1 100%);--wp--preset--gradient--red-to-purple: linear-gradient(160deg, #E4D1D1 0%, #D1D1E4 100%);--wp--preset--font-size--small: 18px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 24px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--extra-small: 16px;--wp--preset--font-size--normal: 20px;--wp--preset--font-size--extra-large: 40px;--wp--preset--font-size--huge: 96px;--wp--preset--font-size--gigantic: 144px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='rmp-menu-styles-css' href='https://adypu.edu.in/wp-content/uploads/rmp-menu/css/rmp-menu.css?ver=12.34.10' media='print' onload="this.media='all'" />
+<link rel='stylesheet' id='contact-form-7-css' href='https://adypu.edu.in/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.4' media='print' onload="this.media='all'" />
+<link rel='stylesheet' id='wpcf7-redirect-script-frontend-css' href='https://adypu.edu.in/wp-content/plugins/wpcf7-redirect/build/assets/frontend-script.css?ver=2c532d7e2be36f6af233' media='print' onload="this.media='all'" />
+<link rel='stylesheet' id='ivory-search-styles-css' href='https://adypu.edu.in/wp-content/plugins/add-search-to-menu/public/css/ivory-search.min.css?ver=5.5.12' media='print' onload="this.media='all'" />
+<link rel='preload' href='https://adypu.edu.in/wp-content/themes/adypu/css/site.min.css' as='style' />
+<link rel='stylesheet' href='https://adypu.edu.in/wp-content/themes/adypu/css/site.min.css' media='print' onload="this.media='all'" />
+<link rel="https://api.w.org/" href="https://adypu.edu.in/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://adypu.edu.in/wp-json/wp/v2/pages/16005" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://adypu.edu.in/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.1" />
+<link rel='shortlink' href='https://adypu.edu.in/?p=16005' />
+<!-- HFCM by 99 Robots - Snippet # 1: Organization Schema -->
+<script type=""application/ld+json"">
+{
+  ""@context"": ""https://schema.org"",
+  ""@type"": ""CollegeOrUniversity"",
+  ""name"": ""ADYPU"",
+  ""url"": ""https://adypu.edu.in/"",
+  ""logo"": ""https://adypu.edu.in/wp-content/themes/adypu/images/logo.png"",
+  ""sameAs"": ""https://adypu.edu.in/""
+}
+</script>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 2: Website -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "name": "Ajeenkya D Y Patil University",
+  "url": "https://adypu.edu.in/",
+  "logo": "https://adypu.edu.in/images/logo.png",
+  "description": "Ajeenkya D Y Patil University (ADYPU) is a private university located in Pune, Maharashtra, India, offering a range of undergraduate, postgraduate, and doctoral programs.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "D Y Patil Knowledge City, Charholi Bk. Via Lohegaon",
+    "addressLocality": "Pune",
+    "addressRegion": "Maharashtra",
+    "postalCode": "411081",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-8956487912",
+    "contactType": "Admissions",
+    "areaServed": "IN",
+    "availableLanguage": "English"
+  },
+  "department": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Engineering",
+      "url": "https://soe.adypu.edu.in/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Design",
+      "url": "https://sod.adypu.edu.in/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Law",
+      "url": "https://sol.adypu.edu.in/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Liberal Arts",
+      "url": "https://sola.adypu.edu.in/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Hotel Management",
+      "url": "https://sohm.adypu.edu.in/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Architecture",
+      "url": "https://soa.adypu.edu.in/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Management",
+      "url": "https://som.adypu.edu.in/"
+    }
+  ]
+}
+</script>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 3: Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Us",
+      "item": "https://adypu.edu.in/about/the-university"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "University Officials",
+      "item": "https://adypu.edu.in/about/university-officials"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Academics",
+      "item": "https://adypu.edu.in/academics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Programs Offered",
+      "item": "https://adypu.edu.in/programs-offered"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Undergraduate Programs",
+      "item": "https://adypu.edu.in/undergraduate-programs"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Postgraduate Programs",
+      "item": "https://adypu.edu.in/postgraduate-programs"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "PhD Programs",
+      "item": "https://adypu.edu.in/phd-programs"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "School of Engineering",
+      "item": "https://soe.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "School of Design",
+      "item": "https://sod.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "School of Law",
+      "item": "https://sol.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "name": "School of Liberal Arts",
+      "item": "https://sola.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "name": "School of Hotel Management",
+      "item": "https://sohm.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "name": "School of Architecture",
+      "item": "https://soa.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "name": "School of Management",
+      "item": "https://som.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "name": "Admissions",
+      "item": "https://admissions.adypu.edu.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "name": "Placements",
+      "item": "https://adypu.edu.in/placements"
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "name": "News",
+      "item": "https://adypu.edu.in/news"
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "name": "Events",
+      "item": "https://adypu.edu.in/events"
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "name": "Contact Us",
+      "item": "https://adypu.edu.in/contact-us"
+    }
+  ]
+}
+</script>
+<!-- /end HFCM by 99 Robots -->
+<link rel="icon" href="https://adypu.edu.in/wp-content/uploads/2023/03/cropped-favicon-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://adypu.edu.in/wp-content/uploads/2023/03/cropped-favicon-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://adypu.edu.in/wp-content/uploads/2023/03/cropped-favicon-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://adypu.edu.in/wp-content/uploads/2023/03/cropped-favicon-1-270x270.png" />
+		<style id="wp-custom-css">
+			.rmp-container .rmp-menu-wrap .rmp-menu {
+	padding-left: 10px !important;
+}
+.wp-block-list li {
+    color: #4d4d4d;
+    line-height: 27px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}		</style>
+		    </head>
+        <body class="wp-singular page-template page-template-doctoral-program page-template-template-examination-structure page-template-doctoral-programtemplate-examination-structure-php page page-id-16005 page-child parent-pageid-12125 wp-embed-responsive wp-theme-twentytwentyone wp-child-theme-adypu twentytwentyone is-light-theme no-js singular"> 
+        <header class="sticky-top">
+            <div class="container-fluid header-con school-nav p-0">
+                <nav class="navbar navbar-expand-xl p-0">
+                    <div class="container">
+                        <a class="navbar-brand" href="https://adypu.edu.in/doctoral-program">
+                            <span class="logo-con"><img src="https://adypu.edu.in/wp-content/themes/adypu/images/logo.png"  alt="Doctoral Examination Structure" /></span>
+                        </a>
+                        			<button type="button"  aria-controls="rmp-container-14779" aria-label="Menu Trigger" id="rmp_menu_trigger-14779"  class="rmp_menu_trigger rmp-menu-trigger-boring">
+								<span class="rmp-trigger-box">
+									<span class="responsive-menu-pro-inner"></span>
+								</span>
+					</button>
+						<div id="rmp-container-14779" class="rmp-container rmp-container rmp-slide-left">
+				<div id="rmp-menu-wrap-14779" class="rmp-menu-wrap"><ul id="rmp-menu-14779" class="rmp-menu" role="menubar" aria-label="ResponiveDoctoraleaderMenu"><li id="rmp-menu-item-16494" class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-home rmp-menu-item rmp-menu-top-level-item" role="none"><a  href="https://adypu.edu.in/"  class="rmp-menu-item-link"  role="menuitem"  >Home</a></li><li id="rmp-menu-item-16496" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-top-level-item" role="none"><a  href="https://adypu.edu.in/careers-join-adypu"  class="rmp-menu-item-link"  role="menuitem"  >Careers -Join ADYPU</a></li><li id="rmp-menu-item-16495" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-top-level-item" role="none"><a  href="https://adypu.edu.in/contact-us"  class="rmp-menu-item-link"  role="menuitem"  >Contact Us</a></li><li id="rmp-menu-item-14781" class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children rmp-menu-item rmp-menu-item-has-children rmp-menu-top-level-item" role="none"><a  href="#"  class="rmp-menu-item-link"  role="menuitem"  >About Us<div class="rmp-menu-subarrow"><span class="rmp-font-icon dashicons dashicons-arrow-down-alt2 "></span></div></a><ul aria-label="About Us"
+            role="menu" data-depth="2"
+            class="rmp-submenu rmp-submenu-depth-1"><li id="rmp-menu-item-14780" class="downLinkBtn menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program#overview"  class="rmp-menu-item-link"  role="menuitem"  >Overview</a></li><li id="rmp-menu-item-14783" class="downLinkBtn menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program#key-features"  class="rmp-menu-item-link"  role="menuitem"  >Key features</a></li><li id="rmp-menu-item-14784" class="downLinkBtn menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program#phd-programs"  class="rmp-menu-item-link"  role="menuitem"  >Doctoral Programs</a></li><li id="rmp-menu-item-16386" class="downLinkBtn menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program#research-advisor"  class="rmp-menu-item-link"  role="menuitem"  >International Research Advisor</a></li><li id="rmp-menu-item-14785" class="downLinkBtn menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program/doctoral-studies-supervisors"  class="rmp-menu-item-link"  role="menuitem"  >Doctoral Studies &#8211; Supervisors</a></li><li id="rmp-menu-item-16387" class="downLinkBtn menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program#duration"  class="rmp-menu-item-link"  role="menuitem"  >Duration</a></li></ul></li><li id="rmp-menu-item-14786" class=" menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children rmp-menu-item rmp-menu-item-current-ancestor rmp-menu-item-current-parent rmp-menu-item-has-children rmp-menu-top-level-item" role="none"><a  href="#"  class="rmp-menu-item-link"  role="menuitem"  >Entrance Test<div class="rmp-menu-subarrow"><span class="rmp-font-icon dashicons dashicons-arrow-down-alt2 "></span></div></a><ul aria-label="Entrance Test"
+            role="menu" data-depth="2"
+            class="rmp-submenu rmp-submenu-depth-1"><li id="rmp-menu-item-14788" class="downLinkBtn menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/wp-content/uploads/2024/03/Notification.pdf"  class="rmp-menu-item-link"  role="menuitem"  >Notification</a></li><li id="rmp-menu-item-14790" class=" menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program/important-dates"  class="rmp-menu-item-link"  role="menuitem"  >Important Dates</a></li><li id="rmp-menu-item-14791" class=" menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program/doctoral-eligibility"  class="rmp-menu-item-link"  role="menuitem"  >Eligibility</a></li><li id="rmp-menu-item-14792" class=" menu-item menu-item-type-custom menu-item-object-custom current-menu-item rmp-menu-item rmp-menu-current-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program/doctoral-examination-structure"  class="rmp-menu-item-link"  role="menuitem"  >Examination Structure</a></li><li id="rmp-menu-item-14793" class=" menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program/syllabus-for-pet"  class="rmp-menu-item-link"  role="menuitem"  >Syllabus</a></li><li id="rmp-menu-item-16388" class=" menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-sub-level-item" role="none"><a  href="/doctoral-program/personal-interview-research-aptitude"  class="rmp-menu-item-link"  role="menuitem"  >Personal Interview &#038; Research Aptitude</a></li></ul></li><li id="rmp-menu-item-14794" class=" menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-top-level-item" role="none"><a  href="/doctoral-program/doctoral-research-project"  class="rmp-menu-item-link"  role="menuitem"  >Research Projects</a></li><li id="rmp-menu-item-16390" class=" menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-top-level-item" role="none"><a  href="/doctoral-program/doctoral-fellowship"  class="rmp-menu-item-link"  role="menuitem"  >Fellowships</a></li><li id="rmp-menu-item-16391" class=" menu-item menu-item-type-custom menu-item-object-custom rmp-menu-item rmp-menu-top-level-item" role="none"><a  href="/doctoral-program/vacancies"  class="rmp-menu-item-link"  role="menuitem"  >Vacancies</a></li></ul></div>			</div>
+			                    </div>
+                </nav>
+                <div class="menu-header-desk">
+                    <div class="header-menu-top-con">
+                        <div class="container">
+                            <div class="header-menu-top-ul">
+                                <ul>
+                                    <li>
+                                        <a href="https://adypu.edu.in">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="/careers-join-adypu/">Careers</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://adypu.edu.in/university-videos" target="_blank" >Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a href="/doctoral-program/contact-us/">Contact Us</a>
+                                    </li> 
+                                    <li>
+                                        <a href="https://adypu-erp.com/login.php" target="_blank">ERP Login</a>
+                                    </li>
+                                    <!-- <li class="pm-none pe-2">
+                                        <a href="javascript:void(0)" id="rsnavbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="https://adypu.edu.in/wp-content/themes/adypu/images/user-icon.svg" alt="" /></a>
+                                        <div class="header-sub-menu-con dropdown-menu" aria-labelledby="rsnavbarDropdownUser">
+                                            <ul>
+                                                <li><a href="https://adypu.camu.in/" target="_blank" class="linkDecoration">Staff Portal</a></li>
+                                                <li><a href="https://adypu-student.camu.in/" target="_blank" class="linkDecoration">Student Portal</a></li>
+                                            </ul>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-menu-bottom-con">
+                        <div class="container">
+                            <div class="header-menu-bottom-ul">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+
+                                        <div class="sub-menu-con dropdown-menu" aria-labelledby="navbarDropdown1">
+                                            <div class="sub-menu-ul">
+                                                <ul>
+                                                    <li><a href="/doctoral-program#overview">Overview</a></li>
+                                                    <li><a href="/doctoral-program#key-features">Key features</a></li>
+                                                    <li><a href="/doctoral-program#phd-programs">Doctoral Programs</a></li>
+                                                    <li><a href="/doctoral-program#research-advisor">International Research Advisor</a></li>
+                                                    <li><a href="/doctoral-program#doctoral-supervisors">Meet our Doctoral Supervisors</a></li>
+                                                    <li><a href="/doctoral-program#duration">Duration</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Entrance Test</a>
+                                        <div class="sub-menu-con dropdown-menu" aria-labelledby="navbarDropdown2">
+                                            <div class="sub-menu-ul">
+                                                <ul>
+                                                    <li><a href="/wp-content/uploads/2024/03/Notification.pdf" target="_blank">Notification</a></li>
+                                                    <li><a href="/doctoral-program/important-dates">Important Dates</a></li>
+                                                    <li><a href="/doctoral-program/doctoral-eligibility">Eligibility</a></li>
+                                                    <li><a href="/doctoral-program/doctoral-examination-structure">Examination Structure</a></li>
+                                                    <li><a href="/doctoral-program/syllabus-for-pet">Syllabus</a></li>
+                                                    <li><a href="/doctoral-program/personal-interview-research-aptitude">Personal Interview & Research Aptitude</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="/doctoral-program/doctoral-research-project">Research Projects</a></li>
+                                    <li><a href="/doctoral-program/doctoral-fellowship">Fellowships</a></li>
+                                    <li><a href="/doctoral-program/vacancies">Vacancies</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header><section>
+    <div class="container-fluid section-padding page-banner-con">
+        
+        <div class="page-banner-img">
+                        <img src="https://adypu.edu.in/wp-content/uploads/2024/03/PhD-Entrance-Test-jpg-1568x470.webp"  alt="" /> 
+                    </div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-end">
+                <div class="col-sm-12">
+                    <div class="page-banner-text">
+                    <h2 class="h3">
+                        Examination <br>Structure                    </h2>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tag-span-con">
+                        <h3 class="inter-font">
+                            Examination <span>Structure</span>                        </h3>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <div class="text-con">
+                        <p>ADYPU shall admit Ph.D. Students through an ADYPU Ph.D. Entrance Test. The examination will be conducted annually during the month of July.</p>
+<h6>Format of ADYPU Ph.D. Entrance Test</h6>
+<p>ADYPU PET will be conducted for 100 marks. The Entrance Test will be divided into two parts. Each part is of 50 marks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid section-padding gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tag-span-con">
+                        <h3 class="inter-font">
+                            Part One (Research Methodology): <br><span>Common for all Schools</span>                        </h3>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <div class="text-con">
+                        <p>The General Test measures verbal reasoning, quantitative reasoning, critical thinking and analytical writing skills — skills that have been developed over a long period of time and are not related to a specific field of study but are important for all.</p>
+<h6><strong>Verbal Reasoning</strong></h6>
+<p>The Verbal Reasoning section measures your ability to:</p>
+<ul class="border-list">
+<li>Analyse and draw conclusions from discourse; reason from incomplete data; identify author’s assumptions and/or perspective; understand multiple levels of meaning, such as literal, figurative and author’s intent</li>
+<li>Select important points; distinguish major from minor or relevant points; summarize text; understand the structure of a textunderstand the meanings of words, sentences and entire texts; understand relationships among words and among concepts</li>
+</ul>
+<h6><strong>Quantitative Reasoning</strong></h6>
+<p>The Quantitative Reasoning section measures your ability to:</p>
+<ul class="border-list">
+<li>Understand, interpret and analyze quantitative information</li>
+<li>Solve problems using mathematical models</li>
+<li>Apply basic skills and elementary concepts of arithmetic, algebra, geometry and data analysis</li>
+</ul>
+<h6><strong>Analytical Writing</strong></h6>
+<p>The Analytical Writing section measures your ability to:</p>
+<ul class="border-list">
+<li>articulate complex ideas clearly and effectively</li>
+<li>support ideas with relevant reasons and examples</li>
+<li>examine claims and accompanying evidence</li>
+<li>sustain a well-focused, coherent discussion</li>
+<li>control the elements of standard written English</li>
+</ul>
+<p>The Analytical Writing section requires you to provide focused responses based on the tasks presented, so you can accurately demonstrate your skill in directly responding to a task.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tag-span-con">
+                        <h3 class="inter-font">
+                            Part Two: <br><span>Domain Specific</span>                        </h3>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <div class="text-con">
+                        <p>The applicant will choose the subject with respect to the area of research he / she intends to pursue. The paper will be of 50 marks. The syllabus for different subjects has been laid as under: (For details, refer to Annexure One)</p>
+<ul class="border-list">
+<li>Engineering</li>
+<li>Management</li>
+<li>Law</li>
+<li>Liberal Arts</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid section-padding gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tag-span-con">
+                        <h3 class="inter-font">
+                                                    </h3>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <div class="text-con">
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tag-span-con">
+                        <h3 class="inter-font">
+                                                    </h3>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <div class="text-con">
+                                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid section-padding gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tag-span-con">
+                        <h3 class="inter-font">
+                                                    </h3>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <div class="text-con">
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- <section>
+    <div class="container-fluid primary-bg-color apply-now-con">
+        <div class="container mw-100">
+            <div class="row">
+                <div class="col-sm-12">
+                    <marquee direction="left" class="list-apply-ul">
+                        <ul>
+                            <li><a href="/admissions/apply-now">Last Date to Apply for ADAT 2024-25 is 11th of April 2024 - Apply Now</a></li>
+                            <li><a href="/admissions/apply-now">Last Date to Apply for ADAT 2024-25 is 11th of April 2024 - Apply Now</a></li>
+                            <li><a href="/admissions/apply-now">Last Date to Apply for ADAT 2024-25 is 11th of April 2024 - Apply Now</a></li>
+                            <li><a href="/admissions/apply-now">Last Date to Apply for ADAT 2024-25 is 11th of April 2024 - Apply Now</a></li>
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeEZzdkiXOoNmAWTe1qm1bJaeabQITUGY-joFwk9stA1twYtQ/viewform" class="sticky-apply-button" target="_blank">APPLY NOW</a>
+<style>
+    .sticky-apply-button {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background: #b82426;
+        color: #fff;
+        padding: 20px 10px;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-weight: 500;
+        text-align: center;
+        border-radius: 3px 0 0 3px;
+        cursor: pointer;
+        z-index: 9999;
+        font-size: 18px;
+        font-family: "Inter", sans-serif;
+    }
+
+    .sticky-apply-button:hover {
+      background: #fff;
+      color: #b82426;
+    }
+</style>
+<footer class="footer-con school-footer-con">
+    <div class="container-fluid footer-top-con section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 align-self-center">
+                <div class="footer-link-and-text-con">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 col-lg-5 col-xl-5">
+                                <div class="footer-top-col pe-4">
+                                    <div class="footer-logo-con footer-logo-school-sm">
+                                        <a href="https://adypu.edu.in"><img src="https://adypu.edu.in/wp-content/themes/adypu/images/logo.png"  alt="Doctoral Examination Structure" /></a>
+                                    </div>
+                                    <p>We are a world-class university that prepares students for the global market, with an emphasis on fostering growth through a spirit of innovation.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                                <div class="footer-top-col">
+                                    <p class="bold-text mb-2"><span> Quick Links </span></p>
+                                    <div class="footer-page-menu">
+                                        <div class="footer-page-menu-ul">
+                                            <ul>
+                                                <li><a href="/admissions/apply-now">Admissions</a></li>
+                                                <li><a href="/invite-us-to-your-school">Invite Us to Your School</a></li>
+                                                <li><a href="/meet-our-faculty">Faculty</a></li>
+                                                <li><a href="/life-at-campus">Life at Campus</a></li>
+                                                <li><a href="/blog">Blog</a></li>
+                                                <li><a href="/contact-us/">Contact Us</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                <div class="footer-top-col">
+                                    <p class="bold-text mb-2">Ajeenkya DY Patil University</p>
+                                    <p class="mb-2"><a class="footer-add" target="_blank" href="https://www.google.com/maps/place/Ajeenkya+DY+Patil+University/@18.6228667,73.9111481,716m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bc2c71e08905091:0x51ca0d931361c1bc!8m2!3d18.6228667!4d73.9111481!16s%2Fg%2F11c488fp2b?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="">D Y Patil Knowledge City, <br/> Charholi Bk. Via Lohegaon, <br/> Pune - 412105 <br/> Maharashtra (India)</a></p>
+                                    <!-- <div class="list-icon-text-full">
+                                        <div class="list-icon-text-icon">
+                                            <i class="fa fa-phone" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="list-icon-text-title">
+                                            <a href="tel:+918169463493" class="fw-normal">+91-8169463493</a>
+                                        </div>
+                                    </div> -->
+                                    <div class="list-icon-text-full">
+                                        <div class="list-icon-text-icon">
+                                            <i class="fa fa-phone" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="list-icon-text-title">
+                                            <a href="tel:+917030553447" class="fw-normal footer-tel">+91-7030553447</a>
+                                        </div>
+                                    </div>
+                                    <div class="list-icon-text-full mt-2">
+                                        <div class="list-icon-text-icon">
+                                            <i class="fa fa fa-envelope" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="list-icon-text-title">
+                                            <a href="mailto:info@adypu.edu.in" class="fw-normal footer-mail">info@adypu.edu.in</a><br/>
+                                            <a href="mailto:admissions@adypu.edu.in" class="fw-normal footer-mail-1">admissions@adypu.edu.in</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer-bottom-con">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-8 col-xl-9 align-self-center">
+                <div class="copyright-text">
+                        <a class="privacy-policy-link-txt" href="/privacy-policy">
+                            Privacy Policy
+                        </a> 
+                        | 2026   &copy; Ajeenkya DY Patil University. All Rights Reserved
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 align-self-center">
+                    <div class="social-icon-con">
+                        <div class="social-icon-ul">
+                            <ul>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/ajeenkya-dy-patil-university/" target="_blank">
+                                        <img src="https://adypu.edu.in/wp-content/themes/adypu/images/linkdin-icon.png" alt="Doctoral Examination Structure" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/adypuniversity/" target="_blank">
+                                        <img src="https://adypu.edu.in/wp-content/themes/adypu/images/facebook-icon.png" alt="Doctoral Examination Structure" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ajeenkyadypatiluniversity/" target="_blank">
+                                        <img src="https://adypu.edu.in/wp-content/themes/adypu/images/ig-ico.svg" alt="Doctoral Examination Structure" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/adypuniversity?ref_src=twsrc%5Etfw" target="_blank">
+                                        <img src="https://adypu.edu.in/wp-content/uploads/2024/05/twitter-icon-3.png" alt="Doctoral Examination Structure" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/c/AjeenkyaDYPatilUniversity" target="_blank">
+                                        <img src="https://adypu.edu.in/wp-content/themes/adypu/images/you-tube-icon.png" alt="Doctoral Examination Structure" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://adypu.edu.in/wp-content/themes/adypu/js/jquery.min.js"></script>
+<script src="https://adypu.edu.in/wp-content/themes/adypu/js/bootstrap.bundle.min.js"></script>
+<script src="https://adypu.edu.in/wp-content/themes/adypu/js/jquery.fancybox.min.js"></script>
+<script src="https://adypu.edu.in/wp-content/themes/adypu/js/slick.min.js"></script>
+<script src="https://adypu.edu.in/wp-content/themes/adypu/js/custome.js"></script>
+<script >
+    $(document).ready(function ($) {
+
+        $('img').each(function () {
+            $(this).removeAttr('style')
+            $(this).removeAttr('width')
+            $(this).removeAttr('height')
+
+        });
+
+    });
+</script>  
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/adypu/*","/wp-content/themes/twentytwentyone/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adypu.edu.in/"},{"@type":"ListItem","position":2,"name":"Doctoral Program New","item":"https://adypu.edu.in/doctoral-program"},{"@type":"ListItem","position":3,"name":"Doctoral Examination Structure","item":"https://adypu.edu.in/doctoral-program/doctoral-examination-structure"}]}</script>  <script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (window.NPFSChatbot) {
+        NPFSChatbot.init(); // or vendor init method
+      }
+    }, 5000);
+  });
+  </script>
+      <script>
+    window.requestIdleCallback(() => {
+        document.dispatchEvent(new Event('wst_init_swiper'));
+    });
+    </script>
+    <script>document.body.classList.remove("no-js");</script>	<script>
+	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
+		document.body.classList.add( 'is-IE' );
+	}
+	</script>
+			<script>
+		/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",(function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}),!1);
+		</script>
+		<script src="https://adypu.edu.in/wp-content/themes/adypu/js/jquery.min.js?ver=1764672108" id="jquery-js"></script>
+<script id="rmp_menu_scripts-js-extra">
+var rmp_menu = {"ajaxURL":"https://adypu.edu.in/wp-admin/admin-ajax.php","wp_nonce":"621a11e886","menu":[{"menu_theme":"Default","theme_type":"default","theme_location_menu":"0","submenu_submenu_arrow_width":"40","submenu_submenu_arrow_width_unit":"px","submenu_submenu_arrow_height":"39","submenu_submenu_arrow_height_unit":"px","submenu_arrow_position":"right","submenu_sub_arrow_background_colour":"","submenu_sub_arrow_background_hover_colour":"","submenu_sub_arrow_background_colour_active":"","submenu_sub_arrow_background_hover_colour_active":"","submenu_sub_arrow_border_width":"","submenu_sub_arrow_border_width_unit":"px","submenu_sub_arrow_border_colour":"#1d4354","submenu_sub_arrow_border_hover_colour":"#3f3f3f","submenu_sub_arrow_border_colour_active":"#1d4354","submenu_sub_arrow_border_hover_colour_active":"#3f3f3f","submenu_sub_arrow_shape_colour":"#fff","submenu_sub_arrow_shape_hover_colour":"#fff","submenu_sub_arrow_shape_colour_active":"#fff","submenu_sub_arrow_shape_hover_colour_active":"#fff","use_header_bar":"off","header_bar_items_order":{"logo":"off","title":"on","additional content":"off","menu":"on","search":"off"},"header_bar_title":"Responsive Menu","header_bar_html_content":"","header_bar_logo":"","header_bar_logo_link":"","header_bar_logo_width":"","header_bar_logo_width_unit":"%","header_bar_logo_height":"","header_bar_logo_height_unit":"px","header_bar_height":"80","header_bar_height_unit":"px","header_bar_padding":{"top":"0px","right":"5%","bottom":"0px","left":"5%"},"header_bar_font":"","header_bar_font_size":"14","header_bar_font_size_unit":"px","header_bar_text_color":"#ffffff","header_bar_background_color":"#1d4354","header_bar_breakpoint":"8000","header_bar_position_type":"fixed","header_bar_adjust_page":"on","header_bar_scroll_enable":"off","header_bar_scroll_background_color":"#36bdf6","mobile_breakpoint":"600","tablet_breakpoint":"1199","transition_speed":"0.5","sub_menu_speed":"0.2","show_menu_on_page_load":"off","menu_disable_scrolling":"off","menu_overlay":"off","menu_overlay_colour":"rgba(0,0,0,0.7)","desktop_menu_width":"","desktop_menu_width_unit":"%","desktop_menu_positioning":"absolute","desktop_menu_side":"left","desktop_menu_to_hide":"","use_current_theme_location":"off","mega_menu":{"225":"off","227":"off","229":"off","228":"off","226":"off"},"desktop_submenu_open_animation":"none","desktop_submenu_open_animation_speed":"100ms","desktop_submenu_open_on_click":"off","desktop_menu_hide_and_show":"off","menu_name":"ResponiveHeaderMenu-SOS","menu_to_use":"74","different_menu_for_mobile":"off","menu_to_use_in_mobile":"main-menu","use_mobile_menu":"on","use_tablet_menu":"on","use_desktop_menu":"off","menu_display_on":"shortcode","menu_to_hide":"","submenu_descriptions_on":"off","custom_walker":"","menu_background_colour":"","menu_depth":"5","smooth_scroll_on":"off","smooth_scroll_speed":"500","menu_font_icons":{"id":["225"],"icon":[""]},"menu_links_height":"40","menu_links_height_unit":"px","menu_links_line_height":"40","menu_links_line_height_unit":"px","menu_depth_0":"","menu_depth_0_unit":"%","menu_font_size":"18","menu_font_size_unit":"px","menu_font":"","menu_font_weight":"500","menu_text_alignment":"left","menu_text_letter_spacing":"","menu_word_wrap":"off","menu_link_colour":"#fff","menu_link_hover_colour":"#fff","menu_current_link_colour":"#fff","menu_current_link_hover_colour":"#fff","menu_item_background_colour":"","menu_item_background_hover_colour":"","menu_current_item_background_colour":"","menu_current_item_background_hover_colour":"","menu_border_width":"1","menu_border_width_unit":"px","menu_item_border_colour":"#ffffff","menu_item_border_colour_hover":"#ffffff","menu_current_item_border_colour":"#ffffff","menu_current_item_border_hover_colour":"#ffffff","submenu_links_height":"40","submenu_links_height_unit":"px","submenu_links_line_height":"40","submenu_links_line_height_unit":"px","menu_depth_side":"left","menu_depth_1":"10","menu_depth_1_unit":"%","menu_depth_2":"","menu_depth_2_unit":"%","menu_depth_3":"","menu_depth_3_unit":"%","menu_depth_4":"25","menu_depth_4_unit":"%","submenu_item_background_colour":"","submenu_item_background_hover_colour":"","submenu_current_item_background_colour":"","submenu_current_item_background_hover_colour":"","submenu_border_width":"","submenu_border_width_unit":"px","submenu_item_border_colour":"","submenu_item_border_colour_hover":"","submenu_current_item_border_colour":"","submenu_current_item_border_hover_colour":"","submenu_font_size":"13","submenu_font_size_unit":"px","submenu_font":"","submenu_font_weight":"500","submenu_text_letter_spacing":"","submenu_text_alignment":"left","submenu_link_colour":"#fff","submenu_link_hover_colour":"#fff","submenu_current_link_colour":"#fff","submenu_current_link_hover_colour":"#fff","inactive_arrow_shape":"\u25bc","active_arrow_shape":"\u25b2","inactive_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E","active_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_arrow_image":"","active_arrow_image":"","submenu_arrow_width":"40","submenu_arrow_width_unit":"px","submenu_arrow_height":"40","submenu_arrow_height_unit":"px","arrow_position":"right","menu_sub_arrow_shape_colour":"#fff","menu_sub_arrow_shape_hover_colour":"#fff","menu_sub_arrow_shape_colour_active":"#fff","menu_sub_arrow_shape_hover_colour_active":"#fff","menu_sub_arrow_border_width":"","menu_sub_arrow_border_width_unit":"px","menu_sub_arrow_border_colour":"","menu_sub_arrow_border_hover_colour":"","menu_sub_arrow_border_colour_active":"","menu_sub_arrow_border_hover_colour_active":"#3f3f3f","menu_sub_arrow_background_colour":"","menu_sub_arrow_background_hover_colour":"","menu_sub_arrow_background_colour_active":"","menu_sub_arrow_background_hover_colour_active":"","fade_submenus":"off","fade_submenus_side":"left","fade_submenus_delay":"100","fade_submenus_speed":"500","use_slide_effect":"off","slide_effect_back_to_text":"Back","accordion_animation":"on","auto_expand_all_submenus":"off","auto_expand_current_submenus":"off","menu_item_click_to_trigger_submenu":"on","button_width":"54","button_width_unit":"px","button_height":"54","button_height_unit":"px","button_background_colour":"#ffffff","button_background_colour_hover":"#000","button_background_colour_active":"#000","toggle_button_border_radius":"5","button_transparent_background":"on","button_left_or_right":"right","button_position_type":"fixed","button_distance_from_side":"5","button_distance_from_side_unit":"%","button_top":"15","button_top_unit":"px","button_push_with_animation":"off","button_click_animation":"boring","button_line_margin":"10","button_line_margin_unit":"px","button_line_width":"25","button_line_width_unit":"px","button_line_height":"3","button_line_height_unit":"px","button_line_colour":"#b82426","button_line_colour_hover":"#b82426","button_line_colour_active":"#b82426","button_font_icon":"","button_font_icon_when_clicked":"","button_image":"","button_image_when_clicked":"","button_title":"","button_title_open":"","button_title_position":"left","menu_container_columns":"","button_font":"","button_font_size":"14","button_font_size_unit":"px","button_title_line_height":"13","button_title_line_height_unit":"px","button_text_colour":"#fff","button_trigger_type_click":"on","button_trigger_type_hover":"off","button_click_trigger":"#responsive-menu-pro-button","items_order":{"title":"","additional content":"","search":"","menu":"on"},"menu_title":"","menu_title_link":"","menu_title_link_location":"_self","menu_title_image":"","menu_title_font_icon":"","menu_title_section_padding":{"top":"10%","right":"10%","bottom":"0%","left":"10%"},"menu_title_background_colour":"","menu_title_background_hover_colour":"","menu_title_font_size":"18","menu_title_font_size_unit":"px","menu_title_alignment":"center","menu_title_font_weight":"400","menu_title_font_family":"","menu_title_colour":"#fff","menu_title_hover_colour":"#fff","menu_title_image_width":"60","menu_title_image_width_unit":"%","menu_title_image_height":"60","menu_title_image_height_unit":"px","menu_additional_content":"\u003Cstrong\u003E@oleobone\u003C/strong\u003E","menu_additional_section_padding":{"top":"1%","right":"5%","bottom":"0%","left":"5%"},"menu_additional_content_font_size":"10","menu_additional_content_font_size_unit":"px","menu_additional_content_alignment":"center","menu_additional_content_colour":"#e5e5e5","menu_search_box_text":"Search","menu_search_box_code":"","menu_search_section_padding":{"top":"5%","right":"5%","bottom":"1%","left":"5%"},"menu_search_box_height":"50","menu_search_box_height_unit":"px","menu_search_box_border_radius":"30","menu_search_box_text_colour":"#ffffff","menu_search_box_background_colour":"rgba(255,255,255,0.26)","menu_search_box_placeholder_colour":"#ffffff","menu_search_box_border_colour":"rgba(218,218,218,0)","menu_section_padding":{"top":"2%","right":"5%","bottom":"5%","left":"5%"},"menu_width":"70","menu_width_unit":"%","menu_maximum_width":"350","menu_maximum_width_unit":"px","menu_minimum_width":"250","menu_minimum_width_unit":"px","menu_auto_height":"off","menu_container_padding":{"top":"40px","right":"0px","bottom":"0px","left":"0px"},"menu_container_background_colour":"#b82426","menu_background_image":"","animation_type":"slide","menu_appear_from":"left","animation_speed":"0.5","page_wrapper":"","menu_close_on_body_click":"off","menu_close_on_scroll":"off","menu_close_on_link_click":"off","enable_touch_gestures":"off","hamburger_position_selector":"","menu_id":20498,"active_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E"},{"menu_theme":"Default","theme_type":"default","theme_location_menu":"0","submenu_submenu_arrow_width":"40","submenu_submenu_arrow_width_unit":"px","submenu_submenu_arrow_height":"39","submenu_submenu_arrow_height_unit":"px","submenu_arrow_position":"right","submenu_sub_arrow_background_colour":"","submenu_sub_arrow_background_hover_colour":"","submenu_sub_arrow_background_colour_active":"","submenu_sub_arrow_background_hover_colour_active":"","submenu_sub_arrow_border_width":"","submenu_sub_arrow_border_width_unit":"px","submenu_sub_arrow_border_colour":"#1d4354","submenu_sub_arrow_border_hover_colour":"#3f3f3f","submenu_sub_arrow_border_colour_active":"#1d4354","submenu_sub_arrow_border_hover_colour_active":"#3f3f3f","submenu_sub_arrow_shape_colour":"#fff","submenu_sub_arrow_shape_hover_colour":"#fff","submenu_sub_arrow_shape_colour_active":"#fff","submenu_sub_arrow_shape_hover_colour_active":"#fff","use_header_bar":"off","header_bar_items_order":{"logo":"off","title":"on","additional content":"off","menu":"on","search":"off"},"header_bar_title":"Responsive Menu","header_bar_html_content":"","header_bar_logo":"","header_bar_logo_link":"","header_bar_logo_width":"","header_bar_logo_width_unit":"%","header_bar_logo_height":"","header_bar_logo_height_unit":"px","header_bar_height":"80","header_bar_height_unit":"px","header_bar_padding":{"top":"0px","right":"5%","bottom":"0px","left":"5%"},"header_bar_font":"","header_bar_font_size":"14","header_bar_font_size_unit":"px","header_bar_text_color":"#ffffff","header_bar_background_color":"#1d4354","header_bar_breakpoint":"8000","header_bar_position_type":"fixed","header_bar_adjust_page":"on","header_bar_scroll_enable":"off","header_bar_scroll_background_color":"#36bdf6","mobile_breakpoint":"600","tablet_breakpoint":"1199","transition_speed":"0.5","sub_menu_speed":"0.2","show_menu_on_page_load":"off","menu_disable_scrolling":"off","menu_overlay":"off","menu_overlay_colour":"rgba(0,0,0,0.7)","desktop_menu_width":"","desktop_menu_width_unit":"%","desktop_menu_positioning":"absolute","desktop_menu_side":"left","desktop_menu_to_hide":"","use_current_theme_location":"off","mega_menu":{"225":"off","227":"off","229":"off","228":"off","226":"off"},"desktop_submenu_open_animation":"none","desktop_submenu_open_animation_speed":"100ms","desktop_submenu_open_on_click":"off","desktop_menu_hide_and_show":"off","menu_name":"ResponiveDoctoraleaderMenu","menu_to_use":"72","different_menu_for_mobile":"off","menu_to_use_in_mobile":"main-menu","use_mobile_menu":"on","use_tablet_menu":"on","use_desktop_menu":"off","menu_display_on":"shortcode","menu_to_hide":"","submenu_descriptions_on":"off","custom_walker":"","menu_background_colour":"","menu_depth":"5","smooth_scroll_on":"off","smooth_scroll_speed":"500","menu_font_icons":{"id":["225"],"icon":[""]},"menu_links_height":"40","menu_links_height_unit":"px","menu_links_line_height":"40","menu_links_line_height_unit":"px","menu_depth_0":"","menu_depth_0_unit":"%","menu_font_size":"18","menu_font_size_unit":"px","menu_font":"","menu_font_weight":"500","menu_text_alignment":"left","menu_text_letter_spacing":"","menu_word_wrap":"off","menu_link_colour":"#fff","menu_link_hover_colour":"#fff","menu_current_link_colour":"#fff","menu_current_link_hover_colour":"#fff","menu_item_background_colour":"","menu_item_background_hover_colour":"","menu_current_item_background_colour":"","menu_current_item_background_hover_colour":"","menu_border_width":"1","menu_border_width_unit":"px","menu_item_border_colour":"#ffffff","menu_item_border_colour_hover":"#ffffff","menu_current_item_border_colour":"#ffffff","menu_current_item_border_hover_colour":"#ffffff","submenu_links_height":"40","submenu_links_height_unit":"px","submenu_links_line_height":"40","submenu_links_line_height_unit":"px","menu_depth_side":"left","menu_depth_1":"10","menu_depth_1_unit":"%","menu_depth_2":"","menu_depth_2_unit":"%","menu_depth_3":"","menu_depth_3_unit":"%","menu_depth_4":"25","menu_depth_4_unit":"%","submenu_item_background_colour":"","submenu_item_background_hover_colour":"","submenu_current_item_background_colour":"","submenu_current_item_background_hover_colour":"","submenu_border_width":"","submenu_border_width_unit":"px","submenu_item_border_colour":"","submenu_item_border_colour_hover":"","submenu_current_item_border_colour":"","submenu_current_item_border_hover_colour":"","submenu_font_size":"13","submenu_font_size_unit":"px","submenu_font":"","submenu_font_weight":"500","submenu_text_letter_spacing":"","submenu_text_alignment":"left","submenu_link_colour":"#fff","submenu_link_hover_colour":"#fff","submenu_current_link_colour":"#fff","submenu_current_link_hover_colour":"#fff","inactive_arrow_shape":"\u25bc","active_arrow_shape":"\u25b2","inactive_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E","active_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_arrow_image":"","active_arrow_image":"","submenu_arrow_width":"40","submenu_arrow_width_unit":"px","submenu_arrow_height":"40","submenu_arrow_height_unit":"px","arrow_position":"right","menu_sub_arrow_shape_colour":"#fff","menu_sub_arrow_shape_hover_colour":"#fff","menu_sub_arrow_shape_colour_active":"#fff","menu_sub_arrow_shape_hover_colour_active":"#fff","menu_sub_arrow_border_width":"","menu_sub_arrow_border_width_unit":"px","menu_sub_arrow_border_colour":"","menu_sub_arrow_border_hover_colour":"","menu_sub_arrow_border_colour_active":"","menu_sub_arrow_border_hover_colour_active":"#3f3f3f","menu_sub_arrow_background_colour":"","menu_sub_arrow_background_hover_colour":"","menu_sub_arrow_background_colour_active":"","menu_sub_arrow_background_hover_colour_active":"","fade_submenus":"off","fade_submenus_side":"left","fade_submenus_delay":"100","fade_submenus_speed":"500","use_slide_effect":"off","slide_effect_back_to_text":"Back","accordion_animation":"on","auto_expand_all_submenus":"off","auto_expand_current_submenus":"off","menu_item_click_to_trigger_submenu":"on","button_width":"54","button_width_unit":"px","button_height":"54","button_height_unit":"px","button_background_colour":"#ffffff","button_background_colour_hover":"#000","button_background_colour_active":"#000","toggle_button_border_radius":"5","button_transparent_background":"on","button_left_or_right":"right","button_position_type":"fixed","button_distance_from_side":"5","button_distance_from_side_unit":"%","button_top":"15","button_top_unit":"px","button_push_with_animation":"off","button_click_animation":"boring","button_line_margin":"10","button_line_margin_unit":"px","button_line_width":"25","button_line_width_unit":"px","button_line_height":"3","button_line_height_unit":"px","button_line_colour":"#b82426","button_line_colour_hover":"#b82426","button_line_colour_active":"#b82426","button_font_icon":"","button_font_icon_when_clicked":"","button_image":"","button_image_when_clicked":"","button_title":"","button_title_open":"","button_title_position":"left","menu_container_columns":"","button_font":"","button_font_size":"14","button_font_size_unit":"px","button_title_line_height":"13","button_title_line_height_unit":"px","button_text_colour":"#fff","button_trigger_type_click":"on","button_trigger_type_hover":"off","button_click_trigger":"#responsive-menu-pro-button","items_order":{"title":"","additional content":"","search":"","menu":"on"},"menu_title":"","menu_title_link":"","menu_title_link_location":"_self","menu_title_image":"","menu_title_font_icon":"","menu_title_section_padding":{"top":"10%","right":"10%","bottom":"0%","left":"10%"},"menu_title_background_colour":"","menu_title_background_hover_colour":"","menu_title_font_size":"18","menu_title_font_size_unit":"px","menu_title_alignment":"center","menu_title_font_weight":"400","menu_title_font_family":"","menu_title_colour":"#fff","menu_title_hover_colour":"#fff","menu_title_image_width":"60","menu_title_image_width_unit":"%","menu_title_image_height":"60","menu_title_image_height_unit":"px","menu_additional_content":"\u003Cstrong\u003E@oleobone\u003C/strong\u003E","menu_additional_section_padding":{"top":"1%","right":"5%","bottom":"0%","left":"5%"},"menu_additional_content_font_size":"10","menu_additional_content_font_size_unit":"px","menu_additional_content_alignment":"center","menu_additional_content_colour":"#e5e5e5","menu_search_box_text":"Search","menu_search_box_code":"","menu_search_section_padding":{"top":"5%","right":"5%","bottom":"1%","left":"5%"},"menu_search_box_height":"50","menu_search_box_height_unit":"px","menu_search_box_border_radius":"30","menu_search_box_text_colour":"#ffffff","menu_search_box_background_colour":"rgba(255,255,255,0.26)","menu_search_box_placeholder_colour":"#ffffff","menu_search_box_border_colour":"rgba(218,218,218,0)","menu_section_padding":{"top":"2%","right":"5%","bottom":"5%","left":"5%"},"menu_width":"70","menu_width_unit":"%","menu_maximum_width":"350","menu_maximum_width_unit":"px","menu_minimum_width":"250","menu_minimum_width_unit":"px","menu_auto_height":"off","menu_container_padding":{"top":"40px","right":"0px","bottom":"0px","left":"0px"},"menu_container_background_colour":"#b82426","menu_background_image":"","animation_type":"slide","menu_appear_from":"left","animation_speed":"0.5","page_wrapper":"","menu_close_on_body_click":"off","menu_close_on_scroll":"off","menu_close_on_link_click":"off","enable_touch_gestures":"off","hamburger_position_selector":"","menu_id":19222,"active_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E"},{"menu_theme":"Default","theme_type":"default","theme_location_menu":"0","submenu_submenu_arrow_width":"40","submenu_submenu_arrow_width_unit":"px","submenu_submenu_arrow_height":"39","submenu_submenu_arrow_height_unit":"px","submenu_arrow_position":"right","submenu_sub_arrow_background_colour":"","submenu_sub_arrow_background_hover_colour":"","submenu_sub_arrow_background_colour_active":"","submenu_sub_arrow_background_hover_colour_active":"","submenu_sub_arrow_border_width":"","submenu_sub_arrow_border_width_unit":"px","submenu_sub_arrow_border_colour":"#1d4354","submenu_sub_arrow_border_hover_colour":"#3f3f3f","submenu_sub_arrow_border_colour_active":"#1d4354","submenu_sub_arrow_border_hover_colour_active":"#3f3f3f","submenu_sub_arrow_shape_colour":"#fff","submenu_sub_arrow_shape_hover_colour":"#fff","submenu_sub_arrow_shape_colour_active":"#fff","submenu_sub_arrow_shape_hover_colour_active":"#fff","use_header_bar":"off","header_bar_items_order":{"logo":"off","title":"on","additional content":"off","menu":"on","search":"off"},"header_bar_title":"Responsive Menu","header_bar_html_content":"","header_bar_logo":"","header_bar_logo_link":"","header_bar_logo_width":"","header_bar_logo_width_unit":"%","header_bar_logo_height":"","header_bar_logo_height_unit":"px","header_bar_height":"80","header_bar_height_unit":"px","header_bar_padding":{"top":"0px","right":"5%","bottom":"0px","left":"5%"},"header_bar_font":"","header_bar_font_size":"14","header_bar_font_size_unit":"px","header_bar_text_color":"#ffffff","header_bar_background_color":"#1d4354","header_bar_breakpoint":"8000","header_bar_position_type":"fixed","header_bar_adjust_page":"on","header_bar_scroll_enable":"off","header_bar_scroll_background_color":"#36bdf6","mobile_breakpoint":"600","tablet_breakpoint":"1199","transition_speed":"0.5","sub_menu_speed":"0.2","show_menu_on_page_load":"off","menu_disable_scrolling":"off","menu_overlay":"off","menu_overlay_colour":"rgba(0,0,0,0.7)","desktop_menu_width":"","desktop_menu_width_unit":"%","desktop_menu_positioning":"absolute","desktop_menu_side":"left","desktop_menu_to_hide":"","use_current_theme_location":"off","mega_menu":{"225":"off","227":"off","229":"off","228":"off","226":"off"},"desktop_submenu_open_animation":"none","desktop_submenu_open_animation_speed":"100ms","desktop_submenu_open_on_click":"off","desktop_menu_hide_and_show":"off","menu_name":"ResponiveDoctoraleaderMenu","menu_to_use":"49","different_menu_for_mobile":"off","menu_to_use_in_mobile":"main-menu","use_mobile_menu":"on","use_tablet_menu":"on","use_desktop_menu":"off","menu_display_on":"shortcode","menu_to_hide":"","submenu_descriptions_on":"off","custom_walker":"","menu_background_colour":"","menu_depth":"5","smooth_scroll_on":"off","smooth_scroll_speed":"500","menu_font_icons":{"id":["225"],"icon":[""]},"menu_links_height":"40","menu_links_height_unit":"px","menu_links_line_height":"40","menu_links_line_height_unit":"px","menu_depth_0":"5","menu_depth_0_unit":"%","menu_font_size":"18","menu_font_size_unit":"px","menu_font":"","menu_font_weight":"500","menu_text_alignment":"left","menu_text_letter_spacing":"","menu_word_wrap":"off","menu_link_colour":"#fff","menu_link_hover_colour":"#fff","menu_current_link_colour":"#fff","menu_current_link_hover_colour":"#fff","menu_item_background_colour":"","menu_item_background_hover_colour":"","menu_current_item_background_colour":"","menu_current_item_background_hover_colour":"","menu_border_width":"1","menu_border_width_unit":"px","menu_item_border_colour":"#ffffff","menu_item_border_colour_hover":"#ffffff","menu_current_item_border_colour":"#ffffff","menu_current_item_border_hover_colour":"#ffffff","submenu_links_height":"40","submenu_links_height_unit":"px","submenu_links_line_height":"40","submenu_links_line_height_unit":"px","menu_depth_side":"left","menu_depth_1":"10","menu_depth_1_unit":"%","menu_depth_2":"","menu_depth_2_unit":"%","menu_depth_3":"","menu_depth_3_unit":"%","menu_depth_4":"25","menu_depth_4_unit":"%","submenu_item_background_colour":"","submenu_item_background_hover_colour":"","submenu_current_item_background_colour":"","submenu_current_item_background_hover_colour":"","submenu_border_width":"","submenu_border_width_unit":"px","submenu_item_border_colour":"","submenu_item_border_colour_hover":"","submenu_current_item_border_colour":"","submenu_current_item_border_hover_colour":"","submenu_font_size":"13","submenu_font_size_unit":"px","submenu_font":"","submenu_font_weight":"500","submenu_text_letter_spacing":"","submenu_text_alignment":"left","submenu_link_colour":"#fff","submenu_link_hover_colour":"#fff","submenu_current_link_colour":"#fff","submenu_current_link_hover_colour":"#fff","inactive_arrow_shape":"\u25bc","active_arrow_shape":"\u25b2","inactive_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E","active_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_arrow_image":"","active_arrow_image":"","submenu_arrow_width":"40","submenu_arrow_width_unit":"px","submenu_arrow_height":"40","submenu_arrow_height_unit":"px","arrow_position":"right","menu_sub_arrow_shape_colour":"#fff","menu_sub_arrow_shape_hover_colour":"#fff","menu_sub_arrow_shape_colour_active":"#fff","menu_sub_arrow_shape_hover_colour_active":"#fff","menu_sub_arrow_border_width":"","menu_sub_arrow_border_width_unit":"px","menu_sub_arrow_border_colour":"","menu_sub_arrow_border_hover_colour":"","menu_sub_arrow_border_colour_active":"","menu_sub_arrow_border_hover_colour_active":"#3f3f3f","menu_sub_arrow_background_colour":"","menu_sub_arrow_background_hover_colour":"","menu_sub_arrow_background_colour_active":"","menu_sub_arrow_background_hover_colour_active":"","fade_submenus":"off","fade_submenus_side":"left","fade_submenus_delay":"100","fade_submenus_speed":"500","use_slide_effect":"off","slide_effect_back_to_text":"Back","accordion_animation":"on","auto_expand_all_submenus":"off","auto_expand_current_submenus":"off","menu_item_click_to_trigger_submenu":"on","button_width":"54","button_width_unit":"px","button_height":"54","button_height_unit":"px","button_background_colour":"#ffffff","button_background_colour_hover":"#000","button_background_colour_active":"#000","toggle_button_border_radius":"5","button_transparent_background":"on","button_left_or_right":"right","button_position_type":"fixed","button_distance_from_side":"5","button_distance_from_side_unit":"%","button_top":"15","button_top_unit":"px","button_push_with_animation":"off","button_click_animation":"boring","button_line_margin":"10","button_line_margin_unit":"px","button_line_width":"25","button_line_width_unit":"px","button_line_height":"3","button_line_height_unit":"px","button_line_colour":"#b82426","button_line_colour_hover":"#b82426","button_line_colour_active":"#b82426","button_font_icon":"","button_font_icon_when_clicked":"","button_image":"","button_image_when_clicked":"","button_title":"","button_title_open":"","button_title_position":"left","menu_container_columns":"","button_font":"","button_font_size":"14","button_font_size_unit":"px","button_title_line_height":"13","button_title_line_height_unit":"px","button_text_colour":"#fff","button_trigger_type_click":"on","button_trigger_type_hover":"off","button_click_trigger":"#responsive-menu-pro-button","items_order":{"title":"","additional content":"","search":"","menu":"on"},"menu_title":"","menu_title_link":"","menu_title_link_location":"_self","menu_title_image":"","menu_title_font_icon":"","menu_title_section_padding":{"top":"10%","right":"10%","bottom":"0%","left":"10%"},"menu_title_background_colour":"","menu_title_background_hover_colour":"","menu_title_font_size":"18","menu_title_font_size_unit":"px","menu_title_alignment":"center","menu_title_font_weight":"400","menu_title_font_family":"","menu_title_colour":"#fff","menu_title_hover_colour":"#fff","menu_title_image_width":"60","menu_title_image_width_unit":"%","menu_title_image_height":"60","menu_title_image_height_unit":"px","menu_additional_content":"\u003Cstrong\u003E@oleobone\u003C/strong\u003E","menu_additional_section_padding":{"top":"1%","right":"5%","bottom":"0%","left":"5%"},"menu_additional_content_font_size":"10","menu_additional_content_font_size_unit":"px","menu_additional_content_alignment":"center","menu_additional_content_colour":"#e5e5e5","menu_search_box_text":"Search","menu_search_box_code":"","menu_search_section_padding":{"top":"5%","right":"5%","bottom":"1%","left":"5%"},"menu_search_box_height":"50","menu_search_box_height_unit":"px","menu_search_box_border_radius":"30","menu_search_box_text_colour":"#ffffff","menu_search_box_background_colour":"rgba(255,255,255,0.26)","menu_search_box_placeholder_colour":"#ffffff","menu_search_box_border_colour":"rgba(218,218,218,0)","menu_section_padding":{"top":"2%","right":"5%","bottom":"5%","left":"5%"},"menu_width":"70","menu_width_unit":"%","menu_maximum_width":"350","menu_maximum_width_unit":"px","menu_minimum_width":"250","menu_minimum_width_unit":"px","menu_auto_height":"off","menu_container_padding":{"top":"40px","right":"0px","bottom":"0px","left":"0px"},"menu_container_background_colour":"#b82426","menu_background_image":"","animation_type":"slide","menu_appear_from":"left","animation_speed":"0.5","page_wrapper":"","menu_close_on_body_click":"off","menu_close_on_scroll":"off","menu_close_on_link_click":"off","enable_touch_gestures":"off","hamburger_position_selector":"","menu_id":15263,"active_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E"},{"menu_theme":"Default","theme_type":"default","theme_location_menu":"0","submenu_submenu_arrow_width":"40","submenu_submenu_arrow_width_unit":"px","submenu_submenu_arrow_height":"39","submenu_submenu_arrow_height_unit":"px","submenu_arrow_position":"right","submenu_sub_arrow_background_colour":"","submenu_sub_arrow_background_hover_colour":"","submenu_sub_arrow_background_colour_active":"","submenu_sub_arrow_background_hover_colour_active":"","submenu_sub_arrow_border_width":"","submenu_sub_arrow_border_width_unit":"px","submenu_sub_arrow_border_colour":"#1d4354","submenu_sub_arrow_border_hover_colour":"#3f3f3f","submenu_sub_arrow_border_colour_active":"#1d4354","submenu_sub_arrow_border_hover_colour_active":"#3f3f3f","submenu_sub_arrow_shape_colour":"#fff","submenu_sub_arrow_shape_hover_colour":"#fff","submenu_sub_arrow_shape_colour_active":"#fff","submenu_sub_arrow_shape_hover_colour_active":"#fff","use_header_bar":"off","header_bar_items_order":{"logo":"off","title":"on","additional content":"off","menu":"on","search":"off"},"header_bar_title":"Responsive Menu","header_bar_html_content":"","header_bar_logo":"","header_bar_logo_link":"","header_bar_logo_width":"","header_bar_logo_width_unit":"%","header_bar_logo_height":"","header_bar_logo_height_unit":"px","header_bar_height":"80","header_bar_height_unit":"px","header_bar_padding":{"top":"0px","right":"5%","bottom":"0px","left":"5%"},"header_bar_font":"","header_bar_font_size":"14","header_bar_font_size_unit":"px","header_bar_text_color":"#ffffff","header_bar_background_color":"#1d4354","header_bar_breakpoint":"8000","header_bar_position_type":"fixed","header_bar_adjust_page":"on","header_bar_scroll_enable":"off","header_bar_scroll_background_color":"#36bdf6","mobile_breakpoint":"600","tablet_breakpoint":"1199","transition_speed":"0.5","sub_menu_speed":"0.2","show_menu_on_page_load":"off","menu_disable_scrolling":"off","menu_overlay":"off","menu_overlay_colour":"rgba(0,0,0,0.7)","desktop_menu_width":"","desktop_menu_width_unit":"%","desktop_menu_positioning":"absolute","desktop_menu_side":"left","desktop_menu_to_hide":"","use_current_theme_location":"off","mega_menu":{"225":"off","227":"off","229":"off","228":"off","226":"off"},"desktop_submenu_open_animation":"none","desktop_submenu_open_animation_speed":"100ms","desktop_submenu_open_on_click":"off","desktop_menu_hide_and_show":"off","menu_name":"ResponiveDoctoraleaderMenu","menu_to_use":"47","different_menu_for_mobile":"off","menu_to_use_in_mobile":"main-menu","use_mobile_menu":"on","use_tablet_menu":"on","use_desktop_menu":"off","menu_display_on":"shortcode","menu_to_hide":"","submenu_descriptions_on":"off","custom_walker":"","menu_background_colour":"","menu_depth":"5","smooth_scroll_on":"off","smooth_scroll_speed":"500","menu_font_icons":{"id":["225"],"icon":[""]},"menu_links_height":"40","menu_links_height_unit":"px","menu_links_line_height":"40","menu_links_line_height_unit":"px","menu_depth_0":"","menu_depth_0_unit":"%","menu_font_size":"18","menu_font_size_unit":"px","menu_font":"","menu_font_weight":"500","menu_text_alignment":"left","menu_text_letter_spacing":"","menu_word_wrap":"off","menu_link_colour":"#fff","menu_link_hover_colour":"#fff","menu_current_link_colour":"#fff","menu_current_link_hover_colour":"#fff","menu_item_background_colour":"","menu_item_background_hover_colour":"","menu_current_item_background_colour":"","menu_current_item_background_hover_colour":"","menu_border_width":"1","menu_border_width_unit":"px","menu_item_border_colour":"#ffffff","menu_item_border_colour_hover":"#ffffff","menu_current_item_border_colour":"#ffffff","menu_current_item_border_hover_colour":"#ffffff","submenu_links_height":"40","submenu_links_height_unit":"px","submenu_links_line_height":"40","submenu_links_line_height_unit":"px","menu_depth_side":"left","menu_depth_1":"10","menu_depth_1_unit":"%","menu_depth_2":"","menu_depth_2_unit":"%","menu_depth_3":"","menu_depth_3_unit":"%","menu_depth_4":"25","menu_depth_4_unit":"%","submenu_item_background_colour":"","submenu_item_background_hover_colour":"","submenu_current_item_background_colour":"","submenu_current_item_background_hover_colour":"","submenu_border_width":"","submenu_border_width_unit":"px","submenu_item_border_colour":"","submenu_item_border_colour_hover":"","submenu_current_item_border_colour":"","submenu_current_item_border_hover_colour":"","submenu_font_size":"13","submenu_font_size_unit":"px","submenu_font":"","submenu_font_weight":"500","submenu_text_letter_spacing":"","submenu_text_alignment":"left","submenu_link_colour":"#fff","submenu_link_hover_colour":"#fff","submenu_current_link_colour":"#fff","submenu_current_link_hover_colour":"#fff","inactive_arrow_shape":"\u25bc","active_arrow_shape":"\u25b2","inactive_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E","active_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_arrow_image":"","active_arrow_image":"","submenu_arrow_width":"40","submenu_arrow_width_unit":"px","submenu_arrow_height":"40","submenu_arrow_height_unit":"px","arrow_position":"right","menu_sub_arrow_shape_colour":"#fff","menu_sub_arrow_shape_hover_colour":"#fff","menu_sub_arrow_shape_colour_active":"#fff","menu_sub_arrow_shape_hover_colour_active":"#fff","menu_sub_arrow_border_width":"","menu_sub_arrow_border_width_unit":"px","menu_sub_arrow_border_colour":"","menu_sub_arrow_border_hover_colour":"","menu_sub_arrow_border_colour_active":"","menu_sub_arrow_border_hover_colour_active":"#3f3f3f","menu_sub_arrow_background_colour":"","menu_sub_arrow_background_hover_colour":"","menu_sub_arrow_background_colour_active":"","menu_sub_arrow_background_hover_colour_active":"","fade_submenus":"off","fade_submenus_side":"left","fade_submenus_delay":"100","fade_submenus_speed":"500","use_slide_effect":"off","slide_effect_back_to_text":"Back","accordion_animation":"on","auto_expand_all_submenus":"off","auto_expand_current_submenus":"off","menu_item_click_to_trigger_submenu":"on","button_width":"54","button_width_unit":"px","button_height":"54","button_height_unit":"px","button_background_colour":"#ffffff","button_background_colour_hover":"#000","button_background_colour_active":"#000","toggle_button_border_radius":"5","button_transparent_background":"on","button_left_or_right":"right","button_position_type":"fixed","button_distance_from_side":"5","button_distance_from_side_unit":"%","button_top":"15","button_top_unit":"px","button_push_with_animation":"off","button_click_animation":"boring","button_line_margin":"10","button_line_margin_unit":"px","button_line_width":"25","button_line_width_unit":"px","button_line_height":"3","button_line_height_unit":"px","button_line_colour":"#b82426","button_line_colour_hover":"#b82426","button_line_colour_active":"#b82426","button_font_icon":"","button_font_icon_when_clicked":"","button_image":"","button_image_when_clicked":"","button_title":"","button_title_open":"","button_title_position":"left","menu_container_columns":"","button_font":"","button_font_size":"14","button_font_size_unit":"px","button_title_line_height":"13","button_title_line_height_unit":"px","button_text_colour":"#fff","button_trigger_type_click":"on","button_trigger_type_hover":"off","button_click_trigger":"#responsive-menu-pro-button","items_order":{"title":"","additional content":"","search":"","menu":"on"},"menu_title":"","menu_title_link":"","menu_title_link_location":"_self","menu_title_image":"","menu_title_font_icon":"","menu_title_section_padding":{"top":"10%","right":"10%","bottom":"0%","left":"10%"},"menu_title_background_colour":"","menu_title_background_hover_colour":"","menu_title_font_size":"18","menu_title_font_size_unit":"px","menu_title_alignment":"center","menu_title_font_weight":"400","menu_title_font_family":"","menu_title_colour":"#fff","menu_title_hover_colour":"#fff","menu_title_image_width":"60","menu_title_image_width_unit":"%","menu_title_image_height":"60","menu_title_image_height_unit":"px","menu_additional_content":"\u003Cstrong\u003E@oleobone\u003C/strong\u003E","menu_additional_section_padding":{"top":"1%","right":"5%","bottom":"0%","left":"5%"},"menu_additional_content_font_size":"10","menu_additional_content_font_size_unit":"px","menu_additional_content_alignment":"center","menu_additional_content_colour":"#e5e5e5","menu_search_box_text":"Search","menu_search_box_code":"","menu_search_section_padding":{"top":"5%","right":"5%","bottom":"1%","left":"5%"},"menu_search_box_height":"50","menu_search_box_height_unit":"px","menu_search_box_border_radius":"30","menu_search_box_text_colour":"#ffffff","menu_search_box_background_colour":"rgba(255,255,255,0.26)","menu_search_box_placeholder_colour":"#ffffff","menu_search_box_border_colour":"rgba(218,218,218,0)","menu_section_padding":{"top":"2%","right":"5%","bottom":"5%","left":"5%"},"menu_width":"70","menu_width_unit":"%","menu_maximum_width":"350","menu_maximum_width_unit":"px","menu_minimum_width":"250","menu_minimum_width_unit":"px","menu_auto_height":"off","menu_container_padding":{"top":"40px","right":"0px","bottom":"0px","left":"0px"},"menu_container_background_colour":"#b82426","menu_background_image":"","animation_type":"slide","menu_appear_from":"left","animation_speed":"0.5","page_wrapper":"","menu_close_on_body_click":"off","menu_close_on_scroll":"off","menu_close_on_link_click":"off","enable_touch_gestures":"off","hamburger_position_selector":"","menu_id":14779,"active_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E"},{"menu_theme":"Default","theme_type":"default","theme_location_menu":"0","submenu_submenu_arrow_width":"40","submenu_submenu_arrow_width_unit":"px","submenu_submenu_arrow_height":"39","submenu_submenu_arrow_height_unit":"px","submenu_arrow_position":"right","submenu_sub_arrow_background_colour":"","submenu_sub_arrow_background_hover_colour":"","submenu_sub_arrow_background_colour_active":"","submenu_sub_arrow_background_hover_colour_active":"","submenu_sub_arrow_border_width":"","submenu_sub_arrow_border_width_unit":"px","submenu_sub_arrow_border_colour":"#1d4354","submenu_sub_arrow_border_hover_colour":"#3f3f3f","submenu_sub_arrow_border_colour_active":"#1d4354","submenu_sub_arrow_border_hover_colour_active":"#3f3f3f","submenu_sub_arrow_shape_colour":"#fff","submenu_sub_arrow_shape_hover_colour":"#fff","submenu_sub_arrow_shape_colour_active":"#fff","submenu_sub_arrow_shape_hover_colour_active":"#fff","use_header_bar":"off","header_bar_items_order":{"logo":"off","title":"on","additional content":"off","menu":"on","search":"off"},"header_bar_title":"Responsive Menu","header_bar_html_content":"","header_bar_logo":"","header_bar_logo_link":"","header_bar_logo_width":"","header_bar_logo_width_unit":"%","header_bar_logo_height":"","header_bar_logo_height_unit":"px","header_bar_height":"80","header_bar_height_unit":"px","header_bar_padding":{"top":"0px","right":"5%","bottom":"0px","left":"5%"},"header_bar_font":"","header_bar_font_size":"14","header_bar_font_size_unit":"px","header_bar_text_color":"#ffffff","header_bar_background_color":"#1d4354","header_bar_breakpoint":"8000","header_bar_position_type":"fixed","header_bar_adjust_page":"on","header_bar_scroll_enable":"off","header_bar_scroll_background_color":"#36bdf6","mobile_breakpoint":"600","tablet_breakpoint":"1199","transition_speed":"0.5","sub_menu_speed":"0.2","show_menu_on_page_load":"off","menu_disable_scrolling":"off","menu_overlay":"off","menu_overlay_colour":"rgba(0,0,0,0.7)","desktop_menu_width":"","desktop_menu_width_unit":"%","desktop_menu_positioning":"absolute","desktop_menu_side":"left","desktop_menu_to_hide":"","use_current_theme_location":"off","mega_menu":{"225":"off","227":"off","229":"off","228":"off","226":"off"},"desktop_submenu_open_animation":"none","desktop_submenu_open_animation_speed":"100ms","desktop_submenu_open_on_click":"off","desktop_menu_hide_and_show":"off","menu_name":"ResponiveHeaderMenu","menu_to_use":"32","different_menu_for_mobile":"off","menu_to_use_in_mobile":"main-menu","use_mobile_menu":"on","use_tablet_menu":"on","use_desktop_menu":"off","menu_display_on":"shortcode","menu_to_hide":"","submenu_descriptions_on":"off","custom_walker":"","menu_background_colour":"","menu_depth":"5","smooth_scroll_on":"off","smooth_scroll_speed":"500","menu_font_icons":{"id":["225"],"icon":[""]},"menu_links_height":"40","menu_links_height_unit":"px","menu_links_line_height":"40","menu_links_line_height_unit":"px","menu_depth_0":"","menu_depth_0_unit":"%","menu_font_size":"18","menu_font_size_unit":"px","menu_font":"","menu_font_weight":"500","menu_text_alignment":"left","menu_text_letter_spacing":"","menu_word_wrap":"off","menu_link_colour":"#fff","menu_link_hover_colour":"#fff","menu_current_link_colour":"#fff","menu_current_link_hover_colour":"#fff","menu_item_background_colour":"","menu_item_background_hover_colour":"","menu_current_item_background_colour":"","menu_current_item_background_hover_colour":"","menu_border_width":"1","menu_border_width_unit":"px","menu_item_border_colour":"#ffffff","menu_item_border_colour_hover":"#ffffff","menu_current_item_border_colour":"#ffffff","menu_current_item_border_hover_colour":"#ffffff","submenu_links_height":"40","submenu_links_height_unit":"px","submenu_links_line_height":"40","submenu_links_line_height_unit":"px","menu_depth_side":"left","menu_depth_1":"10","menu_depth_1_unit":"%","menu_depth_2":"","menu_depth_2_unit":"%","menu_depth_3":"","menu_depth_3_unit":"%","menu_depth_4":"25","menu_depth_4_unit":"%","submenu_item_background_colour":"","submenu_item_background_hover_colour":"","submenu_current_item_background_colour":"","submenu_current_item_background_hover_colour":"","submenu_border_width":"","submenu_border_width_unit":"px","submenu_item_border_colour":"","submenu_item_border_colour_hover":"","submenu_current_item_border_colour":"","submenu_current_item_border_hover_colour":"","submenu_font_size":"13","submenu_font_size_unit":"px","submenu_font":"","submenu_font_weight":"500","submenu_text_letter_spacing":"","submenu_text_alignment":"left","submenu_link_colour":"#fff","submenu_link_hover_colour":"#fff","submenu_current_link_colour":"#fff","submenu_current_link_hover_colour":"#fff","inactive_arrow_shape":"\u25bc","active_arrow_shape":"\u25b2","inactive_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E","active_arrow_font_icon":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_arrow_image":"","active_arrow_image":"","submenu_arrow_width":"40","submenu_arrow_width_unit":"px","submenu_arrow_height":"40","submenu_arrow_height_unit":"px","arrow_position":"right","menu_sub_arrow_shape_colour":"#fff","menu_sub_arrow_shape_hover_colour":"#fff","menu_sub_arrow_shape_colour_active":"#fff","menu_sub_arrow_shape_hover_colour_active":"#fff","menu_sub_arrow_border_width":"","menu_sub_arrow_border_width_unit":"px","menu_sub_arrow_border_colour":"","menu_sub_arrow_border_hover_colour":"","menu_sub_arrow_border_colour_active":"","menu_sub_arrow_border_hover_colour_active":"#3f3f3f","menu_sub_arrow_background_colour":"","menu_sub_arrow_background_hover_colour":"","menu_sub_arrow_background_colour_active":"","menu_sub_arrow_background_hover_colour_active":"","fade_submenus":"off","fade_submenus_side":"left","fade_submenus_delay":"100","fade_submenus_speed":"500","use_slide_effect":"off","slide_effect_back_to_text":"Back","accordion_animation":"on","auto_expand_all_submenus":"off","auto_expand_current_submenus":"off","menu_item_click_to_trigger_submenu":"on","button_width":"48","button_width_unit":"px","button_height":"48","button_height_unit":"px","button_background_colour":"#ffffff","button_background_colour_hover":"#000","button_background_colour_active":"#000","toggle_button_border_radius":"5","button_transparent_background":"on","button_left_or_right":"right","button_position_type":"fixed","button_distance_from_side":"5","button_distance_from_side_unit":"%","button_top":"15","button_top_unit":"px","button_push_with_animation":"off","button_click_animation":"boring","button_line_margin":"10","button_line_margin_unit":"px","button_line_width":"25","button_line_width_unit":"px","button_line_height":"3","button_line_height_unit":"px","button_line_colour":"#b82426","button_line_colour_hover":"#b82426","button_line_colour_active":"#b82426","button_font_icon":"","button_font_icon_when_clicked":"","button_image":"","button_image_when_clicked":"","button_title":"","button_title_open":"","button_title_position":"left","menu_container_columns":"","button_font":"","button_font_size":"14","button_font_size_unit":"px","button_title_line_height":"13","button_title_line_height_unit":"px","button_text_colour":"#fff","button_trigger_type_click":"on","button_trigger_type_hover":"off","button_click_trigger":"#responsive-menu-pro-button","items_order":{"title":"","additional content":"","search":"","menu":"on"},"menu_title":"","menu_title_link":"","menu_title_link_location":"_self","menu_title_image":"","menu_title_font_icon":"","menu_title_section_padding":{"top":"10%","right":"10%","bottom":"0%","left":"10%"},"menu_title_background_colour":"","menu_title_background_hover_colour":"","menu_title_font_size":"18","menu_title_font_size_unit":"px","menu_title_alignment":"center","menu_title_font_weight":"400","menu_title_font_family":"","menu_title_colour":"#fff","menu_title_hover_colour":"#fff","menu_title_image_width":"60","menu_title_image_width_unit":"%","menu_title_image_height":"60","menu_title_image_height_unit":"px","menu_additional_content":"\u003Cstrong\u003E@oleobone\u003C/strong\u003E","menu_additional_section_padding":{"top":"1%","right":"5%","bottom":"0%","left":"5%"},"menu_additional_content_font_size":"10","menu_additional_content_font_size_unit":"px","menu_additional_content_alignment":"center","menu_additional_content_colour":"#e5e5e5","menu_search_box_text":"Search","menu_search_box_code":"","menu_search_section_padding":{"top":"5%","right":"5%","bottom":"1%","left":"5%"},"menu_search_box_height":"50","menu_search_box_height_unit":"px","menu_search_box_border_radius":"30","menu_search_box_text_colour":"#ffffff","menu_search_box_background_colour":"rgba(255,255,255,0.26)","menu_search_box_placeholder_colour":"#ffffff","menu_search_box_border_colour":"rgba(218,218,218,0)","menu_section_padding":{"top":"2%","right":"5%","bottom":"5%","left":"5%"},"menu_width":"70","menu_width_unit":"%","menu_maximum_width":"400","menu_maximum_width_unit":"px","menu_minimum_width":"300","menu_minimum_width_unit":"px","menu_auto_height":"off","menu_container_padding":{"top":"40px","right":"0px","bottom":"0px","left":"0px"},"menu_container_background_colour":"#b82426","menu_background_image":"","animation_type":"slide","menu_appear_from":"left","animation_speed":"0.5","page_wrapper":"","menu_close_on_body_click":"off","menu_close_on_scroll":"off","menu_close_on_link_click":"off","enable_touch_gestures":"off","hamburger_position_selector":"","menu_id":12997,"active_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-up-alt2 \"\u003E\u003C/span\u003E","inactive_toggle_contents":"\u003Cspan class=\"rmp-font-icon dashicons dashicons-arrow-down-alt2 \"\u003E\u003C/span\u003E"}]};
+//# sourceURL=rmp_menu_scripts-js-extra
+</script>
+<script defer src="https://adypu.edu.in/wp-content/plugins/responsive-menu/v4.0.0/assets/js/rmp-menu.min.js?ver=4.6.0" id="rmp_menu_scripts-js"></script>
+<script defer src="https://adypu.edu.in/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script defer src="https://adypu.edu.in/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script defer src="https://adypu.edu.in/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.4" id="swv-js"></script>
+<script defer src="https://adypu.edu.in/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.4" id="contact-form-7-js"></script>
+<script id="wpcf7-redirect-script-js-extra">
+var wpcf7r = {"ajax_url":"https://adypu.edu.in/wp-admin/admin-ajax.php"};
+//# sourceURL=wpcf7-redirect-script-js-extra
+</script>
+<script defer src="https://adypu.edu.in/wp-content/plugins/wpcf7-redirect/build/assets/frontend-script.js?ver=2c532d7e2be36f6af233" id="wpcf7-redirect-script-js"></script>
+<script defer src="https://adypu.edu.in/wp-content/themes/twentytwentyone/js/otp-verification.js" id="otp-verification-js"></script>
+<script id="admission-js-js-extra">
+var admission_ajax = {"ajax_url":"https://adypu.edu.in/wp-admin/admin-ajax.php"};
+//# sourceURL=admission-js-js-extra
+</script>
+<script defer src="https://adypu.edu.in/wp-content/themes/adypu/js/admission.js?ver=1749122339" id="admission-js-js"></script>
+<script id="twenty-twenty-one-ie11-polyfills-js-after">
+( Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach ) || document.write( '<script src="https://adypu.edu.in/wp-content/themes/twentytwentyone/assets/js/polyfills.js?ver=1.0"></scr' + 'ipt>' );
+//# sourceURL=twenty-twenty-one-ie11-polyfills-js-after
+</script>
+<script defer src="https://adypu.edu.in/wp-content/themes/twentytwentyone/assets/js/responsive-embeds.js?ver=1.0" id="twenty-twenty-one-responsive-embeds-script-js"></script>
+<script defer src="https://adypu.edu.in/wp-content/themes/adypu/js/jquery.fancybox.min.js?ver=1763980456" id="adypu-fancybox-js"></script>
+<script defer src="https://adypu.edu.in/wp-content/themes/adypu/js/slick.min.js?ver=1712558817" id="adypu-slick-js"></script>
+<script defer src="https://adypu.edu.in/wp-content/themes/adypu/js/custome.js?ver=1730896552" id="adypu-custom-js"></script>
+<script id="ivory-search-scripts-js-extra">
+var IvorySearchVars = {"is_analytics_enabled":"1"};
+//# sourceURL=ivory-search-scripts-js-extra
+</script>
+<script defer src="https://adypu.edu.in/wp-content/plugins/add-search-to-menu/public/js/ivory-search.min.js?ver=5.5.12" id="ivory-search-scripts-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://adypu.edu.in/wp-includes/js/wp-emoji-release.min.js?ver=6.9.1"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://adypu.edu.in/wp-includes/js/wp-emoji-loader.min.js
+</script>
+  <script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (!document.querySelector('link[data-chatbot-fa]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://chatcdn.npfs.co/static/backend/css/chatbots/fontawsome/css/all.css';
+        link.setAttribute('data-chatbot-fa', 'true');
+        document.head.appendChild(link);
+      }
+    }, 3000);
+  });
+  </script>
+  
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d76bc73e88d2433',t:'MTc3MjY4ODcwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+<div class="modal fade model-fixd-theme" id="myModalApply">
+<div class="modal-dialog modal-xl modal-dialog-centered">
+<div class="modal-content">
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4>Application Form 2023-24</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <!-- Modal body -->
+    <div class="modal-body">
+        <div class="form-con">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Full Name*</label>
+                        <input type="text" class="form-control" placeholder="Enter Full Name">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="form-group">
+                        <label>Email ID*</label>
+                        <input type="email" class="form-control" placeholder="Enter Email ID">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="form-group">
+                        <label>Mobile No.*</label>
+                        <input type="email" class="form-control" placeholder="Enter Mobile No.">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="form-group">
+                        <label>State*</label>
+                        <select class="form-select form-control">
+                            <option>Select State</option>
+                            <option>State 1</option>
+                            <option>State 2</option>
+                            <option>State 3</option>
+                            <option>State 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="form-group">
+                        <label>Level of Program*</label>
+                        <select class="form-select form-control">
+                            <option>Select Level of Program</option>
+                            <option>State 1</option>
+                            <option>State 2</option>
+                            <option>State 3</option>
+                            <option>State 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="form-group">
+                        <label>School*</label>
+                        <select class="form-select form-control">
+                            <option>Select School</option>
+                            <option>State 1</option>
+                            <option>State 2</option>
+                            <option>State 3</option>
+                            <option>State 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="form-group">
+                        <label>Program*</label>
+                        <select class="form-select form-control">
+                            <option>Select Level of Program</option>
+                            <option>State 1</option>
+                            <option>State 2</option>
+                            <option>State 3</option>
+                            <option>State 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>I agree to receive information regarding my submitted application by signing up on ADYPU*</label>
+                    
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="btn-con two-btn-con">
+                        <a href="javascript:void(0)" class="btn mr-2">Register Now</a>
+                        <a href="javascript:void(0)" class="btn">Existing User? Login</a>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
