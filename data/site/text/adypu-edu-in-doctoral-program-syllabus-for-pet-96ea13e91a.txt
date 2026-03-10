@@ -1,0 +1,426 @@
+Title: PhD Entrance Test (PET) Syllabus at ADYPU
+Source: http://adypu.edu.in/doctoral-program/syllabus-for-pet
+
+Careers -Join ADYPU
+
+About UsOverviewKey featuresDoctoral ProgramsInternational Research AdvisorDoctoral Studies – SupervisorsDuration
+
+Key features
+
+Doctoral Programs
+
+International Research Advisor
+
+Doctoral Studies – Supervisors
+
+Entrance TestNotificationImportant DatesEligibilityExamination StructureSyllabusPersonal Interview & Research Aptitude
+
+Notification
+
+Important Dates
+
+Eligibility
+
+Examination Structure
+
+Personal Interview & Research Aptitude
+
+Research Projects
+
+Fellowships
+
+About Us Overview Key features Doctoral Programs International Research Advisor Meet our Doctoral Supervisors Duration
+
+Meet our Doctoral Supervisors
+
+Entrance Test Notification Important Dates Eligibility Examination Structure Syllabus Personal Interview & Research Aptitude
+
+Syllabus for PET
+
+Part 1: Research Methodology
+
+The General Test measures verbal reasoning, quantitative reasoning, critical thinking and analytical writing skills — skills that have been developed over a long period of time and are not related to a specific field of study but are important for all.
+
+Verbal Reasoning
+
+The Verbal Reasoning section measures your ability to:
+
+Analyse and draw conclusions from discourse; reason from incomplete data; identify author’s assumptions and/or perspective; understand multiple levels of meaning, such as literal, figurative and author’s intent
+
+Select important points; distinguish major from minor or relevant points; summarize text; understand the structure of a text
+
+Understand the meanings of words, sentences and entire texts; understand relationships among words and among concepts
+
+Quantitative Reasoning
+
+Understand, interpret and analyze quantitative information
+
+Solve problems using mathematical models
+
+Apply basic skills and elementary concepts of arithmetic, algebra, geometry and data analysis
+
+Analytical Writing
+
+The Analytical Writing section measures your ability to:
+
+Articulate complex ideas clearly and effectively
+
+Support ideas with relevant reasons and examples
+
+Examine claims and accompanying evidence
+
+Sustain a well-focused, coherent discussion
+
+Control the elements of standard written English
+
+Research Methodology
+
+Unit One: Introduction to Research
+
+Meaning of Research
+
+Objectives of Research
+
+Motivation in Research
+
+Types of Research
+
+Research Approaches, Significance of Research
+
+Research Methods versus Methodology
+
+Importance of Knowing How Research is Done
+
+Research Process
+
+Criteria of Good Research Problems
+
+Unit Two: Research Design
+
+Defining Research Problem
+
+Selecting the Problem
+
+Necessity of Defining the Problem
+
+Technique Involved in Defining a Problem
+
+Meaning of Research Design
+
+Need for Research Design
+
+Features of a Good Design
+
+Important Concepts Relating to Research Design
+
+Different Research Designs
+
+Basic Principles of Experimental Designs
+
+Developing a Research Plan
+
+Census and Sample Survey
+
+Implications of a Sample Design Steps in Sampling
+
+Design Criteria of Selecting a Sampling Procedure
+
+Characteristics of a Good Sample Design
+
+Different Types of Sample Designs
+
+Unit Three: Research Problem Formulation
+
+The functions of the literature review in research
+
+Literature search process
+
+Review technique of selected literature
+
+Developing theoretical and conceptual frameworks
+
+Writing a literature review
+
+The significance of formulating a research problem
+
+Sources of research problems
+
+Considerations in selecting a research problem
+
+Steps in formulating a research problem
+
+Formulation of research objectives
+
+The necessity of establishing operational definitions
+
+Meaning of variable and concept, types of variables from various perspective
+
+Conversion of concepts into operational variables.
+
+Hypothesis meaning & its function
+
+Hypothesis testing, formulation and types
+
+Unit Four: Design of Experiment
+
+Typical applications of research experimental design.
+
+Guidelines for Designing Experiments.
+
+Linear Regression Models
+
+Estimation of the Parameters in Linear Regression Models.
+
+Hypothesis Testing in Multiple Regression
+
+Regression model diagnostics
+
+Unit Five: Sampling Design
+
+Sample survey, steps in sampling design, sampling procedure.
+
+Types of sampling design.
+
+Various methods of data collection and selection of most appropriate method.
+
+Guidelines for successful questioner, interview, difference between survey and experiment.
+
+Various processing operations of data
+
+Statistics in research
+
+Fundamental definition in sampling and its significance
+
+Concept of standard error and estimation
+
+Unit Six: Effective Research Proposal Writing
+
+The research proposal in quantitative and qualitative research
+
+Contents of a research proposal
+
+Unit Seven: Research ethics, Intellectual Property Rights & ICT
+
+Introduction The Computer and Computer Technology The Computer System.
+
+Ethical issues: Intellectual property rights and patent law
+
+Techniques of writing a Patent, filing procedure, technology transfer, copy right, royalty
+
+Trade related aspects of intellectual property rights
+
+Publishing: design of research paper, citation and acknowledgement
+
+Reproducibility and accountability
+
+Plagiarism tools and software analysis of plagiarism report
+
+Part 2: Domain Specific
+
+The Section Two will be subject-specific. The applicant will choose the subject with respect to the area of research he / she intends to pursue. The paper will be of 50 marks. The syllabus for different subjects has been laid as under:
+
+Engineering
+
+Unit One: Cellular Structure and Function
+
+Fundamentals of cellular biology, genetics and molecular biology are addressed. Major topics in cellular structure and function include prokaryotic and eukaryotic cells, metabolic pathways and their regulation, membrane dynamics and cell surfaces, organelles, cytoskeleton, and cell cycle. Major areas in genetics and molecular biology include viruses, chromatin and chromosomal structure, genomic organization and maintenance, and the regulation of gene expression. The cellular basis of immunity and the mechanisms of antigen-antibody interactions are included. Attention is also given to experimental methodology.
+
+Biological compounds – Macromolecular structure and bonding, Abiotic origin of biological molecules, Enzyme activity, receptor binding, and regulation, Major metabolic pathways and regulation – Respiration, fermentation, and photosynthesis, Synthesis and degradation of macromolecules, Hormonal control and intracellular messengers, Membrane dynamics and cell surfaces – Transport, endocytosis, and exocytosis, Electrical potentials and transmitter substances, Mechanisms of cell recognition, intercellular transport and communication, Cell wall and extracellular matrix, Organelles: structure, function, synthesis, and targeting – Nucleus, mitochondria, and plastids, Endoplasmic reticulum and ribosomes, Golgi apparatus and secretory vesicles, Lysosomes, peroxisomes, and vacuoles, Cytoskeleton: motility and shape – Actin-based systems, Microtubule-based systems, Intermediate filaments, Bacterial flagella and movement, Cell cycle: growth, division, and regulation (including signal transduction), Methods – Microscopy (e.g., electron, light, fluorescence), Separation (e.g., centrifugation, gel filtration, PAGE, fluorescence-activated cell sorting [FACS]), Immunological (e.g., Western Blotting, immunohistochemistry, immunofluorescence).
+
+Unit Two: Genetics and Molecular Biology
+
+Genetic foundations – Mendelian inheritance, Pedigree analysis, Prokaryotic genetics (transformation, transduction and conjugation), Genetic mapping, Chromatin and chromosomes – Nucleosomes, Karyotypes, Chromosomal aberrations, Polytene chromosomes, Genome sequence organization – Introns and exons, Single-copy and repetitive DNA, Transposable elements, Genome maintenance – DNA replication, DNA mutation and repair, Gene expression and regulation in prokaryotes and eukaryotes: mechanisms – The operon, Promoters and enhancers, Transcription factors, RNA and protein synthesis, Processing and modifications of both RNA and protein, Gene expression and regulation: effects – Control of normal development, Cancer and oncogenes, Whole genome expression (e.g., microarrays), Regulation of gene expression by RNAi (e.g., siRNA), Epigenetics, Immunobiology – Cellular basis of immunity, Antibody diversity and synthesis, Antigen-antibody interactions, Bacteriophages, animal viruses, and plant viruses – Viral genomes, replication, and assembly, Virus-host cell interactions, Recombinant DNA methodology – Restriction endonucleases, Blotting and hybridization, Restriction fragment length polymorphisms, DNA cloning, sequencing, and analysis, Polymerase chain reaction.
+
+Unit Three: Organismal Biology
+
+The structure, physiology, behavior and development of organisms are addressed. Topics covered include nutrient procurement and processing, gas exchange, internal transport, regulation of fluids, control mechanisms and effectors, and reproduction in autotrophic and heterotrophic organisms. Examples of developmental phenomena range from fertilization through differentiation and morphogenesis. Responses to environmental stimuli are examined as they pertain to organisms. Major distinguishing characteristics and phylogenetic relationships of organisms are also covered.
+
+Animal Structure, Function and Organization – Exchange with environment – Nutrient, salt, and water exchange, Gas exchange, Energy Internal transport and exchange – Circulatory, respiratory, excretory, and digestive systems Support and movement – Support systems (external, internal, and hydrostatic), Movement systems (flagellar, ciliary, and muscular), Integration and control mechanisms – Nervous and endocrine systems, Behavior (communication, orientation, learning, and instinct), Metabolic rates (temperature, body size, and activity).
+
+Animal Reproduction and Development – Reproductive structures, Meiosis, gametogenesis, and fertilization, Early development (e.g., polarity, cleavage, and gastrulation), Developmental processes (e.g., induction, determination, differentiation, morphogenesis, and metamorphosis), External control mechanisms (e.g., photoperiod).
+
+Unit Four: Plant Structure, Function, and Organization, with Emphasis on Flowering Plants
+
+Organs, tissue systems, and tissues, Water transport, including absorption and transpiration, Phloem transport and storage, Mineral nutrition, Plant energetics (e.g., respiration and photosynthesis).
+
+Plant Reproduction, Growth, and Development, with Emphasis on Flowering Plants Reproductive structures, Meiosis and sporogenesis, Gametogenesis and fertilization, Embryogeny and seed development, Meristems, growth, morphogenesis, and differentiation, Control mechanisms (e.g., hormones, photoperiod, and tropisms).
+
+Diversity of Life – Archaea – Morphology, physiology, and identification, Bacteria, Morphology, physiology, pathology, and identification, Protista, Protozoa, other heterotrophic Protista (slime molds and Oomycota), and autotrophic Protista, Major distinguishing characteristics, Phylogenetic relationships, Importance (e.g., eutrophication, disease).
+
+Fungi – Distinctive features of major phyla (vegetative, asexual and sexual reproduction), Generalized life cycles, Importance (e.g., decomposition, biodegradation, antibiotics, and pathogenicity), Lichens, Animalia with emphasis on major phyla, Major distinguishing characteristics, Phylogenetic relationships, Plantae with emphasis on major phyla – Alternation of generations, Major distinguishing characteristics, Phylogenetic relationships.
+
+Unit Five: Ecology and Evolution
+
+The interactions of organisms and their environment, emphasizing biological principles at levels above the individual are addressed. Ecological topics range from physiological adaptations to the functioning of ecosystems. Although principles are emphasized, some questions may consider applications to current environmental problems. Topics in evolution range from genetic foundations through evolutionary processes and to their consequences. Evolution is considered at the molecular, individual, population and higher levels. Some quantitative skills, including the interpretation of simple mathematical models, may be required.
+
+Ecology – Environment/organism interaction – Biogeographic patterns, Physiological ecology, Temporal patterns (e.g., seasonal fluctuations), Behavioral ecology – Habitat selection, Mating systems, Social systems, Resource acquisition, Population ecology, Population dynamics/regulation, Demography and life history strategies, Community ecology – Direct and indirect interspecific interactions, Community structure and diversity, Change and succession, Ecosystems – Productivity and energy flow, Chemical cycling.
+
+Evolution – Genetic variability – Origins (mutations, linkage, recombination, and chromosomal alterations), Levels (e.g., polymorphism and heritability), Spatial patterns (e.g., clines and ecotypes), Hardy-Weinberg equilibrium, Macroevolutionary and microevolutionary processes – Gene flow and genetic drift, Natural selection and its dynamics, Levels of selection (e.g., individual and group), Trade-offs and genetic correlations, Natural selection and genome evolution, Synonymous vs. nonsynonymous nucleotide ratios, Evolutionary consequences – Fitness and adaptation – Speciation, Systematics and phylogeny, Convergence, divergence, and extinction, Coevolution, History of life – Origin of life, Fossil record, Paleontology and paleoecology, Lateral transfer of genetic sequences.
+
+Unit One: Analytical Chemistry
+
+Data Acquisition and Use of Statistics — Errors, statistical considerations, Solutions and Standardization — Concentration terms, primary standards, Homogeneous Equilibria — Acid-base, oxidation-reduction, complexometry, Heterogeneous Equilibria — Gravimetric analysis, solubility, precipitation titrations, chemical separations, Instrumental Methods — Electrochemical methods, spectroscopic methods, chromatographic methods, thermal methods, calibration of instruments, Environmental Applications, Radiochemical Methods — Detectors and applications.
+
+Unit Two: General Chemistry
+
+Periodic trends, oxidation states, nuclear chemistry, Ionic Substances — Lattice geometries, lattice energies, ionic radii and radius/ratio effects, Covalent Molecular Substances — Lewis diagrams, molecular point groups, VSEPR concept, valence bond description and hybridization, molecular orbital description, bond energies, covalent and van der Waals radii of the elements, intermolecular forces, Metals and Semiconductors — Structure, band theory, physical and chemical consequences of band theory.
+
+Unit Three: Inorganic Chemistry
+
+Concepts of Acids and Bases — Brønsted-Lowry approaches, Lewis theory, solvent system approaches, Chemistry of the Main Group Elements — Electronic structures, occurrences and recovery, physical and chemical properties of the elements and their compounds, Chemistry of the Transition Elements — Electronic structures, occurrences and recovery, physical and chemical properties of the elements and their compounds, coordination chemistry. Special Topics — Organometallic chemistry, catalysis, bioinorganic chemistry, applied solid-state and environmental chemistry.
+
+Unit Four: Organic Chemistry
+
+Structure, Bonding and Nomenclature — Lewis structures, orbital hybridization, configuration and stereochemical notation, conformational analysis, systematic IUPAC nomenclature, spectroscopy (IR and 1H and 13C NMR), Functional Groups — Preparation, reactions, and interconversions of alkanes, alkenes, alkynes, dienes, alkyl halides, alcohols, ethers, epoxides, sulfides, thiols, aromatic compounds, aldehydes, ketones, carboxylic acids and their derivatives, amines, Reaction Mechanisms — Nucleophilic displacements and addition, nucleophilic aromatic substitution, electrophilic additions, electrophilic aromatic substitutions, eliminations, Diels-Alder and other cycloadditions, Reactive Intermediates — Chemistry and nature of carbocations, carbanions, free radicals, carbenes, benzynes, enols, Organometallics — Preparation and reactions of Grignard and organolithium reagents, lithium organocuprates, and other modern main group and transition metal reagents and catalysts, Special Topics — Resonance, molecular orbital theory, catalysis, acid-base theory, carbon acidity, aromaticity, antiaromaticity, macromolecules, lipids, amino acids, peptides, carbohydrates, nucleic acids, terpenes, asymmetric synthesis, orbital symmetry, polymers.
+
+Unit Five: Physical Chemistry
+
+Thermodynamics — First, second, and third laws, thermochemistry, ideal and real gases and solutions, Gibbs and Helmholtz energy, chemical potential, chemical equilibria, phase equilibria, colligative properties, statistical thermodynamics, Quantum Chemistry and Applications to Spectroscopy — Classical experiments, principles of quantum mechanics, atomic and molecular structure, molecular spectroscopy, Dynamics — Experimental and theoretical chemical kinetics, solution and liquid dynamics, photochemistry.
+
+Mathematics
+
+Unit One: Calculus
+
+Material learned in the usual sequence of elementary calculus courses — differential and integral calculus of one and of several variables — including calculus-based applications and connections with coordinate geometry, trigonometry, differential equations and other branches of mathematics.
+
+Unit Two: Algebra
+
+Elementary algebra: basic algebraic techniques and manipulations acquired in high school and used throughout mathematics.
+
+Linear algebra: matrix algebra, systems of linear equations, vector spaces, linear transformations, characteristic polynomials, and eigenvalues and eigenvectors.
+
+Abstract algebra and number theory: elementary topics from group theory, theory of rings and modules, field and number theory.
+
+Unit Three: Additional Topics
+
+Introductory real analysis: sequences and series of numbers and functions, continuity, differentiability and integrability, and elementary topology of R and Rn.
+
+Discrete mathematics: logic, set theory, combinatorics, graph theory, and algorithms.
+
+Other topics: general topology, geometry, complex variables, probability and statistics, and numerical analysis.
+
+Unit One: Classical Mechanics
+
+Kinematics, Newton’s laws, work and energy, oscillatory motion, rotational motion about a fixed axis, dynamics of systems of particles, central forces and celestial mechanics, three-dimensional particle dynamics, Lagrangian and Hamiltonian formalism, noninertial reference frames, elementary topics in fluid dynamics.
+
+Unit Two: Electromagnetism
+
+Electrostatics, currents and DC circuits, magnetic fields in free space, Lorentz force, induction, Maxwell’s equations and their applications, electromagnetic waves, AC circuits, magnetic and electric fields in matter.
+
+Unit Three: Optics and Wave Phenomena
+
+Wave properties, superposition, interference, diffraction, geometrical optics, polarization and Doppler effect.
+
+Unit Four: Thermo-dynamics & Statistical Mechanics
+
+Laws of thermodynamics, thermodynamic processes, equations of state, ideal gases, kinetic theory, ensembles, statistical concepts and calculation of thermodynamic quantities, thermal expansion and heat transfer.
+
+Unit Five: Quantum Mechanics
+
+Fundamental concepts, solutions of the Schrödinger equation (including square wells, harmonic oscillators, and hydrogenic atoms), spin, angular momentum, wave function symmetry and elementary perturbation theory.
+
+Unit Six: Atomic Physics
+
+Properties of electrons, Bohr model, energy quantization, atomic structure, atomic spectra, selection rules, black-body radiation, x-rays, atoms in electric and magnetic fields.
+
+Unit One: Constitutional Law
+
+Fundamental Duties and Directive Principles of State Policy: Legal status, underlying object, nature and character of directives, classification and categories of directives.
+
+Amendment of the Constitution
+
+Equality and Social Justice (Articles 14 to 18).
+
+Scope of Article 19: Scope of the Freedoms as guaranteed in Article 19(1) (a) to (g) & Reasonable Restrictions.
+
+Right to Life and Personal Liberty – Nature, Scope and Expanding Horizons of Article 21
+
+Right to Freedom of Religion and Secularism – Articles 25 to 28.
+
+Cultural and Educational Rights of Minority Communities – Articles 29 and 30.
+
+Unit Two: Jurisprudence and Legal Theory
+
+Nature and Meaning of Law.
+
+Characteristics of Analytical Positivism.
+
+Characteristics of Historical & Sociological School of Jurisprudence.
+
+Characteristics of Natural Law School.
+
+Hohfeldian Scheme of Jural Correlatives and Opposites.
+
+Concept of Ownership and Possession.
+
+Concept of Liability.
+
+Concept of Corporate Personality (Legal Persons)
+
+Unit Three: Law of Contracts
+
+Communication, Acceptance and Revocation of Proposals, Contracts, Void Contracts and Voidable Agreements, Contingent Contracts , Indemnity and Guarantee, Bailment and Pledge, Agency appointment and Authority of Agents.
+
+Unit Four: Law of Torts
+
+Origin and Development of Law of Torts in England, Meaning and Function of Law of Torts – Prescribing standards of Human Conduct, Redressal of Wrongs by Payment of Compensation, Injunction, Constituents of Tort – Wrongful Act, Legal Damage and Remedy – Injuria Sine Damno and Damnum Sine Injuria – Ubi jus Ibi remedium, Relevance of Intention, Motive and Malice in Law of Torts, Environmental Tort from Indian Perspective.
+
+Unit Five: Law of Crimes
+
+Offences against the State, Offences against the Public Tranquillity, Offences affecting the Human Body, Offences affecting the Public Health, Safety, Convenience, Decency and Morals, Offences against Property, Defamation.
+
+Unit One: Financial Management
+
+Financial Management – Nature and Scope
+
+Capital Budgeting Decisions – Risk Analysis
+
+Capital Structure and Cost of Capital
+
+Long – Term and Short – Term Financing Instruments
+
+Accounting for Fixed Assets/Intangible Assets/Inventories/Receivables/Royalties
+
+Consolidated Financial Statements
+
+Unit Two: Marketing Management
+
+Marketing Environment and Environment Scanning; Marketing Information Systems and Marketing Research; Understanding Consumer and Industrial Markets; Demand Measurement and Forecasting; Market Segmentation – Targeting and Positioning; Product Decisions, Product mix, Product Life Cycle; New Product Development; Branding and Packaging; Pricing Methods and Strategies.
+
+Promotion Decisions – Promotion mix; Advertising; Personal Selling; Channel Management; Marketing of Services; Customer Relation Management.
+
+Uses of Internet as Marketing Medium – Other related issues like branding, market development, Advertising and retailing on the net.
+
+New issues in Marketing
+
+Unit Three: Management Research
+
+Probability Theory; Probability distributions – Binomial, Poisson, Normal and Exponential; Correlation and Regression analysis; Sampling theory; Sampling distributions; Tests of Hypothesis; Large and small samples; t, z, F, Chi – square tests.
+
+Analysis of Variance; Non-parametric Methods; Time Series and Forecasting; Decision Theory.
+
+Unit Four: Corporate Strategy
+
+Concept of Corporate Strategy; Components of Strategy Formulation; Ansoffs Growth Vector; BCG Model; Porter’s Generic Strategies; Competitor Analysis; Strategic Dimensions and Group Mapping; Industry Analysis; Strategies in Industry Evolution, Fragmentation, Maturity, and decline.
+
+Competitive strategy and Corporate Strategy; Managing Cultural Diversity; Global Entry Strategies; Globalisation of Financial System and Services; Managing International Business; Competitive Advantage of Nations.
+
+Unit Five: General Management
+
+Concepts – Types, Characteristics; Motivation; Competencies and its development; Innovation and Entrepreneurship; Small business – Concepts Government policy for promotion of small and tiny enterprises; Process of Business Opportunity Identification.
+
+Detailed business plan preparation; Managing small enterprises; Planning for growth; Sickness in Small Enterprises; Rehabilitation of Sick Enterprises; Organizational Entrepreneurship.
+
+We are a world-class university that prepares students for the global market, with an emphasis on fostering growth through a spirit of innovation.
+
+Quick Links
+
+Invite Us to Your School
+
+Life at Campus
+
+Ajeenkya DY Patil University
+
+D Y Patil Knowledge City, Charholi Bk. Via Lohegaon, Pune - 412105 Maharashtra (India)
+
+Application Form 2023-24
