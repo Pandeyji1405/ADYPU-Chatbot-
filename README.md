@@ -1,13 +1,14 @@
 # ADYPU Multilingual Futuristic RAG Chatbot
 
 Examiner-ready full-stack chatbot for Ajeenkya DY Patil University with:
-- Professional red/white glassmorphism UI (examiner demo ready)
-- Human-designed layout with enterprise chat console styling
-- Voice input (speech-to-text) and voice output (text-to-speech)
-- Auto language detection and same-language responses
-- Greeting/thanks intent handling (multilingual)
-- Hybrid Retrieval-Augmented Generation (semantic + lexical RAG)
-- Mandatory translated fallback for out-of-scope queries
+- [x] Professional Dark Slate & Cyan/Indigo UI (advanced enterprise demo ready)
+- [x] 3D Human-designed layout with immersive Command Center styling
+- [x] Framer Motion micro-interactions & animated initial greeting state
+- [x] Voice input (speech-to-text) and voice output (text-to-speech)
+- [x] Auto language detection and same-language responses
+- [x] Greeting/thanks intent handling (multilingual)
+- [x] Hybrid Retrieval-Augmented Generation (semantic + lexical RAG)
+- [x] Mandatory translated fallback for out-of-scope queries
 
 ## 1) Run Locally
 

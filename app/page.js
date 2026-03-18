@@ -2,41 +2,20 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit } from 'lucide-react';
+import { Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit, Terminal, Command, Zap, MessageSquare, Database, Sparkles } from 'lucide-react';
 import { GLOBAL_LANGUAGES, INDIAN_LANGUAGES, SPEECH_LOCALES } from '@/lib/language-support.js';
 
 const BOT = 'bot';
 const USER = 'user';
 
 const KNOWLEDGE_COLUMNS = [
-  {
-    title: 'Deans',
-    prompts: ['SoD dean name', 'SSD dean name', 'Law and Liberal Arts dean']
-  },
-  {
-    title: 'Admissions',
-    prompts: ['Admissions link', 'Admission process steps', 'Mandatory disclosures link']
-  },
-  {
-    title: 'Fees',
-    prompts: ['Hostel fee range', 'Fees PDF 2025-26', 'Hostel contact number']
-  },
-  {
-    title: 'Placements',
-    prompts: ['Who handles placements?', 'SPCR full form', 'Placements page link']
-  },
-  {
-    title: 'Shortforms',
-    prompts: ['SSD full form', 'SoD full form', 'SSD vs SoD difference']
-  },
-  {
-    title: 'Officials',
-    prompts: ['Vice Chancellor name', 'Registrar name', 'Registrar email']
-  }
+  { title: 'Deans', prompts: ['SoD dean name', 'SSD dean name', 'Law and Liberal Arts dean'] },
+  { title: 'Admissions', prompts: ['Admissions link', 'Admission process steps', 'Mandatory disclosures link'] },
+  { title: 'Fees', prompts: ['Hostel fee range', 'Fees PDF 2025-26', 'Hostel contact number'] },
+  { title: 'Placements', prompts: ['Who handles placements?', 'SPCR full form', 'Placements page link'] },
+  { title: 'Shortforms', prompts: ['SSD full form', 'SoD full form', 'SSD vs SoD difference'] },
+  { title: 'Officials', prompts: ['Vice Chancellor name', 'Registrar name', 'Registrar email'] }
 ];
-
-const INDIAN_LANG_LABEL = INDIAN_LANGUAGES.map((lang) => lang.name).join(', ');
-const GLOBAL_LANG_LABEL = GLOBAL_LANGUAGES.map((lang) => lang.name).join(', ');
 
 function timestamp() {
   return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -46,18 +25,39 @@ function canUseSpeechRecognition() {
   return typeof window !== 'undefined' && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window);
 }
 
+// Helper to render markdown-like text securely
+const formatBotMessage = (text) => {
+  if (!text) return null;
+  
+  // Basic markdown to JSX splitting (simplified for this structure)
+  // Real apps might use react-markdown, we'll do quick parsing to keep dependencies light.
+  const parts = text.split('\n').map((line, i) => {
+    if (line.startsWith('### ')) return <h3 key={i}>{line.replace('### ', '')}</h3>;
+    if (line.startsWith('## ')) return <h2 key={i}>{line.replace('## ', '')}</h2>;
+    if (line.startsWith('# ')) return <h1 key={i}>{line.replace('# ', '')}</h1>;
+    if (line.startsWith('- ')) return <li key={i}>{line.replace('- ', '')}</li>;
+    if (line.match(/\[([^\]]+)\]\(([^)]+)\)/)) {
+      // Basic link parsing
+      const matches = [...line.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
+      if (matches.length > 0) {
+        let result = line;
+        return (
+          <p key={i} dangerouslySetInnerHTML={{
+            __html: result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+          }} />
+        );
+      }
+    }
+    return <p key={i}>{line}</p>;
+  });
+  
+  return parts;
+};
+
 export default function Home() {
   const [input, setInput] = useState('');
   const [apiKey, setApiKey] = useState('');
-  const [messages, setMessages] = useState([
-    {
-      role: BOT,
-      text: 'Welcome to ADYPU. Ask queries by category: Deans, Admissions, Fees, Placements, SSD, SoD.',
-      language: 'en',
-      time: timestamp(),
-      sources: []
-    }
-  ]);
+  const [messages, setMessages] = useState([]); // Start empty to show the immersive Hero state
   const [isSending, setIsSending] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [detectedLang, setDetectedLang] = useState('en');
@@ -144,13 +144,12 @@ export default function Home() {
       };
 
       setMessages((prev) => [...prev, botMessage]);
-      speakText(botMessage.text, botMessage.language || 'en');
     } catch {
       setMessages((prev) => [
         ...prev,
         {
           role: BOT,
-          text: 'Network or server issue. Please try again in a few seconds.',
+          text: 'Network anomaly detected. Please re-check connection protocols.',
           language: 'en',
           time: timestamp(),
           sources: []
@@ -199,220 +198,238 @@ export default function Home() {
     window.speechSynthesis.speak(utterance);
   }
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+  };
+
   return (
-    <main className="app-root">
-      <div className="light-layer" aria-hidden="true" />
-
-      <section className="workspace">
-        <motion.aside
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="control-panel glass-panel"
-        >
-          <header className="brand-row">
-            <motion.div whileHover={{ scale: 1.05, rotate: 5 }} className="logo-shell">
-              <img src="/adypu-logo.svg" alt="ADYPU Logo" className="logo" />
-            </motion.div>
-
-            <div className="brand-copy">
-              <h1>ADYPU AI Assistant</h1>
-              <p>Multilingual Professional Concierge</p>
-            </div>
-          </header>
-
-          <div className="avatar-stage" aria-hidden="true">
-            <div className="avatar-halo" />
-            <div className="avatar-orb" />
-            <div className="orbit orbit-a" />
-            <div className="orbit orbit-b" />
-          </div>
-
-          <section className="metric-grid">
-            <article className="metric-card">
-              <span className="metric-label">
-                <Languages size={14} /> Detected Language
-              </span>
-              <strong>{detectedLang.toUpperCase()}</strong>
-            </article>
-
-            <article className="metric-card">
-              <span className="metric-label">
-                <BrainCircuit size={14} /> Knowledge Mode
-              </span>
-              <strong>RAG + Translation</strong>
-            </article>
-
-            <article className="metric-card">
-              <span className="metric-label">
-                <ShieldCheck size={14} /> Voice Input
-              </span>
-              <strong>{voiceSupported ? 'Enabled' : 'Not Supported'}</strong>
-            </article>
-          </section>
-
-          <section className="metric-grid" style={{ marginTop: '0.4rem' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-              <span className="metric-label" style={{ fontSize: '0.7rem' }}>OpenAI API Key (Optional)</span>
-              <input 
-                type="password" 
-                placeholder="sk-proj-..." 
-                value={apiKey}
-                onChange={(e) => {
-                  setApiKey(e.target.value);
-                  localStorage.setItem('adypu_openai_key', e.target.value);
-                }}
-                style={{
-                  background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', 
-                  borderRadius: '10px', padding: '0.6rem', color: '#fff', fontSize: '0.8rem', outline: 'none'
-                }}
-              />
-            </div>
-          </section>
-
-          <section className="knowledge-columns">
-            <h3>Knowledge Columns</h3>
-            <div className="topic-grid">
-              {KNOWLEDGE_COLUMNS.map((column, i) => (
-                <motion.article
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  key={column.title}
-                  className="topic-card"
-                >
-                  <h4>{column.title}</h4>
-                  <div className="topic-actions">
-                    {column.prompts.map((prompt) => (
-                      <button
-                        key={`${column.title}-${prompt}`}
-                        type="button"
-                        className="topic-btn"
-                        onClick={() => handleQuickPrompt(prompt)}
-                      >
-                        {prompt}
-                      </button>
-                    ))}
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </section>
-        </motion.aside>
-
-        <motion.section
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-          className="chat-panel glass-panel"
-        >
-          <header className="chat-topbar">
-            <div>
-              <h2>ADYPU Multilingual Knowledge Desk</h2>
-              <p>Official-information-first responses with retrieval grounding and language-aware support.</p>
+    <>
+      <div className="body-background" />
+      <div className="grid-overlay" />
+      <div className="noise-overlay" />
+      
+      <main className="app-root">
+        <div className="workspace-container">
+          
+          <motion.aside 
+            initial={{ x: -40, opacity: 0 }} 
+            animate={{ x: 0, opacity: 1 }} 
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="sidebar glass-panel"
+          >
+            <div className="brand-section">
+              <div className="logo-container">
+                <Terminal size={24} color="#06b6d4" />
+              </div>
+              <div className="brand-text">
+                <h1>ADYPU Nexus</h1>
+                <p>Enterprise AI Console</p>
+              </div>
             </div>
 
-            <div className="status-group">
-              <span className="status-pill">
-                <ShieldCheck size={14} /> Official Data
-              </span>
-              <span className="status-pill">
-                <BrainCircuit size={14} /> Exact Answer Mode
-              </span>
+            <div className="metrics-dashboard">
+              <div className="metric-item">
+                <div className="metric-header"><Languages size={14}/> Lang Protocol</div>
+                <div className="metric-value">{detectedLang.toUpperCase()}</div>
+              </div>
+              <div className="metric-item">
+                <div className="metric-header"><Database size={14}/> Core Engine</div>
+                <div className="metric-value">RAG 2.0 + Neural Sync</div>
+              </div>
+              <div className="metric-item">
+                <div className="metric-header"><Command size={14}/> OpenAI API Array</div>
+                <input 
+                  type="password" 
+                  className="api-key-input"
+                  placeholder="Insert Key (sk-proj-...)" 
+                  value={apiKey}
+                  onChange={(e) => {
+                    setApiKey(e.target.value);
+                    localStorage.setItem('adypu_openai_key', e.target.value);
+                  }}
+                />
+              </div>
             </div>
-          </header>
 
-          <div className="messages-scroll">
-            <AnimatePresence initial={false}>
-              {messages.map((message, idx) => (
-                <motion.article
-                  key={`${message.role}-${idx}`}
-                  initial={{ opacity: 0, scale: 0.95, y: 15 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                  className={`message-row ${message.role === USER ? 'from-user' : 'from-bot'}`}
-                >
-                  <div className="bubble">
-                    <div className="bubble-meta">
-                      <span>{message.role === USER ? 'You' : 'ADYPU AI'}</span>
-                      <time>{message.time || timestamp()}</time>
+            <div className="prompts-section">
+              <div className="section-title">
+                <Sparkles size={14} /> Intelligence Index
+              </div>
+              
+              <motion.div 
+                className="prompts-grid"
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+              >
+                {KNOWLEDGE_COLUMNS.map((col, idx) => (
+                  <motion.div variants={itemVariants} key={col.title} className="prompt-category">
+                    <div className="category-name">{col.title}</div>
+                    <div className="prompt-list">
+                      {col.prompts.map(prompt => (
+                        <button key={prompt} className="prompt-btn" onClick={() => handleQuickPrompt(prompt)}>
+                          {prompt}
+                        </button>
+                      ))}
                     </div>
-
-                    <p className="bubble-text">{message.text}</p>
-
-                    {message.role === BOT && message.sources?.length > 0 && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        transition={{ delay: 0.4 }}
-                        className="source-list"
-                      >
-                        {message.sources.map((source, sourceIndex) => (
-                          <span key={`${source.title}-${sourceIndex}`} className="source-tag" title={source.title}>
-                            {source.title}
-                          </span>
-                        ))}
-                      </motion.div>
-                    )}
-
-                    {message.role === BOT && (
-                      <button
-                        type="button"
-                        className="speak-inline"
-                        title="Read aloud"
-                        onClick={() => speakText(message.text, message.language || detectedLang || 'en')}
-                      >
-                        <Volume2 size={14} />
-                        <span>Speak</span>
-                      </button>
-                    )}
-                  </div>
-                </motion.article>
-              ))}
-            </AnimatePresence>
-
-            {isSending && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="typing-row"
-              >
-                <div className="typing-dot" />
-                <div className="typing-dot" />
-                <div className="typing-dot" />
+                  </motion.div>
+                ))}
               </motion.div>
-            )}
+            </div>
+          </motion.aside>
 
-            <div ref={endRef} />
-          </div>
+          <motion.section 
+            initial={{ scale: 0.98, opacity: 0 }} 
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="chat-area glass-panel"
+          >
+            <header className="chat-header">
+              <div className="chat-header-info">
+                <h2>Nexus Terminal <div className="pulse-dot" /></h2>
+                <p>Secure connection established. Awaiting queries.</p>
+              </div>
+              <div className="status-badges">
+                <div className="badge active"><ShieldCheck size={14} /> Verified Grounding</div>
+                <div className="badge"><Zap size={14} /> High-Speed Mode</div>
+              </div>
+            </header>
 
-          <div className="composer-container">
-            <form className="composer" onSubmit={sendMessage}>
-              <button
-                type="button"
-                className={`icon-btn mic-btn ${isListening ? 'live' : ''}`}
-                onClick={toggleMic}
-                title="Voice input"
-                disabled={!voiceSupported}
-              >
-                <Mic size={20} />
-              </button>
+            <div className="chat-messages">
+              {messages.length === 0 && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="greeting-hero"
+                >
+                  <motion.div 
+                    animate={{ rotateY: [0, 5, -5, 0] }}
+                    transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                    className="greeting-icon"
+                  >
+                    <BrainCircuit />
+                  </motion.div>
+                  <h2>Welcome to ADYPU Nexus</h2>
+                  <p>A highly intelligent, language-aware concierge designed to securely extract insights from the ADYPU Knowledge Index. Select a prompt or type your query below to begin the handshake.</p>
+                </motion.div>
+              )}
 
-              <input
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                placeholder="Type your ADYPU query in any language..."
-                aria-label="Chat input"
-              />
+              <AnimatePresence initial={false}>
+                {messages.map((message, idx) => (
+                  <motion.div
+                    key={`${message.time}-${idx}`}
+                    initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                    className={`message-wrapper ${message.role === USER ? 'message-user' : 'message-bot'}`}
+                  >
+                    <div className="message-content">
+                      <div className="message-meta">
+                        {message.role === USER ? (
+                          <>User Authority <span style={{opacity: 0.5}}>{message.time}</span></>
+                        ) : (
+                          <><Terminal size={12} color="#06b6d4"/> Nexus AI <span style={{opacity: 0.5}}>{message.time}</span></>
+                        )}
+                      </div>
+                      
+                      <div className="message-bubble">
+                        {message.role === BOT ? formatBotMessage(message.text) : <p>{message.text}</p>}
+                      </div>
 
-              <button className="icon-btn send-btn" type="submit" disabled={isSending || !input.trim()}>
-                <Send size={18} />
-                <span>{isSending ? 'Sending' : 'Send'}</span>
-              </button>
-            </form>
-          </div>
-        </motion.section>
-      </section>
-    </main>
+                      {message.role === BOT && message.sources?.length > 0 && (
+                        <div className="sources-container">
+                          {message.sources.map((s, i) => (
+                            <span key={i} className="source-tag">
+                              <Database size={10} /> {s.title}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {message.role === BOT && (
+                        <div className="action-bar">
+                          <button 
+                            className="action-btn"
+                            onClick={() => speakText(message.text, message.language || detectedLang)}
+                            title="Synthesize audio"
+                          >
+                            <Volume2 size={12}/> Audio Sync
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+
+              {isSending && (
+                <motion.div 
+                  initial={{ opacity: 0 }} 
+                  animate={{ opacity: 1 }} 
+                  className="message-wrapper message-bot"
+                >
+                  <div className="message-content">
+                    <div className="message-meta"><Terminal size={12} color="#06b6d4"/> Nexus AI </div>
+                    <div className="message-bubble" style={{ padding: '0.8rem 1rem'}}>
+                      <div className="typing-indicator">
+                        <div className="typing-dot" />
+                        <div className="typing-dot" />
+                        <div className="typing-dot" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+              <div ref={endRef} />
+            </div>
+
+            <section className="chat-composer-section">
+              <form className="chat-composer" onSubmit={sendMessage}>
+                <button
+                  type="button"
+                  className={`composer-btn ${isListening ? 'active' : ''}`}
+                  onClick={toggleMic}
+                  disabled={!voiceSupported}
+                  title="Voice input"
+                >
+                  <Mic size={20} />
+                </button>
+                <textarea 
+                  className="chat-input"
+                  placeholder="Initialize command sequence..."
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault();
+                      sendMessage();
+                    }
+                  }}
+                  rows={1}
+                />
+                <button 
+                  type="submit" 
+                  className="composer-btn send"
+                  disabled={isSending || !input.trim()}
+                >
+                  <Send size={18} />
+                </button>
+              </form>
+            </section>
+          </motion.section>
+
+        </div>
+      </main>
+    </>
   );
 }
