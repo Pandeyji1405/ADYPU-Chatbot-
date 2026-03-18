@@ -1,8 +1,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { config } from 'dotenv';
 import { Pinecone } from '@pinecone-database/pinecone';
 import { embedTexts } from '../lib/embeddings.js';
+
+config({ path: '.env.local' });
 
 const RAW_DIR = path.join(process.cwd(), 'data', 'raw');
 const KB_DIR = path.join(process.cwd(), 'data', 'kb');
@@ -27,6 +30,13 @@ function chunkText(text, chunkSize = 900, overlap = 160) {
 
 function makeId(input) {
   return crypto.createHash('sha1').update(input).digest('hex').slice(0, 16);
+}
+
+function sanitizeText(text) {
+  return (text || '')
+    .replace(/[\uD800-\uDFFF]/g, '')
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '')
+    .trim();
 }
 
 async function collectDocuments() {
@@ -107,7 +117,7 @@ async function buildIndex() {
   const chunked = [];
 
   for (const doc of docs) {
-    const chunks = chunkText(doc.content);
+    const chunks = chunkText(sanitizeText(doc.content));
 
     for (const [index, text] of chunks.entries()) {
       const id = makeId(`${doc.source}-${index}-${text.slice(0, 120)}`);
@@ -164,10 +174,10 @@ async function upsertToPinecone(index) {
         id: item.id,
         values: item.embedding,
         metadata: {
-          title: item.title,
+          title: sanitizeText(item.title),
           category: item.category,
           source: item.source,
-          text: item.text
+          text: sanitizeText(item.text)
         }
       }))
     );
