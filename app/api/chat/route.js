@@ -10,6 +10,7 @@ import {
   translateText
 } from '@/lib/language.js';
 import { retrieveContext, generateAnswer } from '@/lib/rag.js';
+import { webSearch, openWebSearch } from '@/lib/web-search.js';
 
 function tightenAnswer(query, answer) {
   let output = String(answer || '').trim().replace(/\s+/g, ' ');
@@ -89,6 +90,40 @@ export async function POST(req) {
     });
 
     if (!retrieval.hasConfidentMatch) {
+      // Try Tavily ADYPU-focused search first
+      const webResult = await webSearch(message);
+      if (webResult?.answer) {
+        const generated = await generateAnswer({
+          query: message,
+          language: replyLanguage,
+          history,
+          contextItems: [{ title: 'Web', category: 'Web', source: webResult.sources?.[0]?.url || 'web', score: 0.8, text: webResult.answer }],
+          responseStyle: style
+        });
+        let answer = generated.answer;
+        if (!answer || answer === '__FALLBACK__') answer = webResult.answer;
+        if (replyLanguage !== 'en' && style !== 'hinglish') answer = await translateText(answer, replyLanguage, { style, concise: true });
+        else if (style === 'hinglish') answer = await translateText(answer, 'hi', { style: 'hinglish', concise: true });
+        return NextResponse.json({
+          answer: tightenAnswer(message, answer),
+          language: replyLanguage,
+          sources: (webResult.sources || []).slice(0, 3).map((s) => ({ title: s.title, source: s.url, score: 0.8 }))
+        });
+      }
+
+      // Try open web search for truly general queries
+      const openResult = await openWebSearch(message);
+      if (openResult?.answer) {
+        let answer = openResult.answer;
+        if (replyLanguage !== 'en' && style !== 'hinglish') answer = await translateText(answer, replyLanguage, { style, concise: true });
+        else if (style === 'hinglish') answer = await translateText(answer, 'hi', { style: 'hinglish', concise: true });
+        return NextResponse.json({
+          answer: tightenAnswer(message, answer),
+          language: replyLanguage,
+          sources: (openResult.sources || []).slice(0, 2).map((s) => ({ title: s.title, source: s.url, score: 0.6 }))
+        });
+      }
+
       const translatedFallback = await fallbackText();
       return NextResponse.json({
         answer: tightenAnswer(message, translatedFallback),
