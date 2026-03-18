@@ -1,0 +1,577 @@
+﻿University Fee Structure (A.Y. 2024-25)
+The fee structure for regular programs for the 2024-25 academic year was approved on May 6, 2024. Fees are generally payable in two equal installments: the first by July 22, 2024, and the second by January 2, 2025.
+
+School of Engineering (SOE)
+ProgramTotal Annual Fees (₹)B.Tech CSE (Cyber Security / Software Engineering) 300,000B.Tech Mechanical (Automobile / 3D Printing & Design) 250,000B.Tech Artificial Intelligence and Data Science 300,000B.Tech Biotechnology / Biomedical Engineering 250,000B.Tech Robotics and Automation Engineering 250,000B.Tech CSE (Virtual and Augmented Reality) 350,000B.Tech CSE (Cyber Forensic & Info Security) 350,000B.Tech Aeronautical / Aerospace / Avionics Engineering 300,000Integrated B.Tech + M.Tech (Aerospace / Defence Tech) 350,000M.Tech (Bio Engineering / AI & ML / Robotics) 230,000M.Tech (Space Technology / Infrastructure Engineering) 250,000
+School of Management (SOM)
+ProgramTotal Annual Fees (₹)BBA (Sales & Marketing, Finance, Fintech, etc.) 230,000BBA (Business Analytics, Brand Management, etc.) 140,250BBA Honors (Intl. Finance & Data Analytics) 300,000BBA Aviation 200,000MBA (HR, Finance, Operations, Marketing, etc.) 350,000MBA (Business Analytics, Retail Management, etc.) 238,000MBA (Sports Mgmt, AI & Data Science, Intl. Business) 1,000,000MBA Aviation 300,000
+School of Design (SOD)
+ProgramTotal Annual Fees (₹)B.Des (UI/UX, Visual Comm, Fashion) 350,000B.Des Transportation Design 500,000M.Des Transportation Design 700,000M.Des UI/UX 500,000PG Diploma in Digital Modelling 275,000
+Other Schools & Programs
+* School of Law: BA LLB, LLB, and LLM programs are all priced at ₹200,000 per year.
+* School of Liberal Arts: BA Liberal Arts-Hons and MA International Studies are ₹230,000 per year.
+* School of Architecture: B.Arch and M.Arch (Environmental) are ₹200,000 per year.
+* School of Hotel Management: B.Sc Hospitality and Hotel Administration is ₹175,000, and M.Sc is ₹200,000.
+* School of Film and Media: B.Sc Sound Engineering is ₹300,000; Film Making is ₹200,000; Animation and Journalism are ₹155,000.
+* Ph.D. Programs: Available in fields like Engineering, Law, Management, and Design for ₹200,000 per year.
+
+Contact Directory
+The following contacts are designated for student inquiries and financial aid/admission support:
+Admissions Hotlines
+* General Admissions: +91-8956487911 / +91-8956487916
+* School of Engineering: +91-8956487911 / +91-9175067360
+* School of Management: +91-9075153542 / +91-8956487916
+* School of Design: +91-9075153542 / +91-8956487916
+* School of Law: +91-9175069861 / +91-9028954966
+* School of Hotel Management: +91-7906285013
+* Hostel Inquiries: +91-8087778799
+Email Directory
+* Central Admissions: admissions@adypu.edu.in
+* General Info: info@adypu.edu.in
+* Student Service Division (SSD): ssd@adypu.edu.in
+* Engineering Specific: soe.info@adypu.edu.in
+Office Hours
+* Monday to Friday: 9:30 AM - 5:30 PM IST
+* Admissions (Saturday): 9:30 AM - 6:30 PM IST
+* Admissions (Sunday): 9:30 AM - 5:30 PM IST
+
+Scholarships
+The university offers several "Innovation" and "Excellence" based scholarships:
+* Ajeenkya Genius Scholarship
+* Pune Pride Scholarship
+* ADYPU Divyang Excellence Scholarship (for students with disabilities)
+* Beti Padhao Scholarship (for female students)
+* Khelo India Sports Delight Scholarship
+* ADYPU Entrance Talent Hunt Scholarship
+
+Heads of ADYPU
+* Dr. Sudhakar Shinde: Registrar
+* Dr. Sunil Ingole: Incharge Controller of Examinations
+* Dr. Kamaljeet Kaur Siddhu: Director, School of Online and Distance Education
+* Dr. Prashant Kumbharkar: Dean, School of Engineering & School of Defence
+* Dr. Chetna Mehta: Dean, School of Management
+* Ar. Aparna Mhetras: Dean, School of Design
+* Dr. Sunny Thomas: Dean, School of Law & School of Liberal Arts
+* Dr. Sushanta Das: Dean, School of Science & School of Film and Media
+* Dr. Atul Ramgade: Associate Dean, School of Hospitality and Hotel Management
+* Dr. Radhika Menon: Dean, School of Doctoral Studies
+* KM Sinha: Dean, Center for Advanced Indian Science
+* Prof. Rajaram Golgire: Dean, School of Architecture
+* Dr. Vijay Kulkarni: Dean, Student Service Division
+* Dr. Deepa Joshi: Director, IQAC
+* Dr. Santosh Borde: Director, SPCR
+* Dr. Sachin M. Rajas: Dean, Planning and Development
+* Dr. Heena Sidhu: Head of Sports
+
+About ADYPU
+Ajeenkya DY Patil University (ADYPU) in Pune is an innovation-focused institution offering a range of undergraduate, postgraduate, and doctoral programs.
+Academic Schools
+* Engineering
+* Management
+* Design
+* Hotel Management
+* Law
+* Liberal Arts
+* Architecture
+* Film and Media
+* Science
+* Allied Health Sciences
+* Online and Distance Education
+Key Educational Features
+* T-Shaped Professional: The curriculum combines specialized expertise with interdisciplinary knowledge.
+* Global Partnerships: Collaborations with universities in the US, UK, and Europe for immersion programs.
+* Innovation & Entrepreneurship: Dedicated centers like the DRIF (Design, Research and Innovation Foundation) and the Entrepreneurship and Innovation Centre.
+Campus Events
+* Alchemy: Annual School of Design event celebrating creativity.
+* #TECH: A fusion of technology, sports, and cultural competitions.
+* Impetus: A large-scale annual sports event.
+* Ablaze: Cultural spectacle featuring dance, music, and fashion.
+* Y20 Festival: A prestigious youth-led innovation event hosted by the university.
+Recent Highlights (2025-2026)
+* Ph.D. Admissions Open 2026: Currently inviting applications for research programs.
+* 10th Convocation: Celebrated in December 2025.
+* Awards: School of Management recognized in the Times B-School Survey 2026.
+* International Presence: Recent engagements with global leaders, including the Vice President of Guyana.
+
+
+UNDERGRADUATE COURSES-
+SOE- School of engineering
+The School of Engineering (SOE) at Ajeenkya DY Patil University offers the following undergraduate programs and specializations:
+B.Tech Programs & Specializations
+* Computer Science and Engineering (CSE):
+o Artificial Intelligence
+o Cyber Security
+o Software Engineering
+o Fintech
+o Virtual and Augmented Reality
+o Cyber Forensic & Information Security
+* Information Technology:
+o Mobile Application & Information Security
+o Cloud Technology
+o Information Security
+o Computer Science & Technology (AI and Digital Systems)
+* Biotechnology:
+o Medical Biotechnology
+o Food Technology
+o Bioinformatics
+* Mechanical Engineering:
+o Automobile Engineering
+o 3D Printing and Design
+* Other B.Tech Specializations:
+o Artificial Intelligence and Data Science
+o Biomedical Engineering
+o Robotics and Automation Engineering
+o Civil Engineering
+o Aeronautical Engineering
+o Aerospace Engineering
+o Avionics Engineering
+o Smart and Sustainable Energy
+o Electronics and Computer Engineering
+BCA (Hons) Specializations
+* Artificial Intelligence and Data Science
+* Blockchain and Distributed Computing
+* Data Analytics and Business Intelligence
+* Information Technology (Cyber Security / Cloud Computing / Media)
+* Full Stack Development
+* Web App Development
+* Game Development
+* Internet of Things
+Admission & Scholarships
+* Process: Includes the ADYPU Common Entrance Test (ACET) followed by a counseling session and personal interview.
+* Scholarships: Multiple options available, including the Ajeenkya Genius Scholarship, Pune Pride Scholarship, and various excellence/sports-based awards.
+
+SOM- School of management 
+The School of Management (SOM) at Ajeenkya DY Patil University offers several undergraduate tracks with various specializations:
+BBA Specializations
+* Business & Strategy: Entrepreneurship and Innovation, International Business, Business Analytics, Business and Process Excellence.
+* Finance: Financial Management and Corporate Strategies, Finance, Financial Markets, Fintech, Fintech and Digital Banking, Banking and Financial Services.
+* Marketing & Sales: Sales and Marketing, Integrated Marketing and Communications, Brand Management, Online Media and e-Marketing.
+* Operations & Services: Logistics and Supply Chain Management, e-Commerce and Logistics, Retail Management, Aviation, Sports Management.
+* Advanced Studies: Decision Sciences.
+Additional Undergraduate Degrees
+* BBA Honours: Specializations in International Business, Banking and Financial Services, and Digital Marketing.
+* BBA in International Finance
+* iB.Com (International Accounting)
+Placement & Admissions
+* Placement Stats: Highest package of ₹9 LPA and an average package of ₹5.5 LPA.
+* Admission Process: Requires registration for the ADYPU Common Entrance Test (ACET), followed by a counseling session and personal interview.
+* Scholarships: 11 different scholarship categories are available, including the Ajeenkya Genius and Pune Pride scholarships.
+SOD- School of design
+The School of Design (SOD) at Ajeenkya DY Patil University offers the following Bachelor's in Design (B.Des) specializations:
+* UI/UX: Focuses on crafting digital user experiences and interfaces.
+* Visual Communication: Involves branding, advertising, and graphic content for print and digital media.
+* Product Design: Focused on developing innovative consumer products and electronics.
+* Transportation Design: Specializes in the design of vehicles and mobility solutions.
+* Fashion Design: Covers the design of clothing, accessories, and apparel collections.
+* Interior Design: Focuses on transforming residential, commercial, and hospitality spaces.
+Admission Details
+* ACET & Studio Test: Candidates must register for the ADYPU Common Entrance Test (ACET). For design programs specifically, a Studio Test is required alongside the personal interview and portfolio review (SOP).
+* Scholarships: Students are eligible for various university-wide scholarships, such as the Ajeenkya Genius and Pune Pride scholarships.
+
+SOL- School of law
+The School of Law (SOL) at Ajeenkya DY Patil University offers the following undergraduate programs:
+Undergraduate Programs
+* BA LLB: A five-year integrated program combining Arts and Law.
+* BBA LLB: A five-year integrated program combining Business Administration and Law.
+* LLB: A three-year Bachelor of Legislative Law program.
+Key Features & Placements
+* Practical Training: Emphasis on moot courts, mock trials, and legal clinics to build advocacy skills.
+* Internships: Integrated throughout the curriculum with ties to legal firms, corporations, and government bodies.
+* Global Focus: Opportunities for international exposure and a strong alumni network for mentorship.
+Admission & Scholarships
+* Process: Candidates must appear for the ADYPU Common Entrance Test (ACET), followed by a counseling session and personal interview.
+* Scholarships: Students can apply for various university scholarships, including the Ajeenkya Genius, Beti Padhao, and Sports Excellence awards.
+
+SOHM- School of hotel management
+The School of Hotel Management (SOHM) at Ajeenkya DY Patil University offers the following undergraduate program and specializations:
+Undergraduate Program
+* B.Sc. in Hospitality and Hotel Administration (B.Sc. HHA)
+Specializations
+* Culinary Arts: Focused on professional food preparation and kitchen management.
+* Hotel Management: Covering core operations and administration of hotel properties.
+* Travel and Tourism: Focused on the broader tourism sector and travel services.
+Key Features
+* State-of-the-Art Facilities: Includes cutting-edge kitchens, fully equipped restaurants, and simulated hotel environments.
+* Industry Connection: Deep ties with global hotels, resorts, and restaurants for internships and placements.
+* Experiential Learning: Heavy emphasis on guest lectures, culinary labs, and real-world simulations.
+Admission & Scholarships
+* Admission Process: Requires registration for the ADYPU Common Entrance Test (ACET), followed by a counseling session and personal interview.
+* Scholarships: Students have access to 11 scholarship categories, including the Ajeenkya Genius and Khelo India Sports Delight scholarships.
+
+SOLA- School of liberal arts
+The School of Liberal Arts (SOLA) at Ajeenkya DY Patil University offers a Bachelor's in Liberal Arts (BA) with the following majors and specializations:
+Academic Majors
+* English
+* International Studies
+* Psychology
+* Economics
+Specializations
+* English Language and Literature
+* Economics
+* Psychology
+* Politics and International Relations
+* Journalism and Mass Communication
+* Sociology
+Career Pathways
+Graduates can pursue diverse fields such as:
+* Journalism, Media, and Public Relations
+* Social Work, Counseling, and Human Resources
+* International Relations and Diplomacy
+* Research, Policy Analysis, and Law
+* Creative Writing, Publishing, and Event Management
+Admission & Scholarships
+* Process: Candidates register for the ADYPU Common Entrance Test (ACET), followed by a counseling session and personal interview.
+* Scholarships: 11 different categories are available, including the Ajeenkya Genius, Pune Pride, and Beti Padhao scholarships.
+
+SOFM- School of film and media
+The School of Film and Media (SOFM) at Ajeenkya DY Patil University offers the following undergraduate programs:
+Undergraduate Degrees
+* Bachelor of Science (Hons.) in Film and Media: A comprehensive art and craft-oriented program with the following specializations:
+o Sound Engineering
+o Film Making
+o Animation and Visual Effects
+o Game Art and Design
+* Bachelor of Arts (Hons.) - Journalism & Media Production
+Career Opportunities
+Graduates can pursue various roles, including:
+* Film Director, Cinematographer, or Editor
+* Screenwriter and Producer
+* Media Journalist and Radio Presenter
+* Content Creator / YouTuber
+* Sound Engineer and Multimedia Artist
+* Public Relations Specialist and Digital Marketing Specialist
+Admission & Scholarships
+* Admission Process: Registration for the ADYPU Common Entrance Test (ACET) followed by a counseling session and personal interview.
+* Scholarships: Students are eligible for 11 scholarship categories, including the Ajeenkya Genius, Pune Pride, and Beti Padhao scholarships.
+* Placement: The school provides placement assistance through industry partnerships, portfolio development, and experiential learning.
+
+SOA- School of Architecture
+The School of Architecture (SOA) at Ajeenkya DY Patil University offers the following undergraduate program:
+Undergraduate Program
+* Bachelor's in Architecture (B.Arch): A five-year degree program providing a foundation in architectural theory, design principles, and technical skills.
+Focus Areas & Career Paths
+The program prepares students for diverse pathways, including:
+* Architectural & Sustainable Design: Designing buildings and eco-friendly structures.
+* Urban & Landscape Planning: City planning and outdoor space design.
+* Interior Architecture: Specializing in the functionality of interior spaces.
+* Specialized Fields: Real Estate Development, Construction Management, and Historic Preservation.
+* Public Policy & Research: Involvement in urban regulations or academic research.
+Admission & Scholarships
+* Process: Candidates register for the ADYPU Common Entrance Test (ACET), followed by a counseling session and personal interview.
+* Scholarships: Students are eligible for 11 scholarship categories, such as the Ajeenkya Genius, Pune Pride, and Beti Padhao scholarships.
+
+CAMPUS LIFE ADYPU
+Campus life at Ajeenkya DY Patil University (ADYPU) features the following facilities and student spaces:
+* Social & Event Spaces: A main auditorium and an amphitheater for performances and events.
+* Dining & Recreation: An on-campus cafeteria and landscape gardens.
+* Sports Facilities: Both an outdoor Sports Facility Center and an Indoor Sports Arena.
+* Academic Infrastructure: Smart classrooms, an IT center, and dedicated open study spaces.
+* Residential & Wellness: On-campus hostel facilities, a health center, and a Biodiversity Park.
+* Student Activities: Various student clubs and the National Service Scheme (NSS) are available for extracurricular engagement and social service.
+
+POSTGRADUATE COURSES at ADYPU
+Gemini said
+Ajeenkya DY Patil University offers over 50 postgraduate (PG) courses across several specialized schools.
+Postgraduate Schools & Programs
+* Engineering: Focuses on addressing complex global challenges with advanced technical expertise.
+* Management: Offers a blend of academic excellence and real-world application to prepare future business leaders.
+* Law: Shaped for legal professionals committed to justice and social change.
+* Design: A gateway to creative innovation and visionary design projects.
+* Film & Media: Nurtures media professionals through visual communication and storytelling.
+* Liberal Arts: Provides an interdisciplinary environment covering humanities, social sciences, and the arts.
+* Hotel Management: Combines the art of hospitality with management science.
+* Architecture: Focuses on creating inspiring and sustainable built environments.
+Educational Approach
+* Experiential Learning: Heavy emphasis on real-world immersion and industry-ready skills.
+* Research Focus: Students are encouraged to engage in cutting-edge research alongside expert faculty.
+* Global Perspective: Programs are designed to prepare students for the global market through world-class facilities.
+
+School of Engineering (SOE)
+Degree: M.Tech (Master of Technology)
+* Bio-Engineering: Focusing on the intersection of biology and engineering.
+* Robotics & Automation: Advanced robotics systems and industrial automation.
+* Artificial Intelligence & Machine Learning: Deep learning, neural networks, and AI applications.
+* Space Technology: Specialized engineering for satellite and space exploration.
+* Infrastructure Engineering: Large-scale project management and urban infrastructure.
+* Renewable Engineering: Sustainable energy systems and green technologies.
+* MCA (Master of Computer Application): Advanced computer science and application development.
+School of Management (SOM)
+Degree: MBA (Master of Business Administration)
+* Key Specializations: * Human Resources, Marketing, and Finance.
+o Digital Marketing & E-Commerce.
+o Business Analytics & Data Science.
+o Supply Chain & Logistics Management.
+o International Business.
+o Aviation Management and Sports Management.
+School of Design (SOD)
+Degree: M.Des (Master of Design)
+* User Experience (UX) Design: Interaction design and digital service ecosystems.
+* Transportation Design: Advanced vehicle design and mobility systems.
+* Product Design: Innovative consumer and industrial product development.
+* Fashion Design: Advanced garment construction and fashion management.
+School of Law (SOL)
+Degree: LLM (Master of Laws)
+* Specializations:
+o Corporate and Commercial Law.
+o Constitutional and Administrative Law.
+o Criminal and Security Law.
+o Intellectual Property Law.
+School of Film & Media (SOFM)
+Degree: M.Sc. / MA Programs
+* M.Sc. in Film & Media: Specialized tracks in Film Making and Direction.
+* Media Management: Focused on the business of entertainment and media houses.
+* Animation & VFX: Advanced visual effects and cinematic animation.
+School of Liberal Arts (SOLA)
+Degree: MA (Master of Arts)
+* Psychology: Clinical or Industrial/Organizational tracks.
+* Economics: Applied economics and policy analysis.
+* English: Advanced literature and language studies.
+* International Relations: Global politics, diplomacy, and security studies.
+School of Hotel Management (SOHM)
+Degree: M.Sc. in Hospitality & Tourism Management
+* Focus Areas: Global hospitality operations, luxury tourism management, and strategic revenue management.
+School of Architecture (SOA)
+Degree: M.Arch (Master of Architecture)
+* Specializations: Typically focuses on Sustainable Architecture or Environmental Design (specific specialization availability can vary by session).
+
+
+EVENTS  at ADYPU
+Ajeenkya DY Patil University (ADYPU) hosts a variety of academic, cultural, and technical events throughout the year. Based on the university's official events portal, here are the major annual highlights and recent/upcoming activities:
+Signature Annual Events
+* #TECH: An annual technical festival that combines technology, sports, and culture. It features workshops, technical competitions, and cultural performances.
+* Alchemy: The flagship event of the School of Design, showcasing students' creative works, visionary products, and artistic expressions.
+* Impetus: A massive annual sports meet involving various disciplines like football, cricket, basketball, volleyball, athletics, badminton, and chess.
+* Ablaze: The university's primary cultural festival featuring dance, singing, poetry, stand-up comedy, and a high-profile fashion show.
+* Chatori Galli: A food and cultural extravaganza where students and faculty set up diverse culinary stalls, accompanied by games and entertainment.
+* National Moot Court: A prestigious legal competition organized by the School of Law where students from across India simulate court proceedings.
+Major Recent & Periodic Events
+* Y20 Festival: ADYPU was selected to host this international event, focusing on youth-led innovation and the future of work/governance.
+* Convocation Ceremony: The university recently held its 10th Convocation (December 2025) to confer degrees upon graduating students.
+* Viksit Bharat Yuva Connect: Programs aligned with national initiatives to engage youth in the vision of a developed India.
+* Industry Bootcamps: Frequent workshops on "Problem Solving & Ideation" and "Entrepreneurship" conducted under the DRIF (Design, Research and Innovation Foundation).
+* International Conferences: Hosting events like the IEEE International Conference focusing on technology and research paper presentations.
+Event Categories
+CategoryExamplesAcademicConvocation, Guest Lectures, Research ConferencesCulturalAblaze, Chatori Galli, Marathi Bhasha DinTechnical#TECH, Hackathons, Robotics WorkshopsSportsImpetus, Go-Kart Design Challenges
+Based on current university cycles and recent announcements, here are the details for the upcoming 2026 event season at Ajeenkya DY Patil University.
+Upcoming Events Calendar (Tentative 2026)
+EventLikely TimelineFocus Area#TECH 2026March / AprilInnovation, Hackathons, & Tech CompetitionsAlchemy 2026AprilDesign Exhibition & Creative ShowcasesImpetus 2026February / MarchInter-school Sports TournamentAblaze 2026Late MarchCultural Fest & Fashion ShowACET 2026Ongoing (Multiple Cycles)University Common Entrance Test
+How to Register
+Registration for university events is typically handled through three main channels:
+* For External Participants: Most major events like the National Moot Court or #TECH have dedicated registration portals linked on the ADYPU Events Page.
+* For Current Students: Internal registrations are usually managed via the ERP Portal or through the respective Student Council heads of each school.
+* Entrance Exams: Registration for the ACET 2026 (for new admissions) is currently live on the main website.
+Current Event Spotlight
+The university is currently emphasizing Viksit Bharat Yuva Connect initiatives and Entrepreneurship Bootcamps scheduled for the first half of 2026. These often feature walk-in registrations or sign-ups via the DRIF (Design, Research and Innovation Foundation) office on campus.
+To help you get involved, here are the specific details for registration and the key contacts for the upcoming 2026 event season at ADYPU:
+1. Registration Portals
+* ADYPU Common Entrance Test (ACET): If you are an aspiring student, registration for the 2026-27 academic cycle is active. You can apply directly at adypu.edu.in/admissions.
+* Major Events (#TECH, Alchemy, Ablaze): Registration links for these typically go live 3-4 weeks before the event. You should monitor the ADYPU ERP Portal (for internal students) or the ADYPU Events Page for public links.
+* Ph.D. Entrance Test (PET): Applications are currently open for the 2026 research cycle.
+
+2. Key Contacts for 2026 Events
+Since you are looking for specific competition details, the best points of contact are the designated departments and student leaders:
+Department/CouncilRoleContact FocusStudent Service DivisionEvent GovernanceOverall coordination of #TECH and ImpetusStudent CouncilStudent LeadParticipant registration and volunteer sign-upsDRIF OfficeInnovation LeadResearch paper submissions and IdeathonsAdmissions OfficeHelpdeskQueries regarding ACET and workshopsPro-Tip: For the most immediate updates on #TECH 2026 registration, follow the official ADYPU Instagram handle, as they post QR codes for registration forms there first.
+
+3. Student Council & Coordination
+As the student body is highly active, you can usually find registration desks set up in the Cafeteria or near the Main Auditorium during the lunch hour (12:30 PM - 1:30 PM).
+
+
+NEWS/ACHIEVEMENT at  ADYPU
+The latest news from Ajeenkya DY Patil University (ADYPU) highlights significant achievements in research, institutional growth, and global engagement for the 2025-2026 period:
+Recent Headlines
+* School of Management Recognition: The School of Management secured a prestigious ranking in the Times B-School Survey 2026 (February 2026).
+* 10th Convocation Ceremony: The university celebrated its landmark 10th Convocation on December 22, 2025, conferring degrees to graduates across all disciplines.
+* Research Milestones:
+o Faculty members from the School of Science and School of Management recently published high-impact research papers and book chapters in fields like Mathematics, AI Ethics, and Biotechnology.
+o All research papers presented at the 02nd IEEE International Conference held at ADYPU have been successfully processed for publication.
+* Global Diplomacy: Ajeenkya DY Patil (President of ADYPU) met with the Vice President of Guyana, Bharrat Jagdeo, to discuss healthcare and educational collaborations.
+* Innovative Competitions: The ADYPU Incubator recently launched the Young Innovator Business Idea Competition, inviting students to pitch startup concepts.
+Current Announcements
+* Admissions 2026-27: Applications are officially open for undergraduate, postgraduate, and Ph.D. programs for the upcoming academic year.
+* Walk-In Drives: The university is actively recruiting for various faculty and administrative roles to support its expanding campus departments.
+* Student Achievements: "Team Javitron" received national recognition for their performance in the recent Go-Kart Design Challenge (GKDC).
+News Categories
+* Academic: New curriculum updates, rankings, and faculty publications.
+* Collaborations: MoUs with international universities and government bodies.
+* Campus Life: Coverage of events like Marathi Bhasha Din and International Women's Day celebrations.
+Here are the specific details for the Young Innovator Business Idea Competition and the Ph.D. Entrance Test (PET) 2026:
+1. Young Innovator Business Idea Competition
+Organized by the ADYPU Incubator, this competition is designed to transition student ideas from "concept to profitable business."
+* Who can apply: Open to all students of Ajeenkya DY Patil University.
+* What to submit: A business proposal highlighting a problem, your unique solution, and the potential market impact.
+* Benefits:
+o Incubation Support: Access to the ADYPU startup ecosystem.
+o Mentorship: Guidance from industry experts and faculty.
+o Financial Support: Opportunities for seed funding and networking with investors.
+* Registration: Usually handled through a Google Form link circulated via the university's official Instagram/Telegram channels or the DRIF (Design, Research and Innovation Foundation) office.
+2. Ph.D. Entrance Test (PET) 2026
+Admissions are currently open for those looking to pursue advanced research across various domains.
+* Application Process:
+1. Online Registration: Fill out the application form on the ADYPU Ph.D. Admissions portal.
+2. Entrance Test (PET): Candidates must clear the written entrance exam, which tests research methodology and subject-specific knowledge.
+3. Personal Interview: Shortlisted candidates present their research interest/proposal to the Academic Committee.
+* Exemptions: Candidates who have cleared NET / SET / GATE or hold an M.Phil degree may be exempt from the written PET but must still appear for the interview.
+* Key Dates: While cycles are rolling, the current spring/summer window typically has a deadline in late April or May.
+
+Summary of Key Contacts
+* For Incubation/Startup queries: Visit the EIC (Entrepreneurship and Innovation Centre) office on campus.
+* For Ph.D. Admission queries: Contact the School of Doctoral Studies or email admissions@adypu.edu.in.
+
+SSD- STUDENT SERVICE DIVISION
+The Student Service Division (SSD) at Ajeenkya DY Patil University acts as the primary support hub, bridging the gap between students and university administration.
+Core Responsibilities
+* Welfare & Counseling: Managing the general well-being of students and providing a support system for personal or academic challenges.
+* Extracurricular Coordination: overseeing all student-led activities, including Student Clubs, the Student Council, and the National Service Scheme (NSS).
+* Event Management: Serving as the central body for organizing flagship university events like #TECH, Impetus, and Ablaze.
+* Grievance Redressal: Acting as the formal channel for students to raise concerns regarding campus facilities, academics, or peer issues.
+* Disciplinary Oversight: Ensuring the code of conduct is maintained and managing the anti-ragging cell.
+Key Services Offered
+* Hostel & Housing: Coordinating with the hostel wardens to ensure a safe and comfortable living environment.
+* Health & Wellness: Linking students to the on-campus health center and medical facilities.
+* Document Support: Assisting with the issuance of student ID cards, handbooks, and various academic forms.
+* Campus Tours: Organizing tours for visitors and new admissions to familiarize them with the infrastructure.
+Leadership
+The division is led by Dr. Vijay Kulkarni (Dean - Student Service Division).
+
+How to Connect
+The SSD office is usually the best place to visit if you want to:
+1. Join a new student club.
+2. Volunteer for an upcoming event.
+3. Report an issue with campus amenities.
+
+CLUBS AT ADYPU
+Ajeenkya DY Patil University (ADYPU) has a highly active club culture managed by the Student Service Division (SSD). These clubs are designed to help you build a "T-Shaped" profile by gaining skills outside your primary major.
+Active Student Clubs at ADYPU
+* Technical & Innovation Clubs:
+o Coding Club: Focuses on competitive programming, hackathons, and software development.
+o Robotics Club: Hands-on projects involving drone tech, automation, and bot-building.
+o AI & Data Science Club: Deep dives into machine learning models and data analytics.
+* Creative & Performing Arts:
+o Dramatics Club (Nukkad Natak): Known for social-message plays (like the award-winning G20 performance).
+o Dance Club: Covers everything from classical to hip-hop; central to the Ablaze festival.
+o Music Club: For vocalists and instrumentalists looking to perform at campus gigs.
+o Photography & Film Club: Capturing campus life and creating digital content.
+* Media & Literature:
+o The Editorial Board: Managing the student e-magazine and university newsletter.
+o Debate & Literary Society: Organizing Model United Nations (MUNs) and public speaking contests.
+* Sports & Adventure:
+o Adventure Club: Organizing treks, camping, and outdoor expeditions.
+o Core Sports Teams: Dedicated groups for Cricket, Football, and Basketball.
+* Social Impact:
+o National Service Scheme (NSS): Leading community service, blood donation drives, and sustainability initiatives.
+How to Join
+1. Club Fair: Typically held at the start of the academic year near the amphitheater.
+2. SSD Office: You can walk into the Student Service Division office to sign up for any active club.
+3. Digital Sign-up: Watch for QR codes on campus bulletin boards or the university's internal ERP notifications.
+Why Join?
+Joining these clubs is often a precursor to holding leadership roles in the Student Council, such as Sports Head or President (Academics).
+
+
+Student Council ADYPU
+Insta handle- adypu.studentcouncil
+Email- info.studencouncil@adypu.edu.in
+The ADYPU Student Council is the apex student body at Ajeenkya DY Patil University, serving as the bridge between the student community and the university leadership. It plays a pivotal role in organizing flagship events, managing student welfare, and providing feedback on academic processes.
+Council Structure & Key Roles
+The council is led by an Executive Committee that works under the guidance of the Dean of Student Service Division (SSD).
+No.Student NamePosition1Mr. Devesh Dinesh PandeyPresident2Mr. Yash Yogesh SomaniPresident / Rotaract Club Head3Ms. Ritul DhanwadeVice President4Ms. Rajshree SahayVice President5Ms. Piyul Tejaswini KhareVice President6Ms. Akansha NairSecretary7Mr. Pratham SharmaSecretary8Mr. Atharva GutteSecretary9Ms. Mahima ChakrabortyCultural Head10Ms. Achal GuhaCultural Head11Mr. Varad Prashant ChavanCultural Head12Ms. Tanishka Pramod SalunkeSports Head13Mr. Lokala Charan Naga KarthikSports Head14Mr. Prajwal SharmaSports Head15Mr. Greeshma Suedh WasnikNEP Saarthi Head16Ms. Ekta OswalNEP Saarthi Head17Ms. Mishika AgrawalSocial Outreach18Mr. Krishna PandeySocial Outreach19Mr. Prajwal Dipak BhorSocial Outreach20Ms. Ayushi ChaturvediInternational Student Representative21Mr. Pratyush RajuInternational Student Representative22Ms. Aarti Bhajanram SutharInternational Student Representative23Mr. Abdallah AliInternational Student Representative24Ms. Praniti SarodeOther than General Category25Ms. Vibhuti Vilas JadhavOther than General Category26Mr. Vignesh AaghavOther than General Category27Mr. Abhijeet Ajitrao ShindeAlumni Representative28Ms. Hrishika JawasaAlumni Representative29Mr. Praveen Kumar GoswamiAlumni Representative30Ms. Arsheen KhanMedia Co-ordinator31Mr. Aman HarshavardhanMedia Co-ordinator32Mr. Aayush Amar SinghMedia Co-ordinator33Mr. Aditya Kailas MetkarClub Head34Ms. Sanika MendhalkarClub Head35Mr. Adarsh GauravClub Head36Mr. Varad Vijay KhopkarPlacement Head37Ms. Durva Mitesh PatilPlacement Head38Mr. Om JeughalePlacement Head39Ms. Ishita ThulkarHostel Representative40Mr. Bhavya DagaHostel Representative41Ms. Khushi GuptaRotaract Club Head42Mr. Kalpesh PatilRotaract Club Head43Mr. Rahul KakkarSchool Representative44Ms. Radha WanareSchool Representative45Mr. Dipanshu RajPurohitSchool Representative46Mr. Soham GoelSchool Representative47Mr. Nishit DudhagiSchool Representative
+
+Core Responsibilities
+* Event Leadership: Conceptualizing and executing university-wide fests (#TECH, Impetus, Ablaze).
+* Student Welfare: Addressing grievances related to campus life, hostels, and academic facilities.
+* Institutional Governance: Active participation in committees like Anti-Ragging, Gender Sensitization, and Disciplinary Committees.
+* Feedback Loop: Providing student insights on the National Education Policy (NEP) 2020 implementation and curriculum relevance.
+* Social Responsibility: Organizing blood donation camps, "Joy of Giving" weeks, and NSS initiatives.
+
+Election & Selection Process
+Council members are selected annually through a rigorous process that balances democratic elections with merit-based selection.
+1. Eligibility: Usually requires a minimum CGPA (often 7.0 or above) and a clean disciplinary record.
+2. Campaigning: Candidates for key posts engage in a dedicated week of campus campaigning and manifestos.
+3. Voting/Selection: A combination of student voting and faculty interviews determines the final office bearers.
+4. Investiture Ceremony: The official induction where members take their oath, typically held in August or September.
+Major Impact Areas
+AreaImpactHolistic DevelopmentFocuses on building "T-Shaped" professionals through leadership experience.InnovationEncourages "Ideathons" and startup culture via the ADYPU Incubator.SustainabilityDrives "Viksit Bharat" initiatives and SDG-aligned campus projects.
+
+GOVERNING BODY OF ADYPU
+The Governing Board of Ajeenkya DY Patil University consists of the following members:
+* Dr. Ajeenkya D Y Patil: Chairperson (President and Chancellor)
+* Dr. Rakesh Kumar Jain: Member (Vice Chancellor)
+* Sponsoring Body Nominees: Mrs. Pooja Patil, Dr. Nandita Palshetkar, Dr. Vijay Khole, and Dr. Makarand Jawadekar.
+* Expert Nominee (IT/Management): Mr. Suresh Makhija.
+* Government of Maharashtra Nominees: Mr. Sadashiv Khade and Adv. Madan Chhajed.
+* Industry Representatives: Mr. Pradyumna Vyas and Dr. Sudhir Mehta.
+* Dr. Sudhakar Shinde: Permanent Invitee (Registrar).
+
+NATIONAL STUDENT SERVICE (NSS)
+The National Service Scheme (NSS) at Ajeenkya DY Patil University (ADYPU) is a community-focused program aimed at developing social responsibility and leadership in students.
+Core Components
+* Regular Activities (135 hours/year): Includes tree plantation, blood donation camps, cleanliness drives (e.g., Gandhi Jayanti), and seeds sowing.
+* Special Camps: Annual seven-day camps where 50% of volunteers live in groups and work on national development issues like rural reconstruction and literacy.
+* Village Adoption: Long-term engagement with a selected nearby village to address specific problems like health, sanitation, and education.
+* National Initiatives: Participation in the Red Ribbon Club (AIDS awareness) and Disaster Management Training workshops.
+Recent Projects
+* Rejuvenation of the Warje Nalla.
+* School wall painting at Solu village.
+* Regular health and awareness programs in adopted rural areas.
+Leadership
+* Director: Shital Dilip Solanki (Assistant Professor).
+* Focus: Integrating rural community needs with student education to foster national integration and civic sense.
+How to Volunteer
+Students can engage in orientation sessions featuring field visits and lectures to understand the community's needs before committing to specific rural or urban projects.
+
+DOCTORAL PROGRAMS
+Ajeenkya DY Patil University (ADYPU) offers Ph.D. programs across various disciplines, focusing on industry-driven research and multidisciplinary innovation.
+Thrust Areas (Specializations)
+* School of Engineering: Biomedical Engineering, Biotechnology, Physics, Mathematics, Mechanical Engineering, Electrical Engineering, AI, Robotics, Computer Science, and Bioinformatics.
+* School of Management: Entrepreneurship & Innovation, Strategic Management, HR, Organizational Behaviour, Marketing, and Finance.
+* School of Law: Law & Governance, Criminal Law, Constitutional Law, Labor/Industrial Laws, Human Rights, Administrative Law, and IPR.
+* School of Liberal Arts: Economics and Sociology.
+* School of Design: Industrial Design.
+Duration & Key Features
+* Duration: Minimum 3 years (including course work) to a maximum of 6 years.
+* Relaxations: Women and Persons with Disability (>40%) may receive a relaxation of up to 2 years and maternity/child care leave of up to 240 days.
+* Mentorship: Guided by internationally acclaimed post-doctoral guides and industry-focused supervisors.
+* Scholarships: Available for meritorious research scholars based on potential and academic excellence.
+Admission Process
+1. Notification: Usually issued with a last date for application of March 31st (check for specific session updates).
+2. Eligibility: Requires a Master's degree in the relevant field with a minimum percentage (typically 55%).
+3. Entrance Test (PET): Evaluates research aptitude and subject-specific knowledge.
+4. Personal Interview: Shortlisted candidates must present their research interest and aptitude to a committee of supervisors.
+Supervision
+The university has over 40 doctoral supervisors specializing in niche areas like Graph Theory, Nano-materials, Cyber Security, Consumer Behaviour, and Environmental Economics.
+To help you prepare, here is the entrance test structure and syllabus overview for the Ph.D. Entrance Test (PET) at Ajeenkya DY Patil University:
+Examination Structure
+The PET typically consists of two papers, usually conducted on the same day:
+1. Paper I: Research Methodology (50%) - Common for all candidates. It tests your aptitude for academic research.
+2. Paper II: Subject-Specific (50%) - Based on your chosen school (Engineering, Management, Law, etc.).
+
+Syllabus Overview
+1. Paper I: Research Methodology (Common)
+* Foundations of Research: Meaning, objectives, and types of research.
+* Research Design: Identifying problems, formulating hypotheses, and sampling techniques.
+* Data Collection & Analysis: Quantitative and qualitative methods, scaling techniques, and hypothesis testing (t-test, z-test, ANOVA).
+* Ethical Practices: Plagiarism, research ethics, and citation styles (APA, MLA, etc.).
+* Information Technology: Use of search engines, digital libraries, and basic statistical software.
+2. Paper II: Subject-Specific (School-Wise)
+* School of Engineering: * Core: Applied Mathematics and Calculus.
+o Specialized: Based on your branch (e.g., AI algorithms for CSE; Thermodynamics for Mechanical; Molecular Biology for Biotech).
+* School of Management:
+o Core: Managerial Economics, Organizational Behavior, and Strategic Management.
+o Specialized: Financial Management, Marketing Theory, or HR Analytics.
+* School of Law:
+o Core: Jurisprudence and Constitutional Law.
+o Specialized: Research methods in Law, Intellectual Property Rights, or Administrative Law.
+* School of Liberal Arts:
+o Core: Critical Thinking and Social Theory.
+o Specialized: Advanced topics in Economics, Sociology, or English Literature.
+
+Personal Interview & Research Aptitude
+Candidates who clear the written test are invited for an interview where they must:
+* Present a Research Proposal (Statement of Purpose).
+* Demonstrate their depth of knowledge in the proposed thrust area.
+* Discuss the feasibility and industry relevance of their research idea.
+Next Steps
+Since the last date for the current cycle is March 31st, you should:
+1. Identify a potential Supervisor from the ADYPU list whose thrust area matches your interest.
+2. Prepare a 500-1000 word Research Abstract.
+3. Register on the ADYPU Doctoral Portal.
+
