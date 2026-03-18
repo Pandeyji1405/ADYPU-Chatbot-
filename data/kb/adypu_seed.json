@@ -21,7 +21,7 @@
     "title": "SSD Quick Facts",
     "category": "Support",
     "source": "official:https://adypu.edu.in/student-service-division",
-    "content": "SSD office reference: ULC 5. SSD email: ssd@adypu.edu.in."
+    "content": "SSD full form: Student Service Division. SSD office location: ULC 5. SSD email: ssd@adypu.edu.in. SSD Dean: Dr. Vijay Kulkarni."
   },
   {
     "title": "Admissions and Fees Links",
@@ -30,9 +30,21 @@
     "content": "Admissions: https://adypu.edu.in/admissions/. Mandatory disclosures: https://adypu.edu.in/admissions/mandatory-disclosures. Fees (2025-26): https://adypu.edu.in/wp-content/uploads/2025/06/188.Fees-Structure_ADYPU_All-Programs_2025-26.pdf."
   },
   {
-    "title": "Hostel and Placement Quick Facts",
-    "category": "Support",
+    "title": "Hostel Contact and Fees",
+    "category": "Hostel",
+    "source": "official:https://adypu.edu.in/campus_life/hostel-life-at-adypu",
+    "content": "Hostel contact number: +91-8087778799. Hostel inquiry phone: +91-8087778799. Hostel fee range: ₹90,000 to ₹1,80,000 per year (excluding mess charges)."
+  },
+  {
+    "title": "Placement Quick Facts",
+    "category": "Placements",
     "source": "official:https://adypu.edu.in/placements/",
-    "content": "Hostel fee range: ₹90,000 to ₹1,80,000 (excluding mess). Hostel contact: +91-8087778799. Placements: Dr. Santosh P. Rao Borde and Dr. Tushar Ram Sangole."
+    "content": "Placement heads: Dr. Santosh P. Rao Borde and Dr. Tushar Ram Sangole. Corporate Relations contact: bhagyashri.vyas@dypic.in."
+  },
+  {
+    "title": "Devesh Pandey - Student Council President",
+    "category": "Support",
+    "source": "official:https://adypu.edu.in/student-service-division",
+    "content": "Devesh Pandey is the President of the Student Council at ADYPU. Instagram: pandeyji_2901. For queries not answered by the chatbot, contact Devesh Pandey or visit the SSD office in ULC 5."
   }
 ]
