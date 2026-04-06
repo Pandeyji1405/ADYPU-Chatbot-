@@ -49,13 +49,17 @@ npm run start -- -H 0.0.0.0 -p 3000
 - Filesystem is ephemeral; session logs may reset between cold starts.
 - By default, the app will not auto-rebuild the vector index in production (`RAG_AUTO_REBUILD=false` by default). Run `npm run ingest` during development to refresh `data/vector/index.json` before deploying.
 
+## Deploy (Vercel)
+
+See `README.vercel.md`.
+
 ## Deploy (Firebase Console — App Hosting)
 
 If you want to deploy from the **Firebase Console**, use **Firebase App Hosting** (Next.js SSR supported).
 
 High-level steps:
 1) Push this repo to GitHub.
-2) In Firebase Console → **App Hosting** → **Get started**, connect your GiUI ThemetHub repo and pick the branch to deploy.
+2) In Firebase Console → **App Hosting** → **Get started**, connect your GitHub repo and pick the branch to deploy.
 3) Configure runtime env/secrets (recommended: `OPENAI_API_KEY`, `SESSION_ENCRYPTION_KEY`).
 
 This repo includes an `apphosting.yaml` that:
@@ -73,6 +77,33 @@ firebase apphosting:secrets:set SESSION_ENCRYPTION_KEY --project <firebase-proje
 Recommended env vars in `.env.local`:
 - `OPENAI_API_KEY` (better multilingual translation + optional chat)
 - `SESSION_ENCRYPTION_KEY` (AES-256-GCM at-rest session logs)
+
+## Deploy (GitHub)
+
+### Can we deploy “on GitHub” directly?
+
+- **GitHub Pages cannot run this app** (it’s static hosting only). This project needs a server for Next.js SSR + `/api/chat`.
+- Use GitHub to **store the code** and then deploy it to a real host (Firebase App Hosting / Vercel / VPS / Docker).
+
+### Push the project to GitHub
+
+1) Create a new repo in GitHub (no README; keep it empty).
+2) In this project folder:
+
+```bash
+git remote add origin <your-github-repo-url>
+git branch -M main
+git push -u origin main
+```
+
+### Auto-build on every push (GitHub Actions)
+
+This repo includes a CI workflow that runs `npm ci` + `npm run build` on every push / PR.
+
+### Deploy from GitHub (recommended)
+
+- **Firebase App Hosting (Console)**: Connect the repo in Firebase Console → App Hosting and it deploys on every push.
+- **Vercel**: Import the GitHub repo in Vercel, set env vars, and it deploys on every push.
 
 ## 2) Required Fallback Behavior
 
