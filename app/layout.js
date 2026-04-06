@@ -1,4 +1,5 @@
 import './globals.css';
+import ThemeInit from './theme-init.js';
 
 export const metadata = {
   title: 'ADYPU Futuristic Multilingual Chatbot',
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeInit />
+        {children}
+      </body>
     </html>
   );
 }
