@@ -1,14 +1,12 @@
-# ADYPU Multilingual Futuristic RAG Chatbot
+# ADYPU Saathi — Multilingual Campus Chatbot (Master)
 
-Examiner-ready full-stack chatbot for Ajeenkya DY Patil University with:
-- [x] Professional Dark Slate & Cyan/Indigo UI (advanced enterprise demo ready)
-- [x] 3D Human-designed layout with immersive Command Center styling
-- [x] Framer Motion micro-interactions & animated initial greeting state
-- [x] Voice input (speech-to-text) and voice output (text-to-speech)
-- [x] Auto language detection and same-language responses
-- [x] Greeting/thanks intent handling (multilingual)
-- [x] Hybrid Retrieval-Augmented Generation (semantic + lexical RAG)
-- [x] Mandatory translated fallback for out-of-scope queries
+Official-style ADYPU assistant demo aligned to the provided “ADYPU Chatbot Master Prompt”:
+- Multi-language welcome + explicit language selection (English/Hindi/Marathi/Bengali/Gujarati/Punjabi/Rajasthani)
+- Consent gate before any session logging
+- INT-01…INT-18 intent taxonomy with scripted flows for key tasks (fees/admissions/emergency/lost & found)
+- Verified KB only (no web-search fallback)
+- Optional multilingual translation via OpenAI/Gemini (if keys configured)
+- Audio shortcut: “Press 1 to hear this in audio” + TTS button
 
 ## 1) Run Locally
 
@@ -18,27 +16,76 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open:
+- Landing page: `http://localhost:3000`
+- Chat UI: `http://localhost:3000/chat`
 
-Important: set `OPENAI_API_KEY` in `.env.local` for best multilingual translation quality across Indian + global languages.
+## Deploy (VPS / Docker)
+
+This project reads knowledge from `data/` (KB + vector index) and (optionally) writes consented session logs to disk.
+
+### Option A) Docker (recommended for easiest deploy)
+
+```bash
+cp .env.example .env.local
+# edit .env.local (set OPENAI_API_KEY + SESSION_ENCRYPTION_KEY at minimum)
+docker compose up -d --build
+```
+
+Open: `http://<server-ip>:3000`
+
+### Option B) Node.js on a VPS
+
+```bash
+cp .env.example .env.local
+# edit .env.local (set OPENAI_API_KEY + SESSION_ENCRYPTION_KEY at minimum)
+npm ci
+npm run build
+npm run start -- -H 0.0.0.0 -p 3000
+```
+
+### Serverless note (Vercel/Netlify)
+
+- Filesystem is ephemeral; session logs may reset between cold starts.
+- By default, the app will not auto-rebuild the vector index in production (`RAG_AUTO_REBUILD=false` by default). Run `npm run ingest` during development to refresh `data/vector/index.json` before deploying.
+
+## Deploy (Firebase Console — App Hosting)
+
+If you want to deploy from the **Firebase Console**, use **Firebase App Hosting** (Next.js SSR supported).
+
+High-level steps:
+1) Push this repo to GitHub.
+2) In Firebase Console → **App Hosting** → **Get started**, connect your GiUI ThemetHub repo and pick the branch to deploy.
+3) Configure runtime env/secrets (recommended: `OPENAI_API_KEY`, `SESSION_ENCRYPTION_KEY`).
+
+This repo includes an `apphosting.yaml` that:
+- Allocates more memory (vector index can be RAM-heavy)
+- Keeps `data/` in the deployed bundle
+- Writes runtime files to `/tmp`
+- Enables automatic vector index rebuild (`RAG_AUTO_REBUILD=true`)
+
+Set secrets (CLI; stored in Cloud Secret Manager):
+```bash
+firebase apphosting:secrets:set OPENAI_API_KEY --project <firebase-project-id>
+firebase apphosting:secrets:set SESSION_ENCRYPTION_KEY --project <firebase-project-id>
+```
+
+Recommended env vars in `.env.local`:
+- `OPENAI_API_KEY` (better multilingual translation + optional chat)
+- `SESSION_ENCRYPTION_KEY` (AES-256-GCM at-rest session logs)
 
 ## 2) Required Fallback Behavior
 
-When query is out of scope / low-confidence, backend returns this exact English fallback (or translated equivalent in detected language):
+When a query is out of scope / not in the verified KB, backend returns this English fallback (or translated equivalent in the selected language):
 
-`Sorry, I can't understand your query. For better understanding, please contact Student Council's President Devesh Pandey (Insta: pandeyji_2901) or visit the SSD office in ULC 5.`
+`I don’t have that information right now. Please contact info@adypu.edu.in or call +91-8956487911 for assistance.`
 
 ## 3) Data Included by Default
 
-Knowledge files are in `data/kb/adypu_seed.json` and `data/kb/adypu_official.json`, including:
-- Vice Chancellor: Dr. Rakesh Kumar Jain
-- Registrar: Dr. Sudhakar Shinde
-- SSD Dean: Dr. Vijay Kulkarni (ULC 5)
-- Dean references: Dr. Sunny Thomas, Ar. Aparna Mhetras
-- Hostel fees: approx. INR 90,000 to INR 1,80,000 (excluding mess)
-- Placement reference: Bhagyashri Vyas (Corporate Relations)
-- Partner reference: Seamedu
-- Official source-linked records for university officials, admissions, placements, and contact routing
+Knowledge files are in `data/kb/` (JSON):
+- `data/kb/adypu_scraped.json` (fees, contacts, scholarships, programs, events, highlights)
+- `data/kb/adypu_seed.json` / `data/kb/adypu_official.json` (quick facts)
+- `data/kb/adypu_master_prompt.json` (Student Council, NSS, PhD, Governing Board, club-join steps)
 
 ## 4) Scraping and Ingestion Pipeline
 
@@ -66,7 +113,7 @@ npm run ingest
 
 This writes a local vector index to `data/vector/index.json`.
 
-By default ingestion uses curated KB JSON files only.  
+By default ingestion reads `data/kb/*.json` (and optionally official site text).  
 Set `RAG_INCLUDE_RAW=true` if you also want raw scraped markdown indexed.
 
 ### C) Optional Pinecone upsert
@@ -94,20 +141,20 @@ This writes `data/raw/instagram-feed.md`, which is ingested by `npm run ingest`.
 
 ## 6) Architecture
 
-- Frontend: Next.js App Router (`app/page.js`, `app/globals.css`)
-- API: `app/api/chat/route.js`
+- Frontend: Next.js App Router (`app/page.js` landing, `app/chat/page.js` chat)
+- API: `app/api/chat/route.js` (language + consent gate, intent routing, KB-only answers)
 - RAG: `lib/rag.js`, `lib/vector-store.js`, `lib/embeddings.js`
 - Language handling: `lib/language.js`, `lib/language-support.js`
-- Conversation intent: `lib/conversation.js`
+- Intent + scripts: `lib/intent.js`, `lib/saathi-engine.js`
+- Session logging (encrypted at rest, consent-gated): `lib/session-store.js`, `lib/crypto.js`
 
 ### Runtime flow
 1. User message enters `/api/chat`.
-2. Language auto-detected.
-3. Greeting/thanks short-text detection.
-4. Hybrid retrieval (semantic + lexical) over indexed ADYPU knowledge.
-5. If low confidence: translated mandatory fallback message.
-6. If high confidence: grounded multilingual answer.
-6. UI renders answer and can read it aloud.
+2. Language selection (if not set) → consent prompt.
+3. Intent classification (INT-01…INT-18) + scripted flows for key tasks.
+4. Otherwise: hybrid retrieval over local ADYPU KB and grounded answer generation.
+5. If insufficient KB match: strict out-of-scope fallback (translated).
+6. UI renders the answer + optional TTS (“Press 1…” shortcut).
 
 ## 7) Accuracy Strategy (Recommended)
 
