@@ -2,8 +2,8 @@
 
 :root {
   /* UI Accent (customizable) */
-  --adypu-red-rgb: 239 68 68;
-  --adypu-red-dark-rgb: 185 28 28;
+  --adypu-red-rgb: 6 182 212;
+  --adypu-red-dark-rgb: 3 105 161;
   --adypu-red: rgb(var(--adypu-red-rgb));
   --adypu-red-glow: rgb(var(--adypu-red-rgb) / 0.4);
   --adypu-red-dark: rgb(var(--adypu-red-dark-rgb));
@@ -18,7 +18,7 @@
   --bg-surface: #0b0f1a; 
   --bg-surface-elevated: #161b2e; 
   
-  --accent-cyan: #06b6d4; 
+  --accent-cyan: rgb(var(--adypu-red-rgb)); 
   --accent-indigo: #6366f1; 
   --accent-purple: #8b5cf6; 
   --accent-red: var(--adypu-red);
@@ -78,11 +78,57 @@ body {
   position: fixed;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
   background: 
-    radial-gradient(circle at 10% 0%, rgb(var(--adypu-red-rgb) / 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 100%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 10% 0%, rgb(var(--adypu-red-rgb) / 0.22) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, rgb(var(--adypu-red-dark-rgb) / 0.18) 0%, transparent 42%),
     radial-gradient(circle at 50% 50%, rgba(2, 6, 23, 1) 0%, #000 100%);
   background-color: var(--bg-base);
+}
+
+.body-background::before,
+.body-background::after {
+  content: '';
+  position: absolute;
+  inset: -20% 0;
+  background-repeat: repeat-x;
+  mix-blend-mode: screen;
+  filter: blur(0.25px);
+  opacity: 0.24;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.9) 14%, rgba(0, 0, 0, 0.9) 86%, transparent 100%);
+}
+
+.body-background::before {
+  background-size: 1200px 240px;
+  background-position: 0 18%;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1200'%20height='240'%20viewBox='0%200%201200%20240'%3E%3Cpath%20d='M0%2080%20Q150%2020%20300%2080%20T600%2080%20T900%2080%20T1200%2080'%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.38'%20stroke-width='4'/%3E%3Cpath%20d='M0%20152%20Q150%2096%20300%20152%20T600%20152%20T900%20152%20T1200%20152'%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.22'%20stroke-width='3'/%3E%3C/svg%3E");
+  animation: wave-drift-1 26s linear infinite;
+}
+
+.body-background::after {
+  background-size: 900px 200px;
+  background-position: 0 78%;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='900'%20height='200'%20viewBox='0%200%20900%20200'%3E%3Cpath%20d='M0%2068%20Q112.5%2020%20225%2068%20T450%2068%20T675%2068%20T900%2068'%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.28'%20stroke-width='3'/%3E%3Cpath%20d='M0%20130%20Q112.5%2080%20225%20130%20T450%20130%20T675%20130%20T900%20130'%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.16'%20stroke-width='2'/%3E%3C/svg%3E");
+  opacity: 0.18;
+  animation: wave-drift-2 42s linear infinite;
+}
+
+@keyframes wave-drift-1 {
+  from { background-position-x: 0; }
+  to { background-position-x: 1200px; }
+}
+
+@keyframes wave-drift-2 {
+  from { background-position-x: 0; }
+  to { background-position-x: -900px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .body-background::before,
+  .body-background::after {
+    animation: none;
+  }
 }
 
 /* Depth Layers */
@@ -96,7 +142,7 @@ body {
 .depth-layer-2 {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 70% 60%, rgba(99, 102, 241, 0.03), transparent 50%);
+  background: radial-gradient(circle at 70% 60%, rgb(var(--adypu-red-dark-rgb) / 0.03), transparent 50%);
   z-index: 1;
   pointer-events: none;
 }
@@ -268,7 +314,7 @@ body {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 100% 0%, rgba(6, 182, 212, 0.1), transparent 50%);
+  background: radial-gradient(circle at 100% 0%, rgb(var(--adypu-red-rgb) / 0.1), transparent 50%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -276,8 +322,8 @@ body {
 
 .metric-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 0 12px rgba(99, 102, 241, 0.1);
+  border-color: rgb(var(--adypu-red-rgb) / 0.32);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 0 12px rgb(var(--adypu-red-rgb) / 0.12);
 }
 
 .metric-item:hover::after {
@@ -499,8 +545,8 @@ body {
 
 .badge.active {
   color: var(--accent-cyan);
-  border-color: rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.05);
+  border-color: rgb(var(--adypu-red-rgb) / 0.3);
+  background: rgb(var(--adypu-red-rgb) / 0.05);
 }
 
 .chat-messages {
@@ -633,8 +679,8 @@ body {
 
 .source-tag:hover {
   color: var(--accent-cyan);
-  border-color: rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.05);
+  border-color: rgb(var(--adypu-red-rgb) / 0.3);
+  background: rgb(var(--adypu-red-rgb) / 0.05);
 }
 
 .action-bar {
