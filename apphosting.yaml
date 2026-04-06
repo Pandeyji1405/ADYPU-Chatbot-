@@ -1,0 +1,38 @@
+# Firebase App Hosting configuration.
+# Edit this file to control Cloud Run settings, environment variables, secrets, and deploy bundle contents.
+#
+# Docs: https://firebase.google.com/docs/app-hosting/configure
+
+runConfig:
+  # The local vector index can be memory heavy; raise RAM from the default 512MiB.
+  memoryMiB: 2048
+
+# Keep the local knowledge base files in the deployed bundle.
+outputFiles:
+  serverApp:
+    include: [data]
+
+env:
+  # Use /tmp for runtime writes (Cloud Run filesystem is ephemeral).
+  - variable: SESSIONS_DIR
+    value: /tmp/adypu-saathi-sessions
+    availability: [RUNTIME]
+
+  - variable: VECTOR_INDEX_PATH
+    value: /tmp/adypu-saathi-vector-index.json
+    availability: [RUNTIME]
+
+  # If the vector index file isn't present at runtime, rebuild it automatically from data/kb.
+  - variable: RAG_AUTO_REBUILD
+    value: "true"
+    availability: [RUNTIME]
+
+  # Optional: store secrets in Cloud Secret Manager and reference them here.
+  # - variable: OPENAI_API_KEY
+  #   secret: OPENAI_API_KEY
+  #   availability: [RUNTIME]
+  #
+  # - variable: SESSION_ENCRYPTION_KEY
+  #   secret: SESSION_ENCRYPTION_KEY
+  #   availability: [RUNTIME]
+
