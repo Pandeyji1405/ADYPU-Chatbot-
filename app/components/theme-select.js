@@ -1,15 +1,15 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import { UI_THEMES, applyUiTheme, getStoredUiThemeId, setStoredUiThemeId } from '@/lib/ui-theme.js';
+import { DEFAULT_UI_THEME_ID, UI_THEMES, applyUiTheme, getStoredUiThemeId, setStoredUiThemeId } from '@/lib/ui-theme.js';
 
 export default function ThemeSelect({ className, selectClassName, ariaLabel = 'UI theme' }) {
   const selectId = useId();
-  const [value, setValue] = useState('adypu');
+  const [value, setValue] = useState(DEFAULT_UI_THEME_ID);
 
   useEffect(() => {
     const stored = getStoredUiThemeId();
-    if (stored) setValue(stored);
+    setValue(stored || DEFAULT_UI_THEME_ID);
   }, []);
 
   function onChange(event) {
@@ -31,4 +31,3 @@ export default function ThemeSelect({ className, selectClassName, ariaLabel = 'U
     </div>
   );
 }
-
