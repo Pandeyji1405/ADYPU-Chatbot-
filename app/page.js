@@ -1,435 +1,279 @@
-'use client';
+import Link from 'next/link';
+import { ArrowRight, BrainCircuit, Database, Languages, Mic, ShieldCheck, Sparkles, Terminal } from 'lucide-react';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit, Terminal, Command, Zap, MessageSquare, Database, Sparkles } from 'lucide-react';
-import { GLOBAL_LANGUAGES, INDIAN_LANGUAGES, SPEECH_LOCALES } from '@/lib/language-support.js';
+import styles from './page.module.css';
 
-const BOT = 'bot';
-const USER = 'user';
-
-const KNOWLEDGE_COLUMNS = [
-  { title: 'Deans', prompts: ['SoD dean name', 'SSD dean name', 'Law and Liberal Arts dean'] },
-  { title: 'Admissions', prompts: ['Admissions link', 'Admission process steps', 'Mandatory disclosures link'] },
-  { title: 'Fees', prompts: ['Hostel fee range', 'Fees PDF 2025-26', 'Hostel contact number'] },
-  { title: 'Placements', prompts: ['Who handles placements?', 'SPCR full form', 'Placements page link'] },
-  { title: 'Shortforms', prompts: ['SSD full form', 'SoD full form', 'SSD vs SoD difference'] },
-  { title: 'Officials', prompts: ['Vice Chancellor name', 'Registrar name', 'Registrar email'] }
+const FEATURE_CARDS = [
+  {
+    icon: <Languages size={20} aria-hidden="true" />,
+    title: 'Multilingual onboarding',
+    description: 'Explicit language selection with a multilingual welcome flow and translation support when keys are configured.'
+  },
+  {
+    icon: <Sparkles size={20} aria-hidden="true" />,
+    title: 'Intent + scripted flows',
+    description: 'Examiner-friendly intent taxonomy (INT-01…INT-18) with structured responses for key campus tasks.'
+  },
+  {
+    icon: <BrainCircuit size={20} aria-hidden="true" />,
+    title: 'Grounded RAG answers',
+    description: 'Retrieval over the local ADYPU knowledge base for accurate, citation-ready responses.'
+  },
+  {
+    icon: <Database size={20} aria-hidden="true" />,
+    title: 'Verified KB only',
+    description: 'No web-search fallback — if something is out of scope, Saathi returns the strict official-contact fallback.'
+  },
+  {
+    icon: <ShieldCheck size={20} aria-hidden="true" />,
+    title: 'Consent-first logging',
+    description: 'Session logging is consent-gated and designed to keep user privacy at the core.'
+  },
+  {
+    icon: <Mic size={20} aria-hidden="true" />,
+    title: 'Voice ready',
+    description: 'Optional voice input (speech recognition) and audio playback (TTS) for faster campus support.'
+  }
 ];
 
-function timestamp() {
-  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
-
-function canUseSpeechRecognition() {
-  return typeof window !== 'undefined' && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window);
-}
-
-// Helper to render markdown-like text securely
-const formatBotMessage = (text) => {
-  if (!text) return null;
-  
-  // Basic markdown to JSX splitting (simplified for this structure)
-  // Real apps might use react-markdown, we'll do quick parsing to keep dependencies light.
-  const parts = text.split('\n').map((line, i) => {
-    if (line.startsWith('### ')) return <h3 key={i}>{line.replace('### ', '')}</h3>;
-    if (line.startsWith('## ')) return <h2 key={i}>{line.replace('## ', '')}</h2>;
-    if (line.startsWith('# ')) return <h1 key={i}>{line.replace('# ', '')}</h1>;
-    if (line.startsWith('- ')) return <li key={i}>{line.replace('- ', '')}</li>;
-    if (line.match(/\[([^\]]+)\]\(([^)]+)\)/)) {
-      // Basic link parsing
-      const matches = [...line.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
-      if (matches.length > 0) {
-        let result = line;
-        return (
-          <p key={i} dangerouslySetInnerHTML={{
-            __html: result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
-          }} />
-        );
-      }
-    }
-    return <p key={i}>{line}</p>;
-  });
-  
-  return parts;
-};
-
-export default function Home() {
-  const [input, setInput] = useState('');
-  const [apiKey, setApiKey] = useState('');
-  const [messages, setMessages] = useState([]); // Start empty to show the immersive Hero state
-  const [isSending, setIsSending] = useState(false);
-  const [isListening, setIsListening] = useState(false);
-  const [detectedLang, setDetectedLang] = useState('en');
-  const [voiceSupported, setVoiceSupported] = useState(false);
-
-  const endRef = useRef(null);
-  const recognitionRef = useRef(null);
-
-  const history = useMemo(() => {
-    return messages
-      .filter((m) => m.role === USER || m.role === BOT)
-      .map((m) => ({ role: m.role === USER ? 'user' : 'assistant', content: m.text }))
-      .slice(-10);
-  }, [messages]);
-
-  useEffect(() => {
-    const storedKey = localStorage.getItem('adypu_openai_key');
-    if (storedKey) setApiKey(storedKey);
-  }, []);
-
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isSending]);
-
-  useEffect(() => {
-    const supported = canUseSpeechRecognition();
-    setVoiceSupported(supported);
-    if (!supported) return;
-
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SR();
-    recognition.continuous = false;
-    recognition.interimResults = false;
-
-    recognition.onstart = () => setIsListening(true);
-    recognition.onend = () => setIsListening(false);
-    recognition.onerror = () => setIsListening(false);
-
-    recognition.onresult = (event) => {
-      const transcript = event.results?.[0]?.[0]?.transcript?.trim();
-      if (transcript) {
-        setInput((prev) => (prev ? `${prev} ${transcript}` : transcript));
-      }
-    };
-
-    recognitionRef.current = recognition;
-
-    return () => {
-      recognition.stop();
-    };
-  }, []);
-
-  async function submitMessage(rawMessage) {
-    const message = rawMessage.trim();
-    if (!message || isSending) return;
-
-    const snapshotHistory = history;
-
-    setMessages((prev) => [...prev, { role: USER, text: message, time: timestamp() }]);
-    setInput('');
-    setIsSending(true);
-
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, history: snapshotHistory, apiKey })
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to fetch response');
-      }
-
-      const data = await res.json();
-      const botLang = data.language || 'en';
-      setDetectedLang(botLang);
-
-      const botMessage = {
-        role: BOT,
-        text: data.answer,
-        language: botLang,
-        time: timestamp(),
-        sources: data.sources || []
-      };
-
-      setMessages((prev) => [...prev, botMessage]);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: BOT,
-          text: 'Network anomaly detected. Please re-check connection protocols.',
-          language: 'en',
-          time: timestamp(),
-          sources: []
-        }
-      ]);
-    } finally {
-      setIsSending(false);
-    }
-  }
-
-  function sendMessage(event) {
-    event?.preventDefault();
-    submitMessage(input);
-  }
-
-  function handleQuickPrompt(prompt) {
-    submitMessage(prompt);
-  }
-
-  function toggleMic() {
-    if (!recognitionRef.current) return;
-
-    if (isListening) {
-      recognitionRef.current.stop();
-      return;
-    }
-
-    recognitionRef.current.lang = SPEECH_LOCALES[detectedLang] || 'en-US';
-    recognitionRef.current.start();
-  }
-
-  function speakText(text, lang) {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = SPEECH_LOCALES[lang] || 'en-US';
-    utterance.rate = 1;
-    utterance.pitch = 1;
-
-    const voices = window.speechSynthesis.getVoices();
-    const targetBase = utterance.lang.split('-')[0].toLowerCase();
-    const matched = voices.find((voice) => voice.lang.toLowerCase().startsWith(targetBase));
-    if (matched) utterance.voice = matched;
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
-  };
-
+function FeatureCard({ icon, title, description }) {
   return (
-    <>
-      <div className="body-background" />
-      <div className="grid-overlay" />
-      <div className="noise-overlay" />
-      
-      <main className="app-root">
-        <div className="workspace-container">
-          
-          <motion.aside 
-            initial={{ x: -40, opacity: 0 }} 
-            animate={{ x: 0, opacity: 1 }} 
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="sidebar glass-panel"
-          >
-            <div className="brand-section">
-              <div className="logo-container">
-                <Terminal size={24} color="#06b6d4" />
-              </div>
-              <div className="brand-text">
-                <h1>ADYPU Nexus</h1>
-                <p>Enterprise AI Console</p>
-              </div>
-            </div>
-
-            <div className="metrics-dashboard">
-              <div className="metric-item">
-                <div className="metric-header"><Languages size={14}/> Lang Protocol</div>
-                <div className="metric-value">{detectedLang.toUpperCase()}</div>
-              </div>
-              <div className="metric-item">
-                <div className="metric-header"><Database size={14}/> Core Engine</div>
-                <div className="metric-value">RAG 2.0 + Neural Sync</div>
-              </div>
-              <div className="metric-item">
-                <div className="metric-header"><Command size={14}/> OpenAI API Array</div>
-                <input 
-                  type="password" 
-                  className="api-key-input"
-                  placeholder="Insert Key (sk-proj-...)" 
-                  value={apiKey}
-                  onChange={(e) => {
-                    setApiKey(e.target.value);
-                    localStorage.setItem('adypu_openai_key', e.target.value);
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="prompts-section">
-              <div className="section-title">
-                <Sparkles size={14} /> Intelligence Index
-              </div>
-              
-              <motion.div 
-                className="prompts-grid"
-                variants={containerVariants}
-                initial="hidden"
-                animate="show"
-              >
-                {KNOWLEDGE_COLUMNS.map((col, idx) => (
-                  <motion.div variants={itemVariants} key={col.title} className="prompt-category">
-                    <div className="category-name">{col.title}</div>
-                    <div className="prompt-list">
-                      {col.prompts.map(prompt => (
-                        <button key={prompt} className="prompt-btn" onClick={() => handleQuickPrompt(prompt)}>
-                          {prompt}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.aside>
-
-          <motion.section 
-            initial={{ scale: 0.98, opacity: 0 }} 
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="chat-area glass-panel"
-          >
-            <header className="chat-header">
-              <div className="chat-header-info">
-                <h2>Nexus Terminal <div className="pulse-dot" /></h2>
-                <p>Secure connection established. Awaiting queries.</p>
-              </div>
-              <div className="status-badges">
-                <div className="badge active"><ShieldCheck size={14} /> Verified Grounding</div>
-                <div className="badge"><Zap size={14} /> High-Speed Mode</div>
-              </div>
-            </header>
-
-            <div className="chat-messages">
-              {messages.length === 0 && (
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="greeting-hero"
-                >
-                  <motion.div 
-                    animate={{ rotateY: [0, 5, -5, 0] }}
-                    transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                    className="greeting-icon"
-                  >
-                    <BrainCircuit />
-                  </motion.div>
-                  <h2>Welcome to ADYPU Nexus</h2>
-                  <p>A highly intelligent, language-aware concierge designed to securely extract insights from the ADYPU Knowledge Index. Select a prompt or type your query below to begin the handshake.</p>
-                </motion.div>
-              )}
-
-              <AnimatePresence initial={false}>
-                {messages.map((message, idx) => (
-                  <motion.div
-                    key={`${message.time}-${idx}`}
-                    initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                    className={`message-wrapper ${message.role === USER ? 'message-user' : 'message-bot'}`}
-                  >
-                    <div className="message-content">
-                      <div className="message-meta">
-                        {message.role === USER ? (
-                          <>User Authority <span style={{opacity: 0.5}}>{message.time}</span></>
-                        ) : (
-                          <><Terminal size={12} color="#06b6d4"/> Nexus AI <span style={{opacity: 0.5}}>{message.time}</span></>
-                        )}
-                      </div>
-                      
-                      <div className="message-bubble">
-                        {message.role === BOT ? formatBotMessage(message.text) : <p>{message.text}</p>}
-                      </div>
-
-                      {message.role === BOT && message.sources?.length > 0 && (
-                        <div className="sources-container">
-                          {message.sources.map((s, i) => (
-                            <span key={i} className="source-tag">
-                              <Database size={10} /> {s.title}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
-                      {message.role === BOT && (
-                        <div className="action-bar">
-                          <button 
-                            className="action-btn"
-                            onClick={() => speakText(message.text, message.language || detectedLang)}
-                            title="Synthesize audio"
-                          >
-                            <Volume2 size={12}/> Audio Sync
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-
-              {isSending && (
-                <motion.div 
-                  initial={{ opacity: 0 }} 
-                  animate={{ opacity: 1 }} 
-                  className="message-wrapper message-bot"
-                >
-                  <div className="message-content">
-                    <div className="message-meta"><Terminal size={12} color="#06b6d4"/> Nexus AI </div>
-                    <div className="message-bubble" style={{ padding: '0.8rem 1rem'}}>
-                      <div className="typing-indicator">
-                        <div className="typing-dot" />
-                        <div className="typing-dot" />
-                        <div className="typing-dot" />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-              <div ref={endRef} />
-            </div>
-
-            <section className="chat-composer-section">
-              <form className="chat-composer" onSubmit={sendMessage}>
-                <button
-                  type="button"
-                  className={`composer-btn ${isListening ? 'active' : ''}`}
-                  onClick={toggleMic}
-                  disabled={!voiceSupported}
-                  title="Voice input"
-                >
-                  <Mic size={20} />
-                </button>
-                <textarea 
-                  className="chat-input"
-                  placeholder="Initialize command sequence..."
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      sendMessage();
-                    }
-                  }}
-                  rows={1}
-                />
-                <button 
-                  type="submit" 
-                  className="composer-btn send"
-                  disabled={isSending || !input.trim()}
-                >
-                  <Send size={18} />
-                </button>
-              </form>
-            </section>
-          </motion.section>
-
-        </div>
-      </main>
-    </>
+    <div className={`${styles.card} glass-panel`}>
+      <div className={styles.cardIcon}>{icon}</div>
+      <h3 className={styles.cardTitle}>{title}</h3>
+      <p className={styles.cardDesc}>{description}</p>
+    </div>
   );
 }
+
+export default function LandingPage() {
+  return (
+    <div className={styles.page}>
+      <div className="body-background" />
+      <div className={styles.gridOverlay} aria-hidden="true" />
+      <div className="noise-overlay" />
+
+      <header className={`${styles.nav} glass-panel`}>
+        <div className={styles.navInner}>
+          <Link href="/" className={styles.brand} aria-label="ADYPU Saathi home">
+            <div className={styles.brandMark} aria-hidden="true">
+              <img className={styles.brandLogo} src="/adypu-logo.svg" alt="" />
+            </div>
+            <div className={styles.brandText}>
+              <span className={styles.brandName}>ADYPU Saathi</span>
+              <span className={styles.brandMeta}>Multilingual Campus Chatbot</span>
+            </div>
+          </Link>
+
+          <nav className={styles.navLinks} aria-label="Landing page">
+            <a className={styles.navLink} href="#features">
+              Features
+            </a>
+            <a className={styles.navLink} href="#how">
+              How it works
+            </a>
+            <a className={styles.navLink} href="#privacy">
+              Privacy
+            </a>
+            <Link className={styles.navCta} href="/chat">
+              Open chat <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      <main className={styles.main}>
+        <section className={styles.hero}>
+          <div className={styles.heroText}>
+            <div className={styles.kicker}>
+              <Terminal size={14} aria-hidden="true" />
+              <span>Official-style ADYPU assistant demo</span>
+            </div>
+
+            <h1 className={styles.title}>
+              Multilingual campus help,
+              <span className={styles.titleAccent}> grounded in verified ADYPU knowledge.</span>
+            </h1>
+
+            <p className={styles.subtitle}>
+              Designed for an examiner-ready walkthrough: language onboarding, consent gate, intent flows, KB-only grounding, and
+              optional voice.
+            </p>
+
+            <div className={styles.actions}>
+              <Link className={styles.primaryBtn} href="/chat">
+                Start chatting <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+              <a className={styles.secondaryBtn} href="#features">
+                Explore features
+              </a>
+            </div>
+
+            <ul className={styles.badges} aria-label="Highlights">
+              <li className={styles.badge}>
+                <Languages size={14} aria-hidden="true" /> Multilingual onboarding
+              </li>
+              <li className={styles.badge}>
+                <Database size={14} aria-hidden="true" /> Verified KB only
+              </li>
+              <li className={styles.badge}>
+                <Mic size={14} aria-hidden="true" /> Voice input + TTS
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.heroVisual}>
+            <div className={`${styles.preview} glass-panel`} aria-label="Chat preview">
+              <div className={styles.previewHeader}>
+                <div className={styles.previewTitle}>
+                  <div className={styles.previewOrb} aria-hidden="true">
+                    <BrainCircuit size={18} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <div className={styles.previewName}>Saathi Console</div>
+                    <div className={styles.previewMeta}>KB-grounded • source aware</div>
+                  </div>
+                </div>
+                <div className={styles.previewPill}>
+                  <ShieldCheck size={14} aria-hidden="true" /> Consent-gated
+                </div>
+              </div>
+
+              <div className={styles.previewBody}>
+                <div className={styles.msgUser}>
+                  <div className={styles.msgLabel}>You</div>
+                  <div className={styles.bubbleUser}>Hostel fee range?</div>
+                </div>
+
+                <div className={styles.msgBot}>
+                  <div className={styles.msgLabel}>Saathi</div>
+                  <div className={styles.bubbleBot}>
+                    I can answer using the verified ADYPU knowledge base. Here’s what I found, with sources you can click.
+                  </div>
+                  <div className={styles.chips} aria-label="Sources">
+                    <span className={styles.chip}>Source: KB</span>
+                    <span className={styles.chip}>Citations</span>
+                    <span className={styles.chip}>No web search</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.previewFooter} aria-hidden="true">
+                <div className={styles.fakeInput}>
+                  Ask about admissions, fees, contacts…
+                  <span className={styles.cursor} />
+                </div>
+                <div className={styles.sendBtn}>
+                  <ArrowRight size={16} aria-hidden="true" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Built for real campus questions</h2>
+            <p className={styles.sectionSubtitle}>
+              Saathi is opinionated by design: strict grounding, predictable flows, and a clean demo experience.
+            </p>
+          </div>
+
+          <div className={styles.cardGrid}>
+            {FEATURE_CARDS.map((card) => (
+              <FeatureCard key={card.title} {...card} />
+            ))}
+          </div>
+        </section>
+
+        <section id="how" className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>How it works</h2>
+            <p className={styles.sectionSubtitle}>A simple flow that stays robust under live demo pressure.</p>
+          </div>
+
+          <ol className={styles.steps}>
+            <li className={styles.step}>
+              <span className={styles.stepIndex}>1</span>
+              <div>
+                <div className={styles.stepTitle}>Choose your language</div>
+                <div className={styles.stepDesc}>Saathi starts with a multilingual welcome and explicit selection.</div>
+              </div>
+            </li>
+            <li className={styles.step}>
+              <span className={styles.stepIndex}>2</span>
+              <div>
+                <div className={styles.stepTitle}>Confirm consent</div>
+                <div className={styles.stepDesc}>Session logging is only enabled after the user grants consent.</div>
+              </div>
+            </li>
+            <li className={styles.step}>
+              <span className={styles.stepIndex}>3</span>
+              <div>
+                <div className={styles.stepTitle}>Ask your campus question</div>
+                <div className={styles.stepDesc}>Intent routing + retrieval over local KB keeps answers grounded.</div>
+              </div>
+            </li>
+            <li className={styles.step}>
+              <span className={styles.stepIndex}>4</span>
+              <div>
+                <div className={styles.stepTitle}>Get sources + optional audio</div>
+                <div className={styles.stepDesc}>Cited sources in UI, with speech input and TTS where supported.</div>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section id="privacy" className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Privacy-first by default</h2>
+            <p className={styles.sectionSubtitle}>Clear consent, minimal surprises, and a demo story you can defend.</p>
+          </div>
+
+          <div className={styles.privacyGrid}>
+            <div className={`${styles.privacyCard} glass-panel`}>
+              <div className={styles.privacyTop}>
+                <ShieldCheck size={18} aria-hidden="true" />
+                <h3 className={styles.privacyTitle}>Consent gate before any logging</h3>
+              </div>
+              <p className={styles.privacyDesc}>
+                Until consent is granted, Saathi avoids storing session history and keeps the experience transparent.
+              </p>
+            </div>
+            <div className={`${styles.privacyCard} glass-panel`}>
+              <div className={styles.privacyTop}>
+                <Database size={18} aria-hidden="true" />
+                <h3 className={styles.privacyTitle}>Grounded answers (KB-only)</h3>
+              </div>
+              <p className={styles.privacyDesc}>
+                Saathi is designed to use the bundled ADYPU knowledge files and return a strict official-contact fallback when
+                out of scope.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.finalCta}>
+            <div className={styles.finalCtaText}>
+              <h3 className={styles.finalCtaTitle}>Ready to try the demo?</h3>
+              <p className={styles.finalCtaDesc}>Open the chat console and ask about admissions, fees, officials, or contacts.</p>
+            </div>
+            <Link className={styles.finalCtaBtn} href="/chat">
+              Open chat <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <footer className={styles.footer}>
+        <div className={styles.footerInner}>
+          <div className={styles.footerBrand}>
+            <img className={styles.footerLogo} src="/adypu-logo.svg" alt="" aria-hidden="true" />
+            <span>ADYPU Saathi</span>
+          </div>
+          <div className={styles.footerMeta}>Next.js App Router • KB-grounded • Multilingual</div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
