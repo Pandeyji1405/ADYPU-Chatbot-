@@ -1,0 +1,8 @@
+.next
+node_modules
+
+# Large crawl artifacts (not needed for Vercel deploy)
+# Keep: data/site/text (used to generate the vector index during build)
+data/site/html
+data/site/pdfs
+data/site/analysis
