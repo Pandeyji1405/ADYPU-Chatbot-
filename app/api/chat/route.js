@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { FALLBACK_ENGLISH } from '@/lib/constants.js';
 import { expandDomainShortforms } from '@/lib/facts.js';
-import { buildGreetingReply, buildThanksReply, buildIdentityReply, detectConversationIntent } from '@/lib/conversation.js';
+import { buildGoodbyeReply, buildGreetingReply, buildThanksReply, buildIdentityReply, detectConversationIntent } from '@/lib/conversation.js';
 import { detectResponseStyle, normalizeDetectedLanguage, translateText } from '@/lib/language.js';
 import { retrieveContext, generateAnswer } from '@/lib/rag.js';
 import { appendSessionEvent, deleteSession, generateSessionId, getOrCreateSession, loadSession, patchSession } from '@/lib/session-store.js';
@@ -169,8 +169,8 @@ export async function POST(req) {
     if (convoIntent === 'greeting') {
       const answer = await buildGreetingReply(replyLanguage, style);
       if (consentState === 'agree') {
-        await appendSessionEvent(activeSessionId, { role: 'user', text: redactSensitiveUserData(incoming), intent: 'INT-17' });
-        await appendSessionEvent(activeSessionId, { role: 'assistant', text: answer, intent: 'INT-17' });
+        await appendSessionEvent(activeSessionId, { role: 'user', text: redactSensitiveUserData(incoming), intent: 'INT-01' });
+        await appendSessionEvent(activeSessionId, { role: 'assistant', text: answer, intent: 'INT-01' });
       }
       return reply(answer, replyLanguage, []);
     }
@@ -178,8 +178,8 @@ export async function POST(req) {
     if (convoIntent === 'thanks') {
       const answer = await buildThanksReply(replyLanguage, style);
       if (consentState === 'agree') {
-        await appendSessionEvent(activeSessionId, { role: 'user', text: redactSensitiveUserData(incoming), intent: 'INT-17' });
-        await appendSessionEvent(activeSessionId, { role: 'assistant', text: answer, intent: 'INT-17' });
+        await appendSessionEvent(activeSessionId, { role: 'user', text: redactSensitiveUserData(incoming), intent: 'INT-01' });
+        await appendSessionEvent(activeSessionId, { role: 'assistant', text: answer, intent: 'INT-01' });
       }
       return reply(answer, replyLanguage, []);
     }
@@ -187,8 +187,17 @@ export async function POST(req) {
     if (convoIntent === 'identity') {
       const answer = await buildIdentityReply(replyLanguage, style);
       if (consentState === 'agree') {
-        await appendSessionEvent(activeSessionId, { role: 'user', text: redactSensitiveUserData(incoming), intent: 'INT-17' });
-        await appendSessionEvent(activeSessionId, { role: 'assistant', text: answer, intent: 'INT-17' });
+        await appendSessionEvent(activeSessionId, { role: 'user', text: redactSensitiveUserData(incoming), intent: 'INT-01' });
+        await appendSessionEvent(activeSessionId, { role: 'assistant', text: answer, intent: 'INT-01' });
+      }
+      return reply(answer, replyLanguage, []);
+    }
+
+    if (convoIntent === 'goodbye') {
+      const answer = await buildGoodbyeReply(replyLanguage, style);
+      if (consentState === 'agree') {
+        await appendSessionEvent(activeSessionId, { role: 'user', text: redactSensitiveUserData(incoming), intent: 'INT-01' });
+        await appendSessionEvent(activeSessionId, { role: 'assistant', text: answer, intent: 'INT-01' });
       }
       return reply(answer, replyLanguage, []);
     }
