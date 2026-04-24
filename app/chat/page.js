@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit, Terminal, Command, Zap, MessageSquare, Database, Sparkles, Paintbrush } from 'lucide-react';
+import { ArrowLeft, Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit, Terminal, Command, Zap, MessageSquare, Database, Sparkles, Paintbrush, Menu, X } from 'lucide-react';
 import ThemeSelect from '@/app/components/theme-select.js';
 import { SPEECH_LOCALES } from '@/lib/language-support.js';
 import { SAATHI_LANGUAGE_WELCOME_BLOCK, SAATHI_SUPPORTED_LANGUAGES } from '@/lib/saathi.js';
@@ -88,12 +88,12 @@ export default function ChatPage() {
   const [isListening, setIsListening] = useState(false);
   const [detectedLang, setDetectedLang] = useState('en');
   const [voiceSupported, setVoiceSupported] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   const [session, setSession] = useState({ id: '', language: '', consent: 'unknown', audioPrompt: false, audioText: '' });
-
   const endRef = useRef(null);
-  const recognitionRef = useRef(null);
 
-  const history = useMemo(() => {
+  const recognitionRef = useRef(null);
     return messages
       .filter((m) => m.role === USER || m.role === BOT)
       .map((m) => ({ role: m.role === USER ? 'user' : 'assistant', content: m.text }))
@@ -311,11 +311,21 @@ export default function ChatPage() {
       <main className="app-root">
         <div className="workspace-container">
           
-          <motion.aside 
+      <div className="app-root">
+        <div className="workspace-container">
+
+          {/* Mobile drawer overlay */}
+          <div
+            className={`sidebar-overlay${drawerOpen ? ' open' : ''}`}
+            onClick={() => setDrawerOpen(false)}
+            aria-hidden="true"
+          />
+
+          <motion.aside
             initial={false}
-            animate={{ x: 0, opacity: 1 }} 
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="sidebar glass-panel"
+            className={`sidebar glass-panel${drawerOpen ? ' drawer-open' : ''}`}
           >
             <div className="brand-section">
               <div className="logo-container" style={{ background: 'linear-gradient(135deg, var(--adypu-red), var(--adypu-red-dark))', border: '1px solid rgba(255,255,255,0.1)' }}>
@@ -325,6 +335,13 @@ export default function ChatPage() {
                 <h1>ADYPU Saathi</h1>
                 <p style={{ color: 'var(--adypu-gold)' }}>Official Campus Assistant</p>
               </div>
+              <button
+                onClick={() => setDrawerOpen(false)}
+                style={{ marginLeft: 'auto', background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                aria-label="Close menu"
+              >
+                <X size={20} />
+              </button>
             </div>
 
             <div className="metrics-dashboard">
@@ -401,9 +418,18 @@ export default function ChatPage() {
             className="chat-area glass-panel"
           >
             <header className="chat-header">
-              <div className="chat-header-info">
-                <h2>Saathi Chat <div className="pulse-dot" style={{ backgroundColor: 'var(--adypu-gold)', boxShadow: '0 0 10px var(--adypu-gold)' }} /></h2>
-                <p>Verified ADYPU assistance ready for your questions.</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <button
+                  onClick={() => setDrawerOpen(true)}
+                  style={{ background: 'transparent', border: '1px solid var(--border-subtle)', borderRadius: '10px', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.4rem', display: 'flex', alignItems: 'center' }}
+                  aria-label="Open menu"
+                >
+                  <Menu size={18} />
+                </button>
+                <div className="chat-header-info">
+                  <h2>Saathi Chat <div className="pulse-dot" style={{ backgroundColor: 'var(--adypu-gold)', boxShadow: '0 0 10px var(--adypu-gold)' }} /></h2>
+                  <p>Verified ADYPU assistance ready for your questions.</p>
+                </div>
               </div>
               <div className="status-badges">
                 <Link className="badge badge-link" href="/">
