@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit, Terminal, Command, Zap, MessageSquare, Database, Sparkles, Paintbrush, Menu, X } from 'lucide-react';
+import { ArrowLeft, Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit, Terminal, Command, Zap, Database, Sparkles, Paintbrush, Menu, X } from 'lucide-react';
 import ThemeSelect from '@/app/components/theme-select.js';
 import { SPEECH_LOCALES } from '@/lib/language-support.js';
 import { SAATHI_LANGUAGE_WELCOME_BLOCK, SAATHI_SUPPORTED_LANGUAGES } from '@/lib/saathi.js';
@@ -31,83 +31,61 @@ function canUseSpeechRecognition() {
 
 function safeLocalStorageGet(key) {
   if (typeof window === 'undefined') return '';
-  try {
-    return window.localStorage.getItem(key) || '';
-  } catch {
-    return '';
-  }
+  try { return window.localStorage.getItem(key) || ''; } catch { return ''; }
 }
 
 function safeLocalStorageSet(key, value) {
   if (typeof window === 'undefined') return;
-  try {
-    window.localStorage.setItem(key, value);
-  } catch {
-    // ignore storage failures
-  }
+  try { window.localStorage.setItem(key, value); } catch {}
 }
 
 function createSessionId() {
-  if (typeof window !== 'undefined' && window.crypto && typeof window.crypto.randomUUID === 'function') {
+  if (typeof window !== 'undefined' && window.crypto?.randomUUID) {
     return window.crypto.randomUUID().replace(/-/g, '');
   }
   return `${Date.now()}${Math.random().toString(16).slice(2)}`;
 }
 
-// Helper to render markdown-like text securely
 const formatBotMessage = (text) => {
   if (!text) return null;
-  
-  const parts = text.split('\n').map((line, i) => {
+  return text.split('\n').map((line, i) => {
     if (line.startsWith('### ')) return <h3 key={i}>{line.replace('### ', '')}</h3>;
     if (line.startsWith('## ')) return <h2 key={i}>{line.replace('## ', '')}</h2>;
     if (line.startsWith('# ')) return <h1 key={i}>{line.replace('# ', '')}</h1>;
     if (line.startsWith('- ')) return <li key={i}>{line.replace('- ', '')}</li>;
     if (line.match(/\[([^\]]+)\]\(([^)]+)\)/)) {
-      const matches = [...line.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
-      if (matches.length > 0) {
-        let result = line;
-        return (
-          <p key={i} dangerouslySetInnerHTML={{
-            __html: result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
-          }} />
-        );
-      }
+      return <p key={i} dangerouslySetInnerHTML={{ __html: line.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>') }} />;
     }
     return <p key={i}>{line}</p>;
   });
-  
-  return parts;
 };
 
 export default function ChatPage() {
   const [input, setInput] = useState('');
   const [apiKey, setApiKey] = useState('');
-  const [messages, setMessages] = useState([]); 
+  const [messages, setMessages] = useState([]);
   const [isSending, setIsSending] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [detectedLang, setDetectedLang] = useState('en');
   const [voiceSupported, setVoiceSupported] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const [session, setSession] = useState({ id: '', language: '', consent: 'unknown', audioPrompt: false, audioText: '' });
-  const endRef = useRef(null);
 
+  const endRef = useRef(null);
   const recognitionRef = useRef(null);
-    return messages
+
+  const history = useMemo(() =>
+    messages
       .filter((m) => m.role === USER || m.role === BOT)
       .map((m) => ({ role: m.role === USER ? 'user' : 'assistant', content: m.text }))
-      .slice(-10);
-  }, [messages]);
+      .slice(-10),
+    [messages]
+  );
 
   const canSend = Boolean(input.trim()) && !isSending;
-  const languageOptions = useMemo(
-    () => SAATHI_SUPPORTED_LANGUAGES.map((lang) => ({ value: lang.code, label: lang.label })),
-    []
-  );
+  const languageOptions = useMemo(() => SAATHI_SUPPORTED_LANGUAGES.map((lang) => ({ value: lang.code, label: lang.label })), []);
   const activeLanguageCode = session.language || detectedLang || 'en';
-  const activeLanguageLabel =
-    languageOptions.find((lang) => lang.value === activeLanguageCode)?.label || activeLanguageCode.toUpperCase();
+  const activeLanguageLabel = languageOptions.find((lang) => lang.value === activeLanguageCode)?.label || activeLanguageCode.toUpperCase();
 
   useEffect(() => {
     const storedKey = safeLocalStorageGet('adypu_openai_key');
@@ -118,136 +96,76 @@ export default function ChatPage() {
     const storedId = safeLocalStorageGet('adypu_saathi_session_id');
     const storedLang = safeLocalStorageGet('adypu_saathi_language') || '';
     const storedConsent = safeLocalStorageGet('adypu_saathi_consent') || 'unknown';
-
     const id = storedId || createSessionId();
     safeLocalStorageSet('adypu_saathi_session_id', id);
-
     setSession((prev) => ({ ...prev, id, language: storedLang, consent: storedConsent }));
     if (storedLang) setDetectedLang(storedLang);
-
     setMessages((prev) => {
       if (prev.length > 0) return prev;
-      if (!storedLang) {
-        return [{ role: BOT, text: SAATHI_LANGUAGE_WELCOME_BLOCK, language: 'en', time: timestamp(), sources: [] }];
-      }
+      if (!storedLang) return [{ role: BOT, text: SAATHI_LANGUAGE_WELCOME_BLOCK, language: 'en', time: timestamp(), sources: [] }];
       return prev;
     });
   }, []);
 
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isSending]);
+  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, isSending]);
 
   useEffect(() => {
     const supported = canUseSpeechRecognition();
     setVoiceSupported(supported);
     if (!supported) return;
-
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SR();
     recognition.continuous = false;
     recognition.interimResults = false;
-
     recognition.onstart = () => setIsListening(true);
     recognition.onend = () => setIsListening(false);
     recognition.onerror = () => setIsListening(false);
-
     recognition.onresult = (event) => {
       const transcript = event.results?.[0]?.[0]?.transcript?.trim();
-      if (transcript) {
-        setInput((prev) => (prev ? `${prev} ${transcript}` : transcript));
-      }
+      if (transcript) setInput((prev) => (prev ? `${prev} ${transcript}` : transcript));
     };
-
     recognitionRef.current = recognition;
-
-    return () => {
-      recognition.stop();
-    };
+    return () => recognition.stop();
   }, []);
 
   async function submitMessage(rawMessage) {
     const message = String(rawMessage || '').trim();
     if (!message || isSending) return;
-
     if (message === '1' && session.audioPrompt && session.audioText) {
       speakText(session.audioText, session.language || detectedLang);
       setInput('');
       return;
     }
-
     const snapshotHistory = history;
-
     setMessages((prev) => [...prev, { role: USER, text: message, time: timestamp() }]);
     setInput('');
     setIsSending(true);
-
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message,
-          history: snapshotHistory,
-          apiKey,
-          sessionId: session.id,
-          preferredLanguage: session.language || undefined,
-          consent: session.consent
-        })
+        body: JSON.stringify({ message, history: snapshotHistory, apiKey, sessionId: session.id, preferredLanguage: session.language || undefined, consent: session.consent })
       });
-
-      if (!res.ok) {
-        throw new Error('Failed to fetch response');
-      }
-
+      if (!res.ok) throw new Error('Failed to fetch response');
       const data = await res.json();
       const botLang = data.language || 'en';
       setDetectedLang(botLang);
-
       if (data.session) {
-        const nextSession = {
-          ...session,
-          ...data.session,
-          language: data.session.language || session.language,
-          consent: data.session.consent || session.consent
-        };
+        const nextSession = { ...session, ...data.session, language: data.session.language || session.language, consent: data.session.consent || session.consent };
         setSession(nextSession);
         if (nextSession.id) safeLocalStorageSet('adypu_saathi_session_id', nextSession.id);
         if (nextSession.language) safeLocalStorageSet('adypu_saathi_language', nextSession.language);
         if (nextSession.consent) safeLocalStorageSet('adypu_saathi_consent', nextSession.consent);
       }
-
-      const botMessage = {
-        role: BOT,
-        text: data.answer,
-        language: botLang,
-        time: timestamp(),
-        sources: data.sources || [],
-        audioPrompt: Boolean(data.session?.audioPrompt),
-        audioText: data.session?.audioText || ''
-      };
-
-      setMessages((prev) => [...prev, botMessage]);
+      setMessages((prev) => [...prev, { role: BOT, text: data.answer, language: botLang, time: timestamp(), sources: data.sources || [], audioPrompt: Boolean(data.session?.audioPrompt), audioText: data.session?.audioText || '' }]);
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: BOT,
-          text: 'Network anomaly detected. Please re-check connection protocols.',
-          language: 'en',
-          time: timestamp(),
-          sources: []
-        }
-      ]);
+      setMessages((prev) => [...prev, { role: BOT, text: 'Network anomaly detected. Please re-check connection protocols.', language: 'en', time: timestamp(), sources: [] }]);
     } finally {
       setIsSending(false);
     }
   }
 
-  function sendMessage(event) {
-    event?.preventDefault();
-    submitMessage(input);
-  }
+  function sendMessage(event) { event?.preventDefault(); submitMessage(input); }
 
   function handleLanguageChange(event) {
     const nextLanguage = event.target.value;
@@ -256,63 +174,36 @@ export default function ChatPage() {
     safeLocalStorageSet('adypu_saathi_language', nextLanguage);
   }
 
-  function handleQuickPrompt(prompt) {
-    setDrawerOpen(false);
-    submitMessage(prompt);
-  }
+  function handleQuickPrompt(prompt) { setDrawerOpen(false); submitMessage(prompt); }
 
   function toggleMic() {
     if (!recognitionRef.current) return;
-
-    if (isListening) {
-      recognitionRef.current.stop();
-      return;
-    }
-
+    if (isListening) { recognitionRef.current.stop(); return; }
     recognitionRef.current.lang = SPEECH_LOCALES[session.language || detectedLang] || 'en-US';
     recognitionRef.current.start();
   }
 
   function speakText(text, lang) {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = SPEECH_LOCALES[lang] || 'en-US';
-    utterance.rate = 1;
-    utterance.pitch = 1;
-
     const voices = window.speechSynthesis.getVoices();
-    const targetBase = utterance.lang.split('-')[0].toLowerCase();
-    const matched = voices.find((voice) => voice.lang.toLowerCase().startsWith(targetBase));
+    const matched = voices.find((v) => v.lang.toLowerCase().startsWith(utterance.lang.split('-')[0]));
     if (matched) utterance.voice = matched;
-
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
-  };
+  const containerVariants = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+  const itemVariants = { hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } } };
 
   return (
     <div className="chat-page-wrapper">
       <div className="body-background" />
       <div className="grid-overlay" />
       <div className="noise-overlay" />
-      
+
       <main className="app-root">
-        <div className="workspace-container">
-          
-      <div className="app-root">
         <div className="workspace-container">
 
           {/* Mobile drawer overlay */}
@@ -338,7 +229,7 @@ export default function ChatPage() {
               </div>
               <button
                 onClick={() => setDrawerOpen(false)}
-                style={{ marginLeft: 'auto', background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                style={{ marginLeft: 'auto', background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.25rem' }}
                 aria-label="Close menu"
               >
                 <X size={20} />
@@ -347,63 +238,41 @@ export default function ChatPage() {
 
             <div className="metrics-dashboard">
               <div className="metric-item">
-                <div className="metric-header"><Languages size={14}/> Lang Protocol</div>
+                <div className="metric-header"><Languages size={14} /> Lang Protocol</div>
                 <div className="metric-value">{activeLanguageLabel}</div>
-                <select
-                  className="api-key-input"
-                  value={activeLanguageCode}
-                  onChange={handleLanguageChange}
-                  aria-label="Preferred language"
-                >
-                  {languageOptions.map((lang) => (
-                    <option key={lang.value} value={lang.value}>
-                      {lang.label}
-                    </option>
-                  ))}
+                <select className="api-key-input" value={activeLanguageCode} onChange={handleLanguageChange} aria-label="Preferred language">
+                  {languageOptions.map((lang) => <option key={lang.value} value={lang.value}>{lang.label}</option>)}
                 </select>
               </div>
               <div className="metric-item">
-                <div className="metric-header"><Database size={14}/> Core Engine</div>
+                <div className="metric-header"><Database size={14} /> Core Engine</div>
                 <div className="metric-value">RAG 2.0 + Neural Sync</div>
               </div>
               <div className="metric-item">
-                <div className="metric-header"><Command size={14}/> OpenAI API Array</div>
-                <input 
-                  type="password" 
+                <div className="metric-header"><Command size={14} /> OpenAI API Array</div>
+                <input
+                  type="password"
                   className="api-key-input"
-                  placeholder="Insert Key (sk-proj-...)" 
+                  placeholder="Insert Key (sk-proj-...)"
                   value={apiKey}
-                  onChange={(e) => {
-                    setApiKey(e.target.value);
-                    safeLocalStorageSet('adypu_openai_key', e.target.value);
-                  }}
+                  onChange={(e) => { setApiKey(e.target.value); safeLocalStorageSet('adypu_openai_key', e.target.value); }}
                 />
               </div>
               <div className="metric-item">
-                <div className="metric-header"><Paintbrush size={14}/> UI Theme</div>
+                <div className="metric-header"><Paintbrush size={14} /> UI Theme</div>
                 <ThemeSelect selectClassName="api-key-input" ariaLabel="UI theme" />
               </div>
             </div>
 
             <div className="prompts-section">
-              <div className="section-title">
-                <Sparkles size={14} /> Intelligence Index
-              </div>
-              
-              <motion.div 
-                className="prompts-grid"
-                variants={containerVariants}
-                initial={false}
-                animate="show"
-              >
-                {KNOWLEDGE_COLUMNS.map((col, idx) => (
+              <div className="section-title"><Sparkles size={14} /> Intelligence Index</div>
+              <motion.div className="prompts-grid" variants={containerVariants} initial={false} animate="show">
+                {KNOWLEDGE_COLUMNS.map((col) => (
                   <motion.div variants={itemVariants} key={col.title} className="prompt-category">
                     <div className="category-name">{col.title}</div>
                     <div className="prompt-list">
-                      {col.prompts.map(prompt => (
-                        <button key={prompt} className="prompt-btn" onClick={() => handleQuickPrompt(prompt)}>
-                          {prompt}
-                        </button>
+                      {col.prompts.map((prompt) => (
+                        <button key={prompt} className="prompt-btn" onClick={() => handleQuickPrompt(prompt)}>{prompt}</button>
                       ))}
                     </div>
                   </motion.div>
@@ -412,17 +281,17 @@ export default function ChatPage() {
             </div>
           </motion.aside>
 
-          <motion.section 
+          <motion.section
             initial={false}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="chat-area glass-panel"
           >
             <header className="chat-header">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }}>
                 <button
                   onClick={() => setDrawerOpen(true)}
-                  style={{ background: 'transparent', border: '1px solid var(--border-subtle)', borderRadius: '10px', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.4rem', display: 'flex', alignItems: 'center' }}
+                  style={{ background: 'transparent', border: '1px solid var(--border-subtle)', borderRadius: '10px', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.4rem', display: 'flex', alignItems: 'center', flexShrink: 0 }}
                   aria-label="Open menu"
                 >
                   <Menu size={18} />
@@ -433,27 +302,16 @@ export default function ChatPage() {
                 </div>
               </div>
               <div className="status-badges">
-                <Link className="badge badge-link" href="/">
-                  <ArrowLeft size={14} aria-hidden="true" /> Landing
-                </Link>
-                <div className="badge active"><ShieldCheck size={14} /> Verified Grounding</div>
-                <div className="badge"><Zap size={14} /> High-Speed Mode</div>
+                <Link className="badge badge-link" href="/"><ArrowLeft size={14} aria-hidden="true" /> Landing</Link>
+                <div className="badge active"><ShieldCheck size={14} /> Verified</div>
+                <div className="badge"><Zap size={14} /> Fast</div>
               </div>
             </header>
 
             <div className="chat-messages">
               {messages.length === 0 && (
-                <motion.div 
-                  initial={false}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="greeting-hero"
-                >
-                  <motion.div 
-                    animate={{ rotateY: [0, 5, -5, 0] }}
-                    transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                    className="greeting-icon"
-                  >
+                <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="greeting-hero">
+                  <motion.div animate={{ rotateY: [0, 5, -5, 0] }} transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }} className="greeting-icon">
                     <BrainCircuit />
                   </motion.div>
                   <h2>Welcome to ADYPU Saathi</h2>
@@ -472,35 +330,25 @@ export default function ChatPage() {
                   >
                     <div className="message-content">
                       <div className="message-meta">
-                        {message.role === USER ? (
-                          <>User Authority <span style={{opacity: 0.5}}>{message.time}</span></>
-                        ) : (
-                          <><Terminal size={12} color="var(--adypu-red)"/> Nexus AI <span style={{opacity: 0.5}}>{message.time}</span></>
-                        )}
+                        {message.role === USER
+                          ? <>You <span style={{ opacity: 0.5 }}>{message.time}</span></>
+                          : <><Terminal size={12} color="var(--adypu-red)" /> Saathi <span style={{ opacity: 0.5 }}>{message.time}</span></>
+                        }
                       </div>
-                      
                       <div className="message-bubble">
                         {message.role === BOT ? formatBotMessage(message.text) : <p>{message.text}</p>}
                       </div>
-
                       {message.role === BOT && message.sources?.length > 0 && (
                         <div className="sources-container">
                           {message.sources.map((s, i) => (
-                            <span key={i} className="source-tag">
-                              <Database size={10} /> {s.title}
-                            </span>
+                            <span key={i} className="source-tag"><Database size={10} /> {s.title}</span>
                           ))}
                         </div>
                       )}
-
                       {message.role === BOT && (
                         <div className="action-bar">
-                          <button 
-                            className="action-btn"
-                            onClick={() => speakText(message.audioText || message.text, message.language || detectedLang)}
-                            title="Synthesize audio"
-                          >
-                            <Volume2 size={12}/> Audio Sync
+                          <button className="action-btn" onClick={() => speakText(message.audioText || message.text, message.language || detectedLang)} title="Read aloud">
+                            <Volume2 size={12} /> Speak
                           </button>
                         </div>
                       )}
@@ -510,14 +358,10 @@ export default function ChatPage() {
               </AnimatePresence>
 
               {isSending && (
-                <motion.div 
-                  initial={{ opacity: 0 }} 
-                  animate={{ opacity: 1 }} 
-                  className="message-wrapper message-bot"
-                >
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="message-wrapper message-bot">
                   <div className="message-content">
-                    <div className="message-meta"><Terminal size={12} color="var(--adypu-red)"/> Nexus AI </div>
-                    <div className="message-bubble" style={{ padding: '0.8rem 1rem'}}>
+                    <div className="message-meta"><Terminal size={12} color="var(--adypu-red)" /> Saathi</div>
+                    <div className="message-bubble" style={{ padding: '0.8rem 1rem' }}>
                       <div className="typing-indicator">
                         <div className="typing-dot" />
                         <div className="typing-dot" />
@@ -532,36 +376,18 @@ export default function ChatPage() {
 
             <section className="chat-composer-section">
               <form className="chat-composer" onSubmit={sendMessage}>
-                <button
-                  type="button"
-                  className={`composer-btn ${isListening ? 'active' : ''}`}
-                  onClick={toggleMic}
-                  disabled={!voiceSupported}
-                  title="Voice input"
-                >
+                <button type="button" className={`composer-btn ${isListening ? 'active' : ''}`} onClick={toggleMic} disabled={!voiceSupported} title="Voice input">
                   <Mic size={20} />
                 </button>
-                <textarea 
+                <textarea
                   className="chat-input"
-                  placeholder="Initialize command sequence..."
+                  placeholder="Ask about fees, admissions, faculty..."
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      sendMessage();
-                    }
-                  }}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
                   rows={1}
                 />
-                <button 
-                  type="submit" 
-                  className="composer-btn send"
-                  onClick={sendMessage}
-                  disabled={!canSend}
-                  aria-label="Send message"
-                  title="Send message"
-                >
+                <button type="submit" className="composer-btn send" onClick={sendMessage} disabled={!canSend} aria-label="Send message">
                   <Send size={18} />
                 </button>
               </form>
