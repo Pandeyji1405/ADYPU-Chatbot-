@@ -709,6 +709,10 @@
   .cardGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .heroVisual {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
@@ -732,5 +736,64 @@
 
   .title {
     letter-spacing: -0.02em;
+  }
+
+  .main {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .section {
+    margin-top: 3.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .finalCta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .finalCtaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footerInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    top: 0.5rem;
+    width: calc(100% - 1rem);
+    padding: 0.6rem 0.75rem;
+  }
+
+  .brandMeta {
+    display: none;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    justify-content: center;
+    text-align: center;
   }
 }
