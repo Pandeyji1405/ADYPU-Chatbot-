@@ -257,6 +257,7 @@ export default function ChatPage() {
   }
 
   function handleQuickPrompt(prompt) {
+    setDrawerOpen(false);
     submitMessage(prompt);
   }
 
