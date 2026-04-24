@@ -5,19 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, Mic, Send, Volume2, ShieldCheck, Languages, BrainCircuit, Terminal, Command, Zap, MessageSquare, Database, Sparkles, Paintbrush } from 'lucide-react';
 import ThemeSelect from '@/app/components/theme-select.js';
-import { GLOBAL_LANGUAGES, INDIAN_LANGUAGES, SPEECH_LOCALES } from '@/lib/language-support.js';
-import { SAATHI_LANGUAGE_WELCOME_BLOCK } from '@/lib/saathi.js';
+import { SPEECH_LOCALES } from '@/lib/language-support.js';
+import { SAATHI_LANGUAGE_WELCOME_BLOCK, SAATHI_SUPPORTED_LANGUAGES } from '@/lib/saathi.js';
 
 const BOT = 'bot';
 const USER = 'user';
 
 const KNOWLEDGE_COLUMNS = [
-  { title: 'Deans', prompts: ['SoD dean name', 'SSD dean name', 'Law and Liberal Arts dean'] },
-  { title: 'Admissions', prompts: ['Admissions link', 'Admission process steps', 'Mandatory disclosures link'] },
-  { title: 'Fees', prompts: ['Hostel fee range', 'Fees PDF 2025-26', 'Hostel contact number'] },
-  { title: 'Placements', prompts: ['Who handles placements?', 'SPCR full form', 'Placements page link'] },
-  { title: 'Shortforms', prompts: ['SSD full form', 'SoD full form', 'SSD vs SoD difference'] },
-  { title: 'Officials', prompts: ['Vice Chancellor name', 'Registrar name', 'Registrar email'] }
+  { title: 'Courses', prompts: ['What undergraduate courses are available at ADYPU?', 'What courses are available in SOE?', 'What postgraduate courses are available at ADYPU?'] },
+  { title: 'Deans', prompts: ['Who is the SoD dean?', 'Who is the SSD dean?', 'Who is the Law and Liberal Arts dean?'] },
+  { title: 'Admissions', prompts: ['What is the admissions link?', 'What are the admission process steps?', 'What is the mandatory disclosures link?'] },
+  { title: 'Fees', prompts: ['What is the hostel fee range?', 'What is the fees PDF 2025-26 link?', 'What is the hostel contact number?'] },
+  { title: 'Placements', prompts: ['Who handles placements?', 'What is the full form of SPCR?', 'What is the placements page link?'] },
+  { title: 'Shortforms', prompts: ['What is the full form of SSD?', 'What is the full form of SoD?', 'What is the difference between SSD and SoD?'] },
+  { title: 'Officials', prompts: ['Who is the Vice Chancellor?', 'Who is the Registrar?', 'What is the Registrar email?'] }
 ];
 
 function timestamp() {
@@ -26,6 +27,31 @@ function timestamp() {
 
 function canUseSpeechRecognition() {
   return typeof window !== 'undefined' && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window);
+}
+
+function safeLocalStorageGet(key) {
+  if (typeof window === 'undefined') return '';
+  try {
+    return window.localStorage.getItem(key) || '';
+  } catch {
+    return '';
+  }
+}
+
+function safeLocalStorageSet(key, value) {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    // ignore storage failures
+  }
+}
+
+function createSessionId() {
+  if (typeof window !== 'undefined' && window.crypto && typeof window.crypto.randomUUID === 'function') {
+    return window.crypto.randomUUID().replace(/-/g, '');
+  }
+  return `${Date.now()}${Math.random().toString(16).slice(2)}`;
 }
 
 // Helper to render markdown-like text securely
@@ -74,18 +100,27 @@ export default function ChatPage() {
       .slice(-10);
   }, [messages]);
 
+  const canSend = Boolean(input.trim()) && !isSending;
+  const languageOptions = useMemo(
+    () => SAATHI_SUPPORTED_LANGUAGES.map((lang) => ({ value: lang.code, label: lang.label })),
+    []
+  );
+  const activeLanguageCode = session.language || detectedLang || 'en';
+  const activeLanguageLabel =
+    languageOptions.find((lang) => lang.value === activeLanguageCode)?.label || activeLanguageCode.toUpperCase();
+
   useEffect(() => {
-    const storedKey = localStorage.getItem('adypu_openai_key');
+    const storedKey = safeLocalStorageGet('adypu_openai_key');
     if (storedKey) setApiKey(storedKey);
   }, []);
 
   useEffect(() => {
-    const storedId = localStorage.getItem('adypu_saathi_session_id');
-    const storedLang = localStorage.getItem('adypu_saathi_language') || '';
-    const storedConsent = localStorage.getItem('adypu_saathi_consent') || 'unknown';
+    const storedId = safeLocalStorageGet('adypu_saathi_session_id');
+    const storedLang = safeLocalStorageGet('adypu_saathi_language') || '';
+    const storedConsent = safeLocalStorageGet('adypu_saathi_consent') || 'unknown';
 
-    const id = storedId || (crypto?.randomUUID ? crypto.randomUUID().replace(/-/g, '') : `${Date.now()}${Math.random().toString(16).slice(2)}`);
-    localStorage.setItem('adypu_saathi_session_id', id);
+    const id = storedId || createSessionId();
+    safeLocalStorageSet('adypu_saathi_session_id', id);
 
     setSession((prev) => ({ ...prev, id, language: storedLang, consent: storedConsent }));
     if (storedLang) setDetectedLang(storedLang);
@@ -132,7 +167,7 @@ export default function ChatPage() {
   }, []);
 
   async function submitMessage(rawMessage) {
-    const message = rawMessage.trim();
+    const message = String(rawMessage || '').trim();
     if (!message || isSending) return;
 
     if (message === '1' && session.audioPrompt && session.audioText) {
@@ -177,9 +212,9 @@ export default function ChatPage() {
           consent: data.session.consent || session.consent
         };
         setSession(nextSession);
-        if (nextSession.id) localStorage.setItem('adypu_saathi_session_id', nextSession.id);
-        if (nextSession.language) localStorage.setItem('adypu_saathi_language', nextSession.language);
-        if (nextSession.consent) localStorage.setItem('adypu_saathi_consent', nextSession.consent);
+        if (nextSession.id) safeLocalStorageSet('adypu_saathi_session_id', nextSession.id);
+        if (nextSession.language) safeLocalStorageSet('adypu_saathi_language', nextSession.language);
+        if (nextSession.consent) safeLocalStorageSet('adypu_saathi_consent', nextSession.consent);
       }
 
       const botMessage = {
@@ -212,6 +247,13 @@ export default function ChatPage() {
   function sendMessage(event) {
     event?.preventDefault();
     submitMessage(input);
+  }
+
+  function handleLanguageChange(event) {
+    const nextLanguage = event.target.value;
+    setDetectedLang(nextLanguage);
+    setSession((prev) => ({ ...prev, language: nextLanguage }));
+    safeLocalStorageSet('adypu_saathi_language', nextLanguage);
   }
 
   function handleQuickPrompt(prompt) {
@@ -270,7 +312,7 @@ export default function ChatPage() {
         <div className="workspace-container">
           
           <motion.aside 
-            initial={{ x: -40, opacity: 0 }} 
+            initial={false}
             animate={{ x: 0, opacity: 1 }} 
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="sidebar glass-panel"
@@ -280,15 +322,27 @@ export default function ChatPage() {
                 <Terminal size={24} color="white" />
               </div>
               <div className="brand-text">
-                <h1>ADYPU Nexus</h1>
-                <p style={{ color: 'var(--adypu-gold)' }}>Institutional AI Core</p>
+                <h1>ADYPU Saathi</h1>
+                <p style={{ color: 'var(--adypu-gold)' }}>Official Campus Assistant</p>
               </div>
             </div>
 
             <div className="metrics-dashboard">
               <div className="metric-item">
                 <div className="metric-header"><Languages size={14}/> Lang Protocol</div>
-                <div className="metric-value">{detectedLang.toUpperCase()}</div>
+                <div className="metric-value">{activeLanguageLabel}</div>
+                <select
+                  className="api-key-input"
+                  value={activeLanguageCode}
+                  onChange={handleLanguageChange}
+                  aria-label="Preferred language"
+                >
+                  {languageOptions.map((lang) => (
+                    <option key={lang.value} value={lang.value}>
+                      {lang.label}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="metric-item">
                 <div className="metric-header"><Database size={14}/> Core Engine</div>
@@ -303,7 +357,7 @@ export default function ChatPage() {
                   value={apiKey}
                   onChange={(e) => {
                     setApiKey(e.target.value);
-                    localStorage.setItem('adypu_openai_key', e.target.value);
+                    safeLocalStorageSet('adypu_openai_key', e.target.value);
                   }}
                 />
               </div>
@@ -321,7 +375,7 @@ export default function ChatPage() {
               <motion.div 
                 className="prompts-grid"
                 variants={containerVariants}
-                initial="hidden"
+                initial={false}
                 animate="show"
               >
                 {KNOWLEDGE_COLUMNS.map((col, idx) => (
@@ -341,15 +395,15 @@ export default function ChatPage() {
           </motion.aside>
 
           <motion.section 
-            initial={{ scale: 0.98, opacity: 0 }} 
+            initial={false}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="chat-area glass-panel"
           >
             <header className="chat-header">
               <div className="chat-header-info">
-                <h2>Nexus Terminal <div className="pulse-dot" style={{ backgroundColor: 'var(--adypu-gold)', boxShadow: '0 0 10px var(--adypu-gold)' }} /></h2>
-                <p>Secure connection established. Awaiting queries.</p>
+                <h2>Saathi Chat <div className="pulse-dot" style={{ backgroundColor: 'var(--adypu-gold)', boxShadow: '0 0 10px var(--adypu-gold)' }} /></h2>
+                <p>Verified ADYPU assistance ready for your questions.</p>
               </div>
               <div className="status-badges">
                 <Link className="badge badge-link" href="/">
@@ -363,7 +417,7 @@ export default function ChatPage() {
             <div className="chat-messages">
               {messages.length === 0 && (
                 <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="greeting-hero"
@@ -375,8 +429,8 @@ export default function ChatPage() {
                   >
                     <BrainCircuit />
                   </motion.div>
-                  <h2>Welcome to ADYPU Nexus</h2>
-                  <p>A highly intelligent, language-aware concierge designed to securely extract insights from the ADYPU Knowledge Index. Select a prompt or type your query below to begin the handshake.</p>
+                  <h2>Welcome to ADYPU Saathi</h2>
+                  <p>The official multilingual campus assistant for ADYPU. Select a prompt or type your question to get verified university information.</p>
                 </motion.div>
               )}
 
@@ -476,7 +530,10 @@ export default function ChatPage() {
                 <button 
                   type="submit" 
                   className="composer-btn send"
-                  disabled={isSending || !input.trim()}
+                  onClick={sendMessage}
+                  disabled={!canSend}
+                  aria-label="Send message"
+                  title="Send message"
                 >
                   <Send size={18} />
                 </button>
